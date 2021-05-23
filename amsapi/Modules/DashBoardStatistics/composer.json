@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/dashboardstatistics",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\DashBoardStatistics\\Providers\\DashBoardStatisticsServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\DashBoardStatistics\\": ""
+        }
+    }
+}

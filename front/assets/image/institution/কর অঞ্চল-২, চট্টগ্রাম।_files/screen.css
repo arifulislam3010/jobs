@@ -1,0 +1,140 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+.footinner p{
+line-height:18px;
+text-align: center !important;
+}
+.footinner a{
+line-height:18px;
+}
+.photoComm img, .faceBook img{
+width:50%;
+display:table;
+margin:0 auto;
+}
+.officelogo img {
+    height: 110px;
+    width: 100%;
+}
+.topMenuA li {
+   
+    margin: 0 5px;
+}
+.pageheadh3 h3 {
+  
+    font-size: 20px;
+   
+    line-height: 30px;
+}
+
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.ftsTable .panel-heading h3{
+
+    font-size: 14px;
+}
+
+.photoGallery {
+    cursor: pointer;
+    height: 115px;
+    margin-bottom: 5px;
+    width: 143px;
+}
+#photoGallery-picWrapper .photoGallery-picDesc{
+display:none !important;
+}
+.welcomeNote table{
+width:100% !important;
+}
+.pageheadh3 .ftsTable .panel-title {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    line-height: 20px !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+.topMenuA li {
+    color: #fff;
+    float: left;
+    line-height: 35px;
+    list-style: outside none none;
+    margin: 0 5px;
+font-size: 12px !important;
+}
+.topMenuA li:last-child {
+    background: #3a5b8d none repeat scroll 0 0;
+    border-radius: 4px;
+    float: right;
+    line-height: 25px;
+    margin: 5px -30px 0;
+    padding: 0 5px;
+    text-align: center;
+font-size: 12px !important;
+}
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+For Retina Display use
+
+@media 
+  only screen and (-webkit-min-device-pixel-ratio: 2), 
+  only screen and (min-resolution: 192dpi) { 
+    /* Retina-specific stuff here */
+}

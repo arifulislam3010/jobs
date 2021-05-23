@@ -1,0 +1,32 @@
+
+		html,
+		body,.container,.left {
+		  height: 100%;
+		}
+
+
+		body {
+			font-family: 'examplefont';
+		}
+		.container{
+			height: 100%;
+			width:100%;
+			 
+
+		}
+		.left{
+			width:30%;
+			float: left;
+			background: #2C435D;
+		}
+		.right{
+			width:70%;
+			float: left;
+			/*background: #000081;*/
+		}
+		.test2{
+			position: absolute;
+			z-index: 1;
+			margin-top: -10px
+		}
+	

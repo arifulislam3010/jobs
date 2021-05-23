@@ -1,0 +1,6 @@
+.validation_message{
+    color: red !important;
+    padding: 0px;
+    font-size: 12px;
+    margin-top: -9px;
+}
