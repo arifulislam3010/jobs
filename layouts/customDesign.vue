@@ -18,8 +18,12 @@ components:{
 }
 </script>
 
-<style>
+<style lang='scss' >
 .customDesign{
    font-family: Poppins;
+   h1,h2,h3,h4,h5,p,a,span,li{
+        font-family: Poppins !important;
+   }
 }
+
 </style>
