@@ -19,5 +19,7 @@ components:{
 </script>
 
 <style>
-
+.customDesign{
+   font-family: Poppins;
+}
 </style>
