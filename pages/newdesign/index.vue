@@ -7,12 +7,16 @@
     </p>
     <!-- <test-nav> </test-nav> -->
     <div class="mt-5"></div>
+    <!-- job categories -->
+    <JobCategory />
     <!-- hot jobs -->
     <HotJobs />
     <!-- success story -->
     <SuccessStory />
     <!-- career section -->
     <CarrerSection />
+    <!-- Features -->
+    <Features />
     <Footer />
   </div>
 </template>
@@ -23,6 +27,8 @@ import Footer from '~/components/customDesign/Footer/Footer.vue'
 import CarrerSection from '~/components/customDesign/Career/Career.vue'
 import HotJobs from '~/components/customDesign/HotJobs/HotJobs.vue'
 import SuccessStory from '~/components/customDesign/SuccessSotry/SuccessStory.vue'
+import Features from '~/components/customDesign/Features/Features.vue'
+import JobCategory from '~/components/customDesign/JobCategory/JobCategory.vue'
 
 export default {
   layout: 'customDesign',
@@ -32,7 +38,9 @@ export default {
     Footer,
     CarrerSection,
     HotJobs,
-    SuccessStory
+    SuccessStory,
+    Features,
+    JobCategory
   }
 }
 </script>
