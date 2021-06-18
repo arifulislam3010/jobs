@@ -14,29 +14,85 @@
           <div class="job-category-button">Full-time</div>
         </div>
       </div>
-      <div class="job-list-wrapper">
-        <ul>
-          <li>
-            <i class="fas fa-chevron-right"></i>
-            <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-          </li>
-          <li>
-            <i class="fas fa-chevron-right"></i>
-            <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-          </li>
-          <li>
-            <i class="fas fa-chevron-right"></i>
-            <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-          </li>
-          <li>
-            <i class="fas fa-chevron-right"></i>
-            <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-          </li>
-          <li>
-            <i class="fas fa-chevron-right"></i>
-            <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="job-list-wrapper">
+            <ul>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="job-list-wrapper">
+            <ul>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="job-list-wrapper">
+            <ul>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -46,4 +102,56 @@
 export default {}
 </script>
 
-<style></style>
+<style lang="scss">
+.job-category-container {
+  background: #131616;
+  padding: 50px 0;
+  .job-category-heading {
+    h2 {
+      font-weight: 600;
+      font-size: 48px;
+      color: #fff;
+    }
+  }
+  .job-category-single-button-wrapper {
+    display: flex;
+    background: #0e1010;
+    border-radius: 8px;
+    justify-content: space-between;
+    width: 70%;
+  }
+  .job-category-button {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    padding: 10px 25px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      background: #02ab8d;
+      box-shadow: 10px 24px 40px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      color: #fff;
+    }
+  }
+  .job-list-wrapper {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        margin: 10px 0;
+        i {
+          color: #fff;
+          margin-right: 10px;
+        }
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+</style>

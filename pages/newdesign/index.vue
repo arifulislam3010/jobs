@@ -13,6 +13,8 @@
     <HotJobs />
     <!-- success story -->
     <SuccessStory />
+    <!-- support -->
+    <Support />
     <!-- career section -->
     <CarrerSection />
     <!-- Features -->
@@ -29,6 +31,7 @@ import HotJobs from '~/components/customDesign/HotJobs/HotJobs.vue'
 import SuccessStory from '~/components/customDesign/SuccessSotry/SuccessStory.vue'
 import Features from '~/components/customDesign/Features/Features.vue'
 import JobCategory from '~/components/customDesign/JobCategory/JobCategory.vue'
+import Support from '~/components/customDesign/Support/Support.vue'
 
 export default {
   layout: 'customDesign',
@@ -40,7 +43,8 @@ export default {
     HotJobs,
     SuccessStory,
     Features,
-    JobCategory
+    JobCategory,
+    Support
   }
 }
 </script>
