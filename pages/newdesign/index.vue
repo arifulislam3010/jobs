@@ -42,6 +42,7 @@ import HotJobs from '~/components/customDesign/HotJobs/HotJobs.vue'
 import SuccessStory from '~/components/customDesign/SuccessSotry/SuccessStory.vue'
 import Features from '~/components/customDesign/Features/Features.vue'
 import JobCategory from '~/components/customDesign/JobCategory/JobCategory.vue'
+
 import Support from '~/components/customDesign/Support/Support.vue'
 import HeroSection from '~/components/customDesign/HeroSection/HeroSection.vue'
 import Vendor from '~/components/customDesign/Vendor/Vendor.vue'
@@ -56,6 +57,7 @@ export default {
     HotJobs,
     SuccessStory,
     Features,
+
     JobCategory,
     Support,
     HeroSection,
