@@ -66,8 +66,7 @@ export default {}
       border-radius: 8px;
       padding: 0px 80px 0px 40px;
       color: rgba(55, 58, 72, 0.6);
-
-      margin-right: 20px;
+      margin-right: 10px;
       &:focus {
         outline: 0;
       }

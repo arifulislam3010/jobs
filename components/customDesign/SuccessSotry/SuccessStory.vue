@@ -4,28 +4,26 @@
       <div class="text-center success-story-title">
         <h2>Succeess Stories</h2>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="single-success-stories-content-wrapper position-relative">
-            <div class="success-author-wrapper d-flex align-items-center">
-              <div class="success-story-author-image-wrapper mr-3 ">
-                <img
-                  alt="image"
-                  src="~/assets/image/successStory/author.png"
-                  class="img-fluid"
-                />
-              </div>
-              <div class="success-story-author-name ">
-                <p>Mahin Khan</p>
-              </div>
+      <VueSlickCarousel v-bind="slickOptions">
+        <div class="single-success-stories-content-wrapper position-relative">
+          <div class="success-author-wrapper d-flex align-items-center">
+            <div class="success-story-author-image-wrapper mr-3 ">
+              <img
+                alt="image"
+                src="~/assets/image/successStory/author.png"
+                class="img-fluid"
+              />
             </div>
-            <div class="success-stories-author-comments">
-              <p>
-                I am so much happy beacuse i get job from mechanic.com. Then
-                Dummy text will be here. I am so much happy beacuse i get job
-                from mechanic.com. Then Dummy text will be here.
-              </p>
+            <div class="success-story-author-name ">
+              <p>Mahin Khan</p>
             </div>
+          </div>
+          <div class="success-stories-author-comments">
+            <p>
+              I am so much happy beacuse i get job from mechanic.com. Then Dummy
+              text will be here. I am so much happy beacuse i get job from
+              mechanic.com. Then Dummy text will be here.
+            </p>
           </div>
           <div class="success-stories-quote-icon position-absolute">
             <img
@@ -35,27 +33,25 @@
             />
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="single-success-stories-content-wrapper position-relative">
-            <div class="success-author-wrapper d-flex align-items-center">
-              <div class="success-story-author-image-wrapper mr-3 ">
-                <img
-                  alt="image"
-                  src="~/assets/image/successStory/author.png"
-                  class="img-fluid"
-                />
-              </div>
-              <div class="success-story-author-name ">
-                <p>Mahin Khan</p>
-              </div>
+        <div class="single-success-stories-content-wrapper position-relative">
+          <div class="success-author-wrapper d-flex align-items-center">
+            <div class="success-story-author-image-wrapper mr-3 ">
+              <img
+                alt="image"
+                src="~/assets/image/successStory/author.png"
+                class="img-fluid"
+              />
             </div>
-            <div class="success-stories-author-comments">
-              <p>
-                I am so much happy beacuse i get job from mechanic.com. Then
-                Dummy text will be here. I am so much happy beacuse i get job
-                from mechanic.com. Then Dummy text will be here.
-              </p>
+            <div class="success-story-author-name ">
+              <p>Mahin Khan</p>
             </div>
+          </div>
+          <div class="success-stories-author-comments">
+            <p>
+              I am so much happy beacuse i get job from mechanic.com. Then Dummy
+              text will be here. I am so much happy beacuse i get job from
+              mechanic.com. Then Dummy text will be here.
+            </p>
           </div>
           <div class="success-stories-quote-icon position-absolute">
             <img
@@ -65,27 +61,25 @@
             />
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="single-success-stories-content-wrapper position-relative">
-            <div class="success-author-wrapper d-flex align-items-center">
-              <div class="success-story-author-image-wrapper mr-3 ">
-                <img
-                  alt="image"
-                  src="~/assets/image/successStory/author.png"
-                  class="img-fluid"
-                />
-              </div>
-              <div class="success-story-author-name ">
-                <p>Mahin Khan</p>
-              </div>
+        <div class="single-success-stories-content-wrapper position-relative">
+          <div class="success-author-wrapper d-flex align-items-center">
+            <div class="success-story-author-image-wrapper mr-3 ">
+              <img
+                alt="image"
+                src="~/assets/image/successStory/author.png"
+                class="img-fluid"
+              />
             </div>
-            <div class="success-stories-author-comments">
-              <p>
-                I am so much happy beacuse i get job from mechanic.com. Then
-                Dummy text will be here. I am so much happy beacuse i get job
-                from mechanic.com. Then Dummy text will be here.
-              </p>
+            <div class="success-story-author-name ">
+              <p>Mahin Khan</p>
             </div>
+          </div>
+          <div class="success-stories-author-comments">
+            <p>
+              I am so much happy beacuse i get job from mechanic.com. Then Dummy
+              text will be here. I am so much happy beacuse i get job from
+              mechanic.com. Then Dummy text will be here.
+            </p>
           </div>
           <div class="success-stories-quote-icon position-absolute">
             <img
@@ -95,13 +89,59 @@
             />
           </div>
         </div>
-      </div>
+        <div class="single-success-stories-content-wrapper position-relative">
+          <div class="success-author-wrapper d-flex align-items-center">
+            <div class="success-story-author-image-wrapper mr-3 ">
+              <img
+                alt="image"
+                src="~/assets/image/successStory/author.png"
+                class="img-fluid"
+              />
+            </div>
+            <div class="success-story-author-name ">
+              <p>Mahin Khan</p>
+            </div>
+          </div>
+          <div class="success-stories-author-comments">
+            <p>
+              I am so much happy beacuse i get job from mechanic.com. Then Dummy
+              text will be here. I am so much happy beacuse i get job from
+              mechanic.com. Then Dummy text will be here.
+            </p>
+          </div>
+          <div class="success-stories-quote-icon position-absolute">
+            <img
+              alt="image"
+              src="~/assets/image/successStory/quote.png"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </VueSlickCarousel>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+export default {
+  components: { VueSlickCarousel },
+  data() {
+    return {
+      slickOptions: {
+        dots: true,
+        arrows: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        speed: 5000
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss">
