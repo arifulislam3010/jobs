@@ -11,7 +11,10 @@
             </div>
             <div class="single-features-content-wrapper">
               <div class="features-content-heading">
-                <p><span> > </span> Get Regular Job Updates</p>
+                <p>
+                  <span> <i class="fas fa-chevron-right"></i> </span> Get
+                  Regular Job Updates
+                </p>
               </div>
               <div class="features-content">
                 <p>
@@ -24,7 +27,10 @@
             </div>
             <div class="single-features-content-wrapper">
               <div class="features-content-heading">
-                <p><span> > </span> Get Regular Job Updates</p>
+                <p>
+                  <span> <i class="fas fa-chevron-right"></i> </span> Get
+                  Regular Job Updates
+                </p>
               </div>
               <div class="features-content">
                 <p>
@@ -37,10 +43,13 @@
             </div>
             <div class="features-app-download-section mt-3 mt-sm-3">
               <div class="features-app-content-heading">
-                <p>download our app <span> > </span></p>
+                <p>
+                  download our app
+                  <span> <i class="fas fa-chevron-right"></i> </span>
+                </p>
               </div>
               <div class="app-download-button-wrapper features-section">
-                <nuxt-link to="">
+                <nuxt-link to="#">
                   <img
                     alt="app"
                     src="~/assets/image/storeIcon/googlePlay.png"
@@ -57,7 +66,6 @@
               </div>
             </div>
           </div>
-          >
         </div>
         <div class="col-md-6">
           <div class="app-screen-wrapper">
@@ -109,6 +117,9 @@ export default {}
     color: #0ba88c;
     span {
       color: #0ba88c;
+      i {
+        color: #0ba88c;
+      }
     }
   }
 }

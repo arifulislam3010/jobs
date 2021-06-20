@@ -6,19 +6,30 @@
       unde molestiae! Unde laborum facere nostrum eius eos accusantium quis.
     </p>
     <!-- <test-nav> </test-nav> -->
-    <div class="mt-5"></div>
+    <!-- hero section -->
+    <HeroSection />
     <!-- job categories -->
     <JobCategory />
+    <div class="mb-5"></div>
     <!-- hot jobs -->
     <HotJobs />
-    <!-- success story -->
-    <SuccessStory />
-    <!-- support -->
-    <Support />
+    <div class="mb-5"></div>
     <!-- career section -->
     <CarrerSection />
+    <div class="mb-2"></div>
     <!-- Features -->
     <Features />
+    <!-- success story -->
+    <SuccessStory />
+    <div class="mb-5"></div>
+    <!-- support -->
+    <Support />
+    <div class="mb-5"></div>
+
+    <!-- vendor -->
+    <Vendor />
+    <div class="mb-4"></div>
+    <!-- footer -->
     <Footer />
   </div>
 </template>
@@ -33,7 +44,8 @@ import Features from '~/components/customDesign/Features/Features.vue'
 import JobCategory from '~/components/customDesign/JobCategory/JobCategory.vue'
 
 import Support from '~/components/customDesign/Support/Support.vue'
-
+import HeroSection from '~/components/customDesign/HeroSection/HeroSection.vue'
+import Vendor from '~/components/customDesign/Vendor/Vendor.vue'
 
 export default {
   layout: 'customDesign',
@@ -47,8 +59,9 @@ export default {
     Features,
 
     JobCategory,
-    Support
-
+    Support,
+    HeroSection,
+    Vendor
   }
 }
 </script>
