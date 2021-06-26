@@ -9,7 +9,7 @@
     <!-- hero section -->
     <HeroSection />
     <!-- job categories -->
-    <JobCategory />
+    <JobCategory :category="this.$store.state.jobs.all_jobs_category" />
     <div class="mb-5"></div>
     <!-- hot jobs -->
     <HotJobs />
@@ -62,6 +62,18 @@ export default {
     Support,
     HeroSection,
     Vendor
+  },
+  data() {
+    return {
+      category: []
+    }
+  },
+  methods: {
+    // this.$store.dispatch()
+  },
+  created() {
+    this.category = this.$store.dispatch('jobs/job_category')
+    console.log(this.$store.state.jobs.all_jobs_category)
   }
 }
 </script>

@@ -25,7 +25,7 @@
       <!-- filter button -->
       <div class="filter-button-wrapper mb-5">
         <div class="filter-button-content">
-          <div class="filter-button">
+          <div class="filter-button active">
             All
           </div>
           <div class="filter-button">
@@ -206,6 +206,10 @@ export default {}
       background: #02ab8d;
       color: #fff;
     }
+  }
+  .active{
+    background: #02ab8d;
+      color: #fff;
   }
 }
 // jobs
