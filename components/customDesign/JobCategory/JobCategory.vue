@@ -3,10 +3,11 @@
     <div class="container">
       <div class="job-category-heading">
         <h2>Job Categories</h2>
+        <!-- <p>test</p> -->
       </div>
       <div class="job-category-button-wrapper">
         <div class="job-category-single-button-wrapper">
-          <div class="job-category-button">Full-time</div>
+          <div class="job-category-button active">Full-time</div>
           <div class="job-category-button">Full-time</div>
           <div class="job-category-button">Full-time</div>
           <div class="job-category-button">Full-time</div>
@@ -16,7 +17,33 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" v-for="cat in category" :key="cat.id">
+          <div class="job-list-wrapper">
+            <ul>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">{{ cat.label }}</nuxt-link>
+              </li>
+              <!-- <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li>
+              <li>
+                <i class="fas fa-chevron-right"></i>
+                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
           <div class="job-list-wrapper">
             <ul>
               <li>
@@ -67,44 +94,22 @@
               </li>
             </ul>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="job-list-wrapper">
-            <ul>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-
+        </div> -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['category'],
+  data() {
+    return {
+      categoryef: this.category
+    }
+  }
+}
 </script>
-
 
 <style lang="scss">
 .job-category-container {
@@ -137,6 +142,12 @@ export default {}
       color: #fff;
     }
   }
+  .active {
+    background: #02ab8d;
+    box-shadow: 10px 24px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #fff;
+  }
   .job-list-wrapper {
     margin-top: 1.5rem;
     display: flex;
@@ -159,4 +170,3 @@ export default {}
   }
 }
 </style>
-
