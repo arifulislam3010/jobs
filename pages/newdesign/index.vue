@@ -57,7 +57,6 @@ export default {
     HotJobs,
     SuccessStory,
     Features,
-
     JobCategory,
     Support,
     HeroSection,
