@@ -28,15 +28,49 @@
           <div class="filter-button active">
             All
           </div>
-          <div class="filter-button">
-            Mechanic Engg.
+          <div
+            class="filter-button"
+            v-for="cat in category.slice(0, 5)"
+            :key="cat.it"
+          >
+            {{ cat.label }}
           </div>
         </div>
       </div>
       <!-- jobs section -->
       <div class="job-section-wrapper">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3" v-for="job in jobsAll" :key="job.id">
+            <nuxt-link to="/job-search">
+              <div class="single-job-container">
+                <div class="job-components-header-wrapper ">
+                  <div class="job-components-company-logo">
+                    <img src="~/assets/image/jobs/square.png" />
+                  </div>
+                  <div class="company-name">
+                    <h5>{{ job.name }}</h5>
+                  </div>
+                </div>
+                <div class="job-section-job-list">
+                  <ul>
+                    <li v-for="post in job.posts.slice(0, 3)" :key="post.id">
+                      <span>Job post name</span> :
+                      <span>{{ post.content }}</span>
+                    </li>
+                    <!-- <li>
+                    <span>Job post name</span> :
+                    <span>Position Lorem ipsum dolor sit amet.</span>
+                  </li>
+                  <li>
+                    <span>Job post name</span> :
+                    <span>Position Lorem ipsum dolor sit amet.</span>
+                  </li> -->
+                  </ul>
+                </div>
+              </div>
+            </nuxt-link>
+          </div>
+          <!-- <div class="col-md-3">
             <div class="single-job-container">
               <div class="job-components-header-wrapper ">
                 <div class="job-components-company-logo">
@@ -119,35 +153,7 @@
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="single-job-container">
-              <div class="job-components-header-wrapper ">
-                <div class="job-components-company-logo">
-                  <img src="~/assets/image/jobs/square.png" />
-                </div>
-                <div class="company-name">
-                  <h5>Square Ltd.</h5>
-                </div>
-              </div>
-              <div class="job-section-job-list">
-                <ul>
-                  <li>
-                    <span>Job post name</span> :
-                    <span>Position Lorem ipsum dolor sit amet.</span>
-                  </li>
-                  <li>
-                    <span>Job post name</span> :
-                    <span>Position Lorem ipsum dolor sit amet.</span>
-                  </li>
-                  <li>
-                    <span>Job post name</span> :
-                    <span>Position Lorem ipsum dolor sit amet.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -155,7 +161,15 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['jobsAll', 'category'],
+  data() {
+    return {
+      jobAll: this.jobsAll
+      // category: this.category
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -207,9 +221,9 @@ export default {}
       color: #fff;
     }
   }
-  .active{
+  .active {
     background: #02ab8d;
-      color: #fff;
+    color: #fff;
   }
 }
 // jobs

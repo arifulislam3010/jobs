@@ -22,7 +22,7 @@
             <ul>
               <li>
                 <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">{{ cat.label }}</nuxt-link>
+                <nuxt-link to="/job-search">{{ cat.label }}</nuxt-link>
               </li>
               <!-- <li>
                 <i class="fas fa-chevron-right"></i>
