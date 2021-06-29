@@ -1,10 +1,5 @@
 <template>
   <div class="main-body">
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis esse
-      quo dolor ea maiores eum, voluptates, obcaecati consequuntur sunt, nam
-      unde molestiae! Unde laborum facere nostrum eius eos accusantium quis.
-    </p>
     <!-- <test-nav> </test-nav> -->
     <!-- hero section -->
     <HeroSection />
@@ -12,7 +7,10 @@
     <JobCategory :category="this.$store.state.jobs.all_jobs_category" />
     <div class="mb-5"></div>
     <!-- hot jobs -->
-    <HotJobs />
+    <HotJobs
+      :jobsAll="this.$store.state.jobs.job_owner_with_post"
+      :category="this.$store.state.jobs.all_jobs_category"
+    />
     <div class="mb-5"></div>
     <!-- career section -->
     <CarrerSection />
@@ -73,7 +71,8 @@ export default {
   },
   created() {
     this.category = this.$store.dispatch('jobs/job_category')
-    console.log(this.$store.state.jobs.all_jobs_category)
+    this.$store.dispatch('jobs/job_with_owner')
+    // console.log(this.$store.state.jobs.all_jobs_category)
   }
 }
 </script>

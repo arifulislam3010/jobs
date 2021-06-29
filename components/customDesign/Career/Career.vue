@@ -21,8 +21,8 @@
               </p>
             </div>
             <div class="career-button-wrapper mt-md-3 mt-sm-2">
-              <nuxt-link to="">Find a job</nuxt-link>
-              <nuxt-link to="">Post a job</nuxt-link>
+              <nuxt-link to="/job-search">Find a job</nuxt-link>
+              <nuxt-link to="/job-search">Post a job</nuxt-link>
             </div>
           </div>
         </div>
