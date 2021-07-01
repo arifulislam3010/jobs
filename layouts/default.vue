@@ -1,186 +1,189 @@
 <template>
-    <div id="wrapper" class="d-flex flex-column" style="background: #f4f5f7;">
-          <div style="background: #fff;">
-            <TopBar></TopBar>
-            <header class="header-global">
-                <starter-header></starter-header>
-            </header>
-          </div>
-          <!-- <nuxt /> -->
-          <main class="flex-fill position-relative main-block">
-            <nuxt />
-          </main>
-          <!-- <div v-show="!$auth.loggedIn" class="registration_popup">
-              <div class="content_popup">
-                  <img  src="../assets/image/unnamed.jpg" alt="">
-                  <span id="close_button" style="position:fixed;cursor:pointer;right:calc(25% - 20px);top:calc(20% - 20px);padding:15px 20px;color:#fff;background:#b5e61d;border-radius:30px;"><i class="fa fa-times"></i></span>
-                  <div style="position:fixed;top:60%;left:35%;background:#888">
-                    <span style="text-align:center;color:#fff;font-weight:bold;font-size:20px;padding:5px;">বৈদেশিক চাকুরি এবং প্রশিক্ষণ সংক্রান্ত যাবতীয় তথ্য পেতে</span>
-                  </div>
-                  <button id="register_button" style="position:fixed;top:65%;left:44%;font-size:20px;" class="btn btn-info">রেজিস্ট্রেশন করুন </button>
-              </div>
-          </div> -->
-          <footer class="footer">
-              <starter-footer></starter-footer>
-          </footer>
+  <v-app class="customDesign">
+    <div class="mainnav">
+      <main-nav></main-nav>
     </div>
+    <div class="customBody mt-5">
+      <Nuxt />
+    </div>
+  </v-app>
 </template>
 
 <script>
-import $ from 'jquery';
-import StarterHeader from "~/components/argon-layout/starter/StarterHeader";
-import TopBar from "~/components/argon-layout/starter/TopBar";
-import StarterFooter from "~/components/argon-layout/starter/StarterFooter";
-import { mapState,mapMutations,mapGetters,mapActions } from 'vuex'
-import { setInterval } from 'timers';
+import $ from 'jquery'
+import StarterHeader from '~/components/argon-layout/starter/StarterHeader'
+import TopBar from '~/components/argon-layout/starter/TopBar'
+import StarterFooter from '~/components/argon-layout/starter/StarterFooter'
+import MainNav from '~/components/customDesign/navBar/index.vue'
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
+import { setInterval } from 'timers'
 export default {
   components: {
     StarterHeader,
     StarterFooter,
     TopBar,
+    MainNav
   },
-  data () {
+  data() {
     return {
-      initialLoading:true,
+      initialLoading: true
     }
   },
-  beforeRouteEnter (to, from, next) {
+  beforeRouteEnter(to, from, next) {
     // this.initialCall();
   },
-  mounted(){
-    $("#close_button").on("click", function () {
-      var $btn = $(this);
-      var $li = $btn.closest('div');
-      var btnOffsetTop = $btn.offset().top;
-      var btnOffsetRight = window.innerWidth - $btn.offset().left;
-      $btn.parent(".content_popup").parent(".registration_popup").css({"background": "transparent" });
-      $li.find('img').css({"width":"20%","height":"20%"});
-      $li.find('img')
+  mounted() {
+    $('#close_button').on('click', function() {
+      var $btn = $(this)
+      var $li = $btn.closest('div')
+      var btnOffsetTop = $btn.offset().top
+      var btnOffsetRight = window.innerWidth - $btn.offset().left
+      $btn
+        .parent('.content_popup')
+        .parent('.registration_popup')
+        .css({ background: 'transparent' })
+      $li.find('img').css({ width: '20%', height: '20%' })
+      $li
+        .find('img')
         .clone()
-        .css({ top: btnOffsetTop, right: btnOffsetRight,"opacity": 1 })
-        .addClass("zoom")
-        .appendTo($li);
-      
-      $li.find('img').css({"opacity": 0 });
-      $btn.css({ "opacity": 0 });
+        .css({ top: btnOffsetTop, right: btnOffsetRight, opacity: 1 })
+        .addClass('zoom')
+        .appendTo($li)
+
+      $li.find('img').css({ opacity: 0 })
+      $btn.css({ opacity: 0 })
       // $btn.siblings().css({ "opacity": 0});
-      setTimeout(function () {
-        $(".zoom").remove();
-        $btn.parent(".content_popup").parent(".registration_popup").css({"display": "none" });
-      }, 1500);
-    });
-    var self = this;
-    $("#register_button").on("click", function () {
-        var $btn = $(this);
-        $btn.parent(".content_popup").parent(".registration_popup").css({"display": "none" });
-        self.$router.push('/register');
-    });
+      setTimeout(function() {
+        $('.zoom').remove()
+        $btn
+          .parent('.content_popup')
+          .parent('.registration_popup')
+          .css({ display: 'none' })
+      }, 1500)
+    })
+    var self = this
+    $('#register_button').on('click', function() {
+      var $btn = $(this)
+      $btn
+        .parent('.content_popup')
+        .parent('.registration_popup')
+        .css({ display: 'none' })
+      self.$router.push('/register')
+    })
   },
   methods: {
-     async initialCall () {
-      if(localStorage.getItem('access_token')!=null){
-        var getuser = '';
-        this.$axios.defaults.headers.common['Authorization'] ='Bearer '+localStorage.getItem('access_token');
-        if(localStorage.getItem('isAuthenticated')){
-          let Authenticated = false;
+    async initialCall() {
+      if (localStorage.getItem('access_token') != null) {
+        var getuser = ''
+        this.$axios.defaults.headers.common['Authorization'] =
+          'Bearer ' + localStorage.getItem('access_token')
+        if (localStorage.getItem('isAuthenticated')) {
+          let Authenticated = false
           await this.$axios.get('api/user/info').then(response => {
-              this.initialLoading = false;
-              Authenticated = true;
-              this.$router.push({
-                  path: $nuxt.$route.path
-              });
-              alert($nuxt.$route.path);
-              this.$store.commit('admin/user/login/SET_USER',response.data,{ root: true });
-          });
-          if(!Authenticated){
-              var authdata = {};
-              var authdata = {};
-              authdata= {
-              grant_type:'client_credentials',
-              client_id:1,
-              client_secret:'VRWWp632lWT06LmATLddpJfiCSWKeehhS7bYBVXu',
-              };
+            this.initialLoading = false
+            Authenticated = true
+            this.$router.push({
+              path: $nuxt.$route.path
+            })
+            alert($nuxt.$route.path)
+            this.$store.commit('admin/user/login/SET_USER', response.data, {
+              root: true
+            })
+          })
+          if (!Authenticated) {
+            var authdata = {}
+            var authdata = {}
+            authdata = {
+              grant_type: 'client_credentials',
+              client_id: 1,
+              client_secret: 'VRWWp632lWT06LmATLddpJfiCSWKeehhS7bYBVXu'
+            }
 
-              await this.$axios.post('oauth/token',authdata).then(response => {
-                this.initialLoading = false;
-                localStorage.setItem('access_token',response.data.access_token)
-                localStorage.setItem('expires_in',response.data.expires_in)
-                localStorage.setItem('isAuthenticated',false)
-                this.$axios.defaults.headers.common["Authorization"] = 'Bearer '+ response.data.access_token;
-                
-              });
+            await this.$axios.post('oauth/token', authdata).then(response => {
+              this.initialLoading = false
+              localStorage.setItem('access_token', response.data.access_token)
+              localStorage.setItem('expires_in', response.data.expires_in)
+              localStorage.setItem('isAuthenticated', false)
+              this.$axios.defaults.headers.common['Authorization'] =
+                'Bearer ' + response.data.access_token
+            })
           }
-        }else{
+        } else {
           var token = localStorage.getItem('access_token')
           var expiration = localStorage.getItem('expires_in')
-          
-          if(Date.now() > parseInt(expiration)){
-              var authdata = {};
-              var authdata = {};
-              authdata= {
-              grant_type:'client_credentials',
-              client_id:1,
-              client_secret:'VRWWp632lWT06LmATLddpJfiCSWKeehhS7bYBVXu',
-              };
-    
-              await this.$axios.post('oauth/token',authdata).then(response => {
-                this.initialLoading = false;
-                localStorage.setItem('access_token',response.data.access_token)
-                localStorage.setItem('expires_in',response.data.expires_in)
-                localStorage.setItem('isAuthenticated',false)
-                axios.defaults.headers.common["Authorization"] = 'Bearer '+ response.data.access_token;
-                // commit('ACCESS_TOKEN',response.data)
-                // resolve(response)
-            });
-        }
-      }
-      }else{
-         var authdata = {};
-          var authdata = {};
-          authdata= {
-          grant_type:'client_credentials',
-          client_id:1,
-          client_secret:'VRWWp632lWT06LmATLddpJfiCSWKeehhS7bYBVXu',
-          };
 
-          await this.$axios.post('oauth/token',authdata).then(response => {
-            localStorage.setItem('access_token',response.data.access_token)
-            localStorage.setItem('expires_in',response.data.expires_in)
-            localStorage.setItem('isAuthenticated',false)
-            this.$axios.defaults.headers.common['Authorization'] = 'Bearer '+ response.data.access_token;
-        });
-      } 
+          if (Date.now() > parseInt(expiration)) {
+            var authdata = {}
+            var authdata = {}
+            authdata = {
+              grant_type: 'client_credentials',
+              client_id: 1,
+              client_secret: 'VRWWp632lWT06LmATLddpJfiCSWKeehhS7bYBVXu'
+            }
+
+            await this.$axios.post('oauth/token', authdata).then(response => {
+              this.initialLoading = false
+              localStorage.setItem('access_token', response.data.access_token)
+              localStorage.setItem('expires_in', response.data.expires_in)
+              localStorage.setItem('isAuthenticated', false)
+              axios.defaults.headers.common['Authorization'] =
+                'Bearer ' + response.data.access_token
+              // commit('ACCESS_TOKEN',response.data)
+              // resolve(response)
+            })
+          }
+        }
+      } else {
+        var authdata = {}
+        var authdata = {}
+        authdata = {
+          grant_type: 'client_credentials',
+          client_id: 1,
+          client_secret: 'VRWWp632lWT06LmATLddpJfiCSWKeehhS7bYBVXu'
+        }
+
+        await this.$axios.post('oauth/token', authdata).then(response => {
+          localStorage.setItem('access_token', response.data.access_token)
+          localStorage.setItem('expires_in', response.data.expires_in)
+          localStorage.setItem('isAuthenticated', false)
+          this.$axios.defaults.headers.common['Authorization'] =
+            'Bearer ' + response.data.access_token
+        })
+      }
     }
   }
-
-};
+}
 </script>
 
 <style>
-@font-face{font-family:solaimanlipi;src:url('../assets/fonts/SolaimanLipi_20-04-07.ttf')format("opentype")}
-body, #wrapper {
-   min-height:100vh;
-   font-family:SolaimanLipi;
+@font-face {
+  font-family: solaimanlipi;
+  src: url('../assets/fonts/SolaimanLipi_20-04-07.ttf') format('opentype');
 }
-.main-block{
+body,
+#wrapper {
+  min-height: 100vh;
+  font-family: SolaimanLipi;
+}
+.main-block {
   /* overflow: initial */
   background-color: #fff;
 }
 
-.registration_popup{
+.registration_popup {
   width: 100%;
   height: 100%;
   position: absolute;
-  top:0;
-  left:0;
-  background-color:#91978ea1;
+  top: 0;
+  left: 0;
+  background-color: #91978ea1;
   /* opacity: 0.5; */
   z-index: 999999999999999;
-  overflow: hidden
+  overflow: hidden;
 }
 
-.content_popup{
-  position: fixed;        
+.content_popup {
+  position: fixed;
   width: 50%;
   height: 66%;
   left: 25%;
@@ -189,7 +192,7 @@ body, #wrapper {
   z-index: 9999999999999999;
   opacity: 1;
 }
-.content_popup img{
+.content_popup img {
   width: 100%;
   height: 100%;
 }
@@ -201,7 +204,7 @@ header {
 
 header:after {
   display: block;
-  content: "";
+  content: '';
   clear: both;
 }
 
@@ -238,8 +241,8 @@ header:after {
 .zoom {
   /* position: absolute; */
   position: fixed;
-  width:20%;
-  height:20%;
+  width: 20%;
+  height: 20%;
   opacity: 0;
   animation: zoom 1s linear forwards;
 }
