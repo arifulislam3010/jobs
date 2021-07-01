@@ -69,16 +69,16 @@
 </template>
 
 <script>
-import LocationDropdown from "../inc/LocationDropDown.vue";
+import LocationDropdown from '../inc/LocationDropDown.vue'
 export default {
   components: {
-    LocationDropdown,
+    LocationDropdown
   },
   data: () => ({
     navs: [
       {
-        label: "Home",
-        link: "/",
+        label: 'Home',
+        link: '/'
       },
       // {
       //   label: "Shop",
@@ -89,17 +89,17 @@ export default {
       //   link: "#",
       // },
       {
-        label: "Services",
-        link: "services",
+        label: 'Services',
+        link: 'services'
       },
       {
-        label: "About",
-        link: "about",
+        label: 'About',
+        link: 'about'
       },
       {
-        label: "Contact",
-        link: "contact",
-      },
+        label: 'Contact',
+        link: 'contact'
+      }
       // {
       //   label: "Terms & conditions",
       //   link: "terms_conditions",
@@ -107,35 +107,35 @@ export default {
     ],
     locations: [
       {
-        name: "Kallyanpur",
-        value: "kallyanpur",
+        name: 'Kallyanpur',
+        value: 'kallyanpur'
       },
       {
-        name: "Rampura",
-        value: "Rampura",
+        name: 'Rampura',
+        value: 'Rampura'
       },
       {
-        name: "Mirpur",
-        value: "Mirpur",
+        name: 'Mirpur',
+        value: 'Mirpur'
       },
       {
-        name: "Uttara",
-        value: "Uttara",
+        name: 'Uttara',
+        value: 'Uttara'
       },
       {
-        name: "Dhanmondi",
-        value: "Dhanmondi",
-      },
-    ],
-  }),
-};
+        name: 'Dhanmondi',
+        value: 'Dhanmondi'
+      }
+    ]
+  })
+}
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .navbar-nav {
   .nav-item {
     .nav-link {
-      color:#1d3146;
+      color: #1d3146;
       &.nuxt-link-exact-active,
       &:hover {
         color: #0ba88c;
@@ -165,7 +165,7 @@ export default {
     fill: #0ba88c;
   }
 }
-.logoImage{
-    min-height: 50px;
+.logoImage {
+  min-height: 50px;
 }
 </style>
