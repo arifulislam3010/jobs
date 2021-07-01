@@ -89,16 +89,16 @@ export default {
       //   link: "#",
       // },
       {
-        label: 'Services',
-        link: 'services'
+        label: 'Job-Search',
+        link: '/job-search'
       },
       {
         label: 'About',
-        link: 'about'
+        link: ''
       },
       {
         label: 'Contact',
-        link: 'contact'
+        link: ''
       }
       // {
       //   label: "Terms & conditions",
