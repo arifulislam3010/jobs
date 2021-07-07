@@ -130,14 +130,15 @@ export default {
   data() {
     return {
       slickOptions: {
+        initialSlide: 1,
         dots: true,
         arrows: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        speed: 5000
+        autoplay: false,
+        autoplaySpeed: 3000,
+        speed: 1000
       }
     }
   }
@@ -149,8 +150,7 @@ export default {
   background: #f9f9f9;
   border-radius: 8px;
   padding: 15px 15px 30px 15px;
-  height: 200px;
-  transition: 0.3s;
+  min-height: 200px;
   .success-stories-author-comments {
     display: -webkit-box;
     -webkit-line-clamp: 4;
@@ -158,7 +158,7 @@ export default {
     overflow: hidden;
     p {
       font-weight: 500;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 18px;
       color: rgba(29, 49, 70, 0.8);
       margin: 0;
@@ -175,9 +175,10 @@ export default {
   }
   &:hover {
     background: #f9f9f9;
-    border: 1px solid #1d3146;
+    border: 0.5px solid #1d3146;
     box-shadow: -10px 40px 60px 20px rgba(0, 0, 0, 0.06);
     border-radius: 8px;
+    /* padding: 16px 16px 31px 16px; */
   }
 }
 .success-story-author-image-wrapper {
@@ -204,5 +205,17 @@ export default {
   font-weight: 600;
   font-size: 40px;
   color: #1d3146;
+}
+.success-story-wrapper .slick-slider .slick-dots li button:before {
+  font-size: 10px;
+}
+
+.success-story-wrapper .slick-slider .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #0ba88c;
+}
+.success-story-wrapper .slick-slider .slick-prev:before,
+.slick-next:before {
+  color: #0ba88c;
 }
 </style>
