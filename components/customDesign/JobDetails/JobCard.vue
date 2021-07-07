@@ -1,6 +1,6 @@
 <template>
   <div class="job-card-wrapper mb-5">
-    <div class="job-card-content-wrapper p-3">
+    <div class="job-card-content-wrapper p-3 mb-3">
       <div class="job-card-header">
         <div class="job-title">
           <div class="logo-wrapper">
@@ -69,141 +69,552 @@
     </div>
     <div class="job-card-footer ">
       <div
-        class="job-card-footer-content  pt-3 pb-3 pl-5 pr-3 d-flex justify-content-between align-items-center "
+        class="job-card-footer-content   pl-5 pr-3 d-flex justify-content-between align-items-center "
       >
         <div class="job-collapse-button">
-          <a
-            data-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Job Details <i class="fas fa-angle-down"></i>
-          </a>
+          <b-button v-b-toggle.collapse-1 variant="link"
+            >Job Details <i class="fas fa-angle-down"></i
+          ></b-button>
         </div>
         <div class="job-post-status">
           <p>Posted <span> 8hrs ago</span></p>
         </div>
       </div>
     </div>
-    <div class="job-card-main-content-wrapper" id="collapseExample">
-      <div class="job-card-main-content  d-flex justify-content-between">
-        <div class="job-card-main-content-heading">
-          <div class="job-card-heading">
-            <p>We are looking for...</p>
-            <h4>Product Designer</h4>
+    <b-collapse id="collapse-1" class="mt-2">
+      <div class="job-card-main-content-wrapper" id="collapseExample">
+        <div class="job-card-main-content  d-flex justify-content-between">
+          <div class="job-card-main-content-heading">
+            <div class="job-card-heading">
+              <p>We are looking for...</p>
+              <h4>Product Designer</h4>
+            </div>
+          </div>
+          <div class="card-expand-close-button-wrapper">
+            <b-button class="active" v-b-toggle.collapse-1 variant="button"
+              ><i class="fas fa-times"></i> close</b-button
+            >
+            <button>Apply now</button>
           </div>
         </div>
-        <div class="card-expand-close-button-wrapper">
-          <button class="active"><i class="fas fa-times"></i> close</button>
-          <button>Apply now</button>
+        <div class="job-vacancy-wrapper">
+          <div class="single-job-vacancy-wrapper">
+            <i class="fas fa-briefcase"></i> Full time
+          </div>
+          <div class="single-job-vacancy-wrapper">
+            <i class="far fa-clock"></i> Dhaka Bangladesh
+          </div>
+          <div class="single-job-vacancy-wrapper">
+            <i class="fas fa-users"></i> Hiring 04 person
+          </div>
         </div>
-      </div>
-      <div class="job-vacancy-wrapper">
-        <div class="single-job-vacancy-wrapper">
-          <i class="fas fa-briefcase"></i> Full time
-        </div>
-        <div class="single-job-vacancy-wrapper">
-          <i class="far fa-clock"></i> Dhaka Bangladesh
-        </div>
-        <div class="single-job-vacancy-wrapper">
-          <i class="fas fa-users"></i> Hiring 04 person
-        </div>
-      </div>
-      <div class="context-wrapper">
-        <div class="context-content">
-          <h4>Job Context:</h4>
-          <p>
-            Conduct user experience through surveys and focus groups in
-            collaboration with internal members and existing participants and
-            focus groups in collaboration with internal members and existing
-            participants, members and existing participants and focus groups in
-            collaboration.
-          </p>
-        </div>
-      </div>
-      <div class="job-description">
-        <h4>Job description</h4>
-        <div class="job-description-list">
-          <ul>
-            <li>
+        <div class="context-wrapper">
+          <div class="context-content">
+            <h4>Job Context:</h4>
+            <p>
               Conduct user experience through surveys and focus groups in
               collaboration with internal members and existing participants and
               focus groups in collaboration with internal members and existing
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-          </ul>
+              participants, members and existing participants and focus groups
+              in collaboration.
+            </p>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-condition-wrapper">
+          <div class="single-job-condition-wrapper">
+            <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
+          </div>
+          <div class="single-job-condition-wrapper">
+            <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="job-description">
-        <h4>Job description</h4>
-        <div class="job-description-list">
-          <ul>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members and existing participants and
-              focus groups in collaboration with internal members and existing
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-          </ul>
+    </b-collapse>
+    <div class="job-card-content-wrapper p-3 mb-3">
+      <div class="job-card-header">
+        <div class="job-title">
+          <div class="logo-wrapper">
+            <img
+              src="~/assets/image/appleLogo.png"
+              alt="job logo"
+              class="img-fluid"
+            />
+          </div>
+          <div class="job-subtitle">
+            <div class="job-position">
+              <h4>Product Designer</h4>
+              <p>Apple, have a bite</p>
+            </div>
+          </div>
+          <div class="job-card-badge">New</div>
+        </div>
+        <div class="save-badge">
+          <button><i class="far fa-bookmark"></i>Save</button>
         </div>
       </div>
-      <div class="job-condition-wrapper">
-        <div class="single-job-condition-wrapper">
-          <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
-        </div>
-        <div class="single-job-condition-wrapper">
-          <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
-        </div>
-      </div>
-      <div class="job-description">
-        <h4>Job description</h4>
-        <div class="job-description-list">
-          <ul>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members and existing participants and
-              focus groups in collaboration with internal members and existing
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-            <li>
-              Conduct user experience through surveys and focus groups in
-              collaboration with internal members.
-            </li>
-          </ul>
+      <div class="job-card-body mt-2 pr-3 pl-5">
+        <div class="row">
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="job-card-footer ">
+      <div
+        class="job-card-footer-content  pl-5 pr-3 d-flex justify-content-between align-items-center "
+      >
+        <div class="job-collapse-button">
+          <b-button v-b-toggle.collapse-2 variant="link"
+            >Job Details <i class="fas fa-angle-down"></i
+          ></b-button>
+        </div>
+        <div class="job-post-status">
+          <p>Posted <span> 8hrs ago</span></p>
+        </div>
+      </div>
+    </div>
+    <b-collapse id="collapse-2" class="mt-2">
+      <div class="job-card-main-content-wrapper" id="collapseExample">
+        <div class="job-card-main-content  d-flex justify-content-between">
+          <div class="job-card-main-content-heading">
+            <div class="job-card-heading">
+              <p>We are looking for...</p>
+              <h4>Product Designer</h4>
+            </div>
+          </div>
+          <div class="card-expand-close-button-wrapper">
+            <b-button class="active" v-b-toggle.collapse-2 variant="button"
+              ><i class="fas fa-times"></i> close</b-button
+            >
+            <button>Apply now</button>
+          </div>
+        </div>
+        <div class="job-vacancy-wrapper">
+          <div class="single-job-vacancy-wrapper">
+            <i class="fas fa-briefcase"></i> Full time
+          </div>
+          <div class="single-job-vacancy-wrapper">
+            <i class="far fa-clock"></i> Dhaka Bangladesh
+          </div>
+          <div class="single-job-vacancy-wrapper">
+            <i class="fas fa-users"></i> Hiring 04 person
+          </div>
+        </div>
+        <div class="context-wrapper">
+          <div class="context-content">
+            <h4>Job Context:</h4>
+            <p>
+              Conduct user experience through surveys and focus groups in
+              collaboration with internal members and existing participants and
+              focus groups in collaboration with internal members and existing
+              participants, members and existing participants and focus groups
+              in collaboration.
+            </p>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-condition-wrapper">
+          <div class="single-job-condition-wrapper">
+            <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
+          </div>
+          <div class="single-job-condition-wrapper">
+            <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </b-collapse>
+    <div class="job-card-content-wrapper p-3 mb-3">
+      <div class="job-card-header">
+        <div class="job-title">
+          <div class="logo-wrapper">
+            <img
+              src="~/assets/image/appleLogo.png"
+              alt="job logo"
+              class="img-fluid"
+            />
+          </div>
+          <div class="job-subtitle">
+            <div class="job-position">
+              <h4>Product Designer</h4>
+              <p>Apple, have a bite</p>
+            </div>
+          </div>
+          <div class="job-card-badge">New</div>
+        </div>
+        <div class="save-badge">
+          <button><i class="far fa-bookmark"></i>Save</button>
+        </div>
+      </div>
+      <div class="job-card-body mt-2 pr-3 pl-5">
+        <div class="row">
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="job-details-wrapper">
+              <div class="job-details-title">
+                <p>Experience</p>
+              </div>
+              <div class="job-details-sub-title">
+                <h5>3 to 5 Years</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="job-card-footer ">
+      <div
+        class="job-card-footer-content  pl-5 pr-3 d-flex justify-content-between align-items-center "
+      >
+        <div class="job-collapse-button">
+          <b-button v-b-toggle.collapse-3 variant="link"
+            >Job Details <i class="fas fa-angle-down"></i
+          ></b-button>
+        </div>
+        <div class="job-post-status">
+          <p>Posted <span> 8hrs ago</span></p>
+        </div>
+      </div>
+    </div>
+    <b-collapse id="collapse-3" class="mt-2">
+      <div class="job-card-main-content-wrapper" id="collapseExample">
+        <div class="job-card-main-content  d-flex justify-content-between">
+          <div class="job-card-main-content-heading">
+            <div class="job-card-heading">
+              <p>We are looking for...</p>
+              <h4>Product Designer</h4>
+            </div>
+          </div>
+          <div class="card-expand-close-button-wrapper">
+            <b-button class="active" v-b-toggle.collapse-3 variant="button"
+              ><i class="fas fa-times"></i> close</b-button
+            >
+            <button>Apply now</button>
+          </div>
+        </div>
+        <div class="job-vacancy-wrapper">
+          <div class="single-job-vacancy-wrapper">
+            <i class="fas fa-briefcase"></i> Full time
+          </div>
+          <div class="single-job-vacancy-wrapper">
+            <i class="far fa-clock"></i> Dhaka Bangladesh
+          </div>
+          <div class="single-job-vacancy-wrapper">
+            <i class="fas fa-users"></i> Hiring 04 person
+          </div>
+        </div>
+        <div class="context-wrapper">
+          <div class="context-content">
+            <h4>Job Context:</h4>
+            <p>
+              Conduct user experience through surveys and focus groups in
+              collaboration with internal members and existing participants and
+              focus groups in collaboration with internal members and existing
+              participants, members and existing participants and focus groups
+              in collaboration.
+            </p>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job-condition-wrapper">
+          <div class="single-job-condition-wrapper">
+            <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
+          </div>
+          <div class="single-job-condition-wrapper">
+            <h4>Salary Range <span class="ml-5"> : Negotiable</span></h4>
+          </div>
+        </div>
+        <div class="job-description">
+          <h4>Job description</h4>
+          <div class="job-description-list">
+            <ul>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members and existing participants
+                and focus groups in collaboration with internal members and
+                existing
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+              <li>
+                Conduct user experience through surveys and focus groups in
+                collaboration with internal members.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </b-collapse>
   </div>
 </template>
 
@@ -300,7 +711,12 @@ export default {}
   border-radius: 4px;
 }
 .job-collapse-button {
-  a {
+  .btn-link {
+    &:hover {
+      color: #1d3146;
+    }
+  }
+  button {
     color: #1d3146;
     font-weight: 500;
     font-size: 12px;
@@ -321,6 +737,7 @@ export default {}
 }
 .job-card-footer {
   border-top: 1px solid #bdbdbd;
+  border-bottom: 1px solid #bdbdbd;
 }
 // job card content
 .job-card-main-content-heading {
@@ -350,7 +767,6 @@ export default {}
     padding: 5px 15px;
     margin: 10px;
     color: rgba(29, 49, 70, 0.8);
-
     &:nth-child(odd) {
       i {
         margin-right: 10px;

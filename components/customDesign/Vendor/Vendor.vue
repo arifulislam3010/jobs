@@ -202,7 +202,8 @@ export default {
         autoplay: true,
         autoplaySpeed: 1000,
         speed: 1000,
-        infinity: true
+        infinity: true,
+        initalSlide: 1
       }
     }
   }
@@ -227,9 +228,5 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-.slick-slide {
-  margin: 0 20px;
 }
 </style>
