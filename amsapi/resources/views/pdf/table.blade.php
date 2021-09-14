@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Immigration</title>
+<title>Mechanicchai</title>
 <style>
 table, th, td {
   font-family: 'examplefont';
@@ -13,9 +13,9 @@ table, th, td {
 <body>
   <div style="width: 100%">
   <div style="text-align: center;margin-bottom: 30px;">
-    <img style="height:60px;width:60px;" src="http://api.immigration.orangebd.com/cv_img/b93c78b.png"><br>
-    <span>অভিবাসী বাতায়ন</span><br>
-    <span><a href="http://immigration.orangebd.com">http://immigration.orangebd.com</a></span>
+  <img style="height:60px;width:60px;" src="https://mechanicchai.com/img/logo.png"><br>
+    <span>Mechanicchai job</span><br>
+    <span><a href="https://job.mechanicchai.com/">https://job.mechanicchai.com/</a></span>
   </div>
 </div>
 @if($post)

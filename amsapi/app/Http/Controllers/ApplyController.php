@@ -30,7 +30,9 @@ class ApplyController extends Controller
     public function addFavourite($id){
         $user = Auth::user();
         $post = DB::table('posts')->where('id',$id)->get()->first();
-
+        if(Favourite::where('post_id',$post->id)->where('agency_id',$post->author_id)->where('applicant_id',$user->id)->first()){
+            return response()->json(['ok'=>'ok0'],201);
+        }
         $data = [
           'post_id'=>$post->id,
           'agency_id'=>$post->author_id,
@@ -58,82 +60,88 @@ class ApplyController extends Controller
     {
         $user = Auth::user();
         $post = DB::table('posts')->where('id',$id)->get()->first();
-        $job_id      = $post->job_id;
-        $country_id  = $post->country_id;
-        $language_id = $post->language_id;
-        $experience  = $post->experience;
-
-        $a_language = DB::table('language_apllicants')->where('user_id',$user->id)->where('lanuage_id',$language_id)->get()->first();
-        $a_country = DB::table('country_applicants')->where('user_id',$user->id)->where('country_id',$country_id)->get()->first();
-        $a_job = DB::table('desired_job_applicants')->where('user_id',$user->id)->where('job_id',$job_id)->get()->first();
-
-        $experience_y = DB::table('experiences')->where('user_id',$user->id)->sum('duration_y');
-        $experience_m = DB::table('experiences')->where('user_id',$user->id)->sum('duration_m');
-
-        $job_error = '';
-        $experience_error = '';
-        $language_error = '';
-        $country_error = '';
-        $error = 0;
-
-        if($job_id){
-            $job = DB::table('desired_jobs')->where('id',$job_id)->get()->first();
-            if($a_job){
-               if($job_id != $a_job->job_id){
-                    $error++;
-                    $job_error = $job->name;
-                } 
-            }
-            else{
-                $error++;
-                $job_error = $job->name;
-            }
+        $ApplicationCheck = DB::table('applyed_applicants')->where('post_id',$post->id)->where('applicant_id',$user->id)->first();
+        if($ApplicationCheck){
+            return response()->json(['status'=>'You Already Apply this job'],200);
         }
+       //old code
+        // $job_id      = $post->job_id;
+        // $country_id  = $post->country_id;
+        // $language_id = $post->language_id;
+        // $experience  = $post->experience;
 
-        if($country_id){
-            $country = DB::table('apps_countries')->where('id',$country_id)->get()->first();
-            if($a_country){
-               if($country_id != $a_country->country_id){
-                    $error++;
-                    $country_error = $country->country_name;
-                } 
-            }
-            else{
-                $error++;
-                $country_error = $country->country_name;
-            }
+        // $a_language = DB::table('language_apllicants')->where('user_id',$user->id)->where('lanuage_id',$language_id)->get()->first();
+        // $a_country = DB::table('country_applicants')->where('user_id',$user->id)->where('country_id',$country_id)->get()->first();
+        // $a_job = DB::table('desired_job_applicants')->where('user_id',$user->id)->where('job_id',$job_id)->get()->first();
+
+        // $experience_y = DB::table('experiences')->where('user_id',$user->id)->sum('duration_y');
+        // $experience_m = DB::table('experiences')->where('user_id',$user->id)->sum('duration_m');
+
+        // $job_error = '';
+        // $experience_error = '';
+        // $language_error = '';
+        // $country_error = '';
+        // $error = 0;
+
+        // if($job_id){
+        //     $job = DB::table('desired_jobs')->where('id',$job_id)->get()->first();
+        //     if($a_job){
+        //        if($job_id != $a_job->job_id){
+        //             $error++;
+        //             $job_error = $job->name;
+        //         } 
+        //     }
+        //     else{
+        //         $error++;
+        //         $job_error = $job->name;
+        //     }
+        // }
+
+        // if($country_id){
+        //     $country = DB::table('apps_countries')->where('id',$country_id)->get()->first();
+        //     if($a_country){
+        //        if($country_id != $a_country->country_id){
+        //             $error++;
+        //             $country_error = $country->country_name;
+        //         } 
+        //     }
+        //     else{
+        //         $error++;
+        //         $country_error = $country->country_name;
+        //     }
             
-        }
+        // }
 
-        if($language_id){
-            $language = DB::table('languages')->where('id',$language_id)->get()->first();
-            if($a_language){
-                if($language_id != $a_language->lanuage_id){
-                    $error++;
-                    $language_error = $language->name;
-                }
-            }
-            else{
-                $error++;
-                $language_error = $language->name;
-            }
-        }
+        // if($language_id){
+        //     $language = DB::table('languages')->where('id',$language_id)->get()->first();
+        //     if($a_language){
+        //         if($language_id != $a_language->lanuage_id){
+        //             $error++;
+        //             $language_error = $language->name;
+        //         }
+        //     }
+        //     else{
+        //         $error++;
+        //         $language_error = $language->name;
+        //     }
+        // }
 
-        if($experience){
-            if(($experience_y*12+$experience_m) < ($experience*12)){
-                $error++;
-                $experience_error = $experience;
-            }
-        }
-
+        // if($experience){
+        //     if(($experience_y*12+$experience_m) < ($experience*12)){
+        //         $error++;
+        //         $experience_error = $experience;
+        //     }
+        // }
+      ////old code end
         // return $experience_y*12+$experience_m;
+        $error = '';
         if($error){
-            return response()->json([
-                'job_error'      => $job_error,
-                'country_error'  => $country_error,
-                'language_error' => $language_error,
-                'experience_error'     => $experience_error
-            ],400);
+            // return response()->json([
+            //     'job_error'      => $job_error,
+            //     'country_error'  => $country_error,
+            //     'language_error' => $language_error,
+            //     'experience_error'     => $experience_error
+            // ],400);
         }
         else{
             $data = [
@@ -146,7 +154,7 @@ class ApplyController extends Controller
 
             ApplyedApplicant::insert($data);
 
-            return response()->json(['ok'=>'ok'],201);
+            return response()->json(['status'=>'Job Application Success'],200);
         }
             
     }

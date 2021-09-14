@@ -1,0 +1,168 @@
+const pkg = require('./package');
+// const env = require('./env').config();
+require('dotenv').config();
+export default {
+  mode: 'universal',
+  ssr: false,
+  server: {
+    port: 3004, // default: 3000
+    host: 'localhost', // default: localhost,
+  },
+  head: {
+    title: pkg.name,
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'X-UA-Compatible', content: 'IE=edge' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no' },
+      { hid: 'description', name: 'description', content: pkg.description },
+      { name: 'author', content: 'Ariful Islam, Arad Bin' }
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' },
+      {rel:'stylesheet',href:'https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap'},
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Hind+Siliguri:500,600,700&display=swap&subset=bengali' }
+    ]
+  },
+
+  /*
+  ** Configuration for @nuxtjs/pwa
+  ** https://developer.mozilla.org/en-US/docs/Web/Manifest
+  */
+  manifest: {
+    name: 'job',
+    short_name: 'job',
+    description: 'job',
+    theme_color: '#172b4d',
+  },
+
+  meta: {
+    // apple-mobile-web-app-capable=yes
+    // https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb
+    // mobileAppIOS: true,
+    appleStatusBarStyle: '#172b4d'
+  },
+
+  /*
+  ** Customize the progress-bar color
+  */
+  loading: { color: 'red',
+  height: '10px'},
+
+  /*
+  ** Global CSS
+  */
+  css: [
+    '~assets/scss/style.scss',
+    '~assets/style.css',
+    '~assets/argon/vendor/nucleo/css/nucleo.css',
+    '@fortawesome/fontawesome-free/css/all.css',
+    // '~assets/argon/scss/argon.scss',
+    '@/assets/css/bootstrap.min.css',
+    '~assets/transitions.css',
+    '~assets/argon/css/argon-design-system.mine209.css',
+    '~assets/argon/vendor/font-awesome/css/font-awesome.min.css',
+    
+  ],
+  js: [
+    '@/assets/js/bootstrap.min.js',
+    '@/assets/js/jquery-3.6.0.min.js',
+  ],
+  izitoast: {
+    position: 'bottomRight',
+    transitionIn: 'bounceInLeft',
+    transitionOut: 'fadeOutRight',
+  },
+
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+    { src: '~/plugins/flipbook', mode: 'client'},
+    { src: '~/plugins/editor', mode: 'client'},
+    { src: '~/plugins/ant-design', mode: 'client'},
+    { src: '~/plugins/b-v', mode: 'client'},
+    { src: '~/plugins/tree', mode: 'client'},
+    { src: '~/plugins/argon/argon-kit' },
+    { src: '~/plugins/excel', mode: 'client' },
+    { src: '~/plugins/lightbox', mode: 'client' },
+    { src: '~/plugins/rating_input', mode: 'client' },
+    // '~/packages/Auth',
+    // '~/plugins/argon/glide'
+  ],
+
+  /*
+  ** Nuxt.js modules
+  */
+  modules: [
+    [
+      
+      'vue-sweetalert2/nuxt',
+      {
+        confirmButtonColor: '#41b882',
+        cancelButtonColor: '#ff7674'
+      }
+    ],
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    // Doc: https://bootstrap-vue.js.org/docs/
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/pwa',
+    '@nuxtjs/auth',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/style-resources',
+    'nuxt-izitoast',
+  ],
+  /*
+  ** Axios module configuration
+  */
+  styleResources: {
+    scss: ['./assets/scss/*.scss']
+  },
+ axios: {
+  baseURL: process.env.LARAVEL_ENDPOINT
+},
+
+auth: {
+  redirect: {
+    login: '/login',
+    logout: '/',
+    callback: '/login',
+    home: '/dashboard'
+  },
+  strategies: {
+    local: false,
+    password_grant: {
+      _scheme: 'local',
+      endpoints: {
+        login: {
+          url: 'oauth/login',
+          method: 'post',
+          propertyName: 'access_token'
+        },
+        logout: false,
+        user: {
+          url: 'api/auth/me',
+          method: 'get',
+          propertyName: 'user'
+        }
+      }
+    }
+  }
+},
+
+  /*
+  ** Build configuration
+  */
+  build: {
+    /*
+    ** You can extend webpack config here
+    */
+    extend(config, ctx) {
+
+    }
+  },
+  // router: {
+  //   middleware: ['index']
+  // },
+}

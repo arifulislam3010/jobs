@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get('/test','TestController@testJob');
 
+Route::post('/api/mobile/login','RegistrationController@mobileLogin');
 Route::get('/logout','RegistrationController@logout');
 Route::get('/role','RegistrationController@newRole');
 Route::get('/permission','RegistrationController@permission');

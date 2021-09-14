@@ -596,8 +596,8 @@ class ContactController extends Controller
             $contact->mother_name = $request->personal['mother_name'];
             $contact->spouse_name = $request->personal['spouse_name'];
             $contact->nationality = $request->personal['nationality'];
-            $contact->district_id = $request->personal['district']['id'];
-            $contact->country_id  = $request->personal['country_name']['id'];
+            $contact->district_id = is_array($request->personal['district'])?$request->personal['district']['id']:'';
+            $contact->country_id  = is_array($request->personal['country_name'])?$request->personal['country_name']['id']:'';
             $contact->gender      = $request->personal['sex'];
             $contact->m_status    = $request->personal['marital_status'];
             $contact->religion    = $request->personal['religion'];

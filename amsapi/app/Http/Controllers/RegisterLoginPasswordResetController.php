@@ -428,68 +428,74 @@ class RegisterLoginPasswordResetController extends Controller
                 $activation = Activation::create($user);
                 $role = Sentinel::findRoleById($role_id);
                 $role->users()->attach($user);
-
+                // Activation::completed($user);
+                DB::table('activations')
+                ->where('user_id',$user->id)
+                ->update(['completed' => 1]);
+                DB::table('users')
+                ->where('id',$user->id)
+                ->update(['type' => $role_id]);
                 $contact = new Contact;
                 $contact ->user_id = $user->id;
                 $contact->save();
 
-                if($request->input('applicant')){
-                    $country_data = [];
-                    $job_data = [];
-                    $user_id = $user->id;
-                    foreach ($request->country as $key => $value) {
-                        $temp = ['user_id'=>$user_id, 'country_id'=>  $value];
-                        array_push($country_data,$temp);
-                    }
-                    foreach ($request->job as $key => $value) {
-                        $temp = ['user_id'=>$user_id, 'job_id'=>  $value];
-                        array_push($job_data,$temp);
-                    }
-                    CountryApplicant::where('user_id',$user_id)->delete();
-                    CountryApplicant::insert($country_data);
+                // if($request->input('applicant')){
+                //     $country_data = [];
+                //     $job_data = [];
+                //     $user_id = $user->id;
+                //     // foreach ($request->country as $key => $value) {
+                //     //     $temp = ['user_id'=>$user_id, 'country_id'=>  $value];
+                //     //     array_push($country_data,$temp);
+                //     // }
+                //     // foreach ($request->job as $key => $value) {
+                //     //     $temp = ['user_id'=>$user_id, 'job_id'=>  $value];
+                //     //     array_push($job_data,$temp);
+                //     // }
+                //     // CountryApplicant::where('user_id',$user_id)->delete();
+                //     // CountryApplicant::insert($country_data);
 
-                    DesiredJobApplicant::where('user_id',$user_id)->delete();
-                    DesiredJobApplicant::insert($job_data);
+                //     // DesiredJobApplicant::where('user_id',$user_id)->delete();
+                //     // DesiredJobApplicant::insert($job_data);
                     
-                    $contact ->progress = 30;
-                    $contact->personal = json_encode($request->only(['job','country']));
+                //     // $contact ->progress = 30;
+                //     // $contact->personal = json_encode($request->only(['job','country']));
 
-                    $contact ->address2 = json_encode($request->input('address2'));
-                    $contact ->address3 = json_encode($request->input('address3'));
-                    $contact ->same_address = $request->input('same_address');
-                    $contact->update();
+                //     // $contact ->address2 = json_encode($request->input('address2'));
+                //     // $contact ->address3 = json_encode($request->input('address3'));
+                //     // $contact ->same_address = $request->input('same_address');
+                //     // $contact->update();
 
-                    $permanent_address = [
-                        'user_id' => $user_id,
-                        'div_id' => $request->address2['division']['id'],
-                        'dis_id' => $request->address2['district']['id'],
-                        'subdis_id' => $request->address2['subdistrict']['id'],
-                        'union_id' => $request->address2['union']['id'],
-                        'village' => $request->address2['village'],
-                        'post_office' => $request->address2['postoffice'],
-                        'road_no' => $request->address2['street'],
-                        'phone' => $request->address2['phone'],
-                        'type' => 1,
-                    ];
+                //     // $permanent_address = [
+                //     //     'user_id' => $user_id,
+                //     //     'div_id' => $request->address2['division']['id'],
+                //     //     'dis_id' => $request->address2['district']['id'],
+                //     //     'subdis_id' => $request->address2['subdistrict']['id'],
+                //     //     'union_id' => $request->address2['union']['id'],
+                //     //     'village' => $request->address2['village'],
+                //     //     'post_office' => $request->address2['postoffice'],
+                //     //     'road_no' => $request->address2['street'],
+                //     //     'phone' => $request->address2['phone'],
+                //     //     'type' => 1,
+                //     // ];
 
-                    $present_address = [
-                        'user_id' => $user_id,
-                        'div_id' => $request->address3['division']['id'],
-                        'dis_id' => $request->address3['district']['id'],
-                        'subdis_id' => $request->address3['subdistrict']['id'],
-                        'union_id' => $request->address3['union']['id'],
-                        'village' => $request->address3['village'],
-                        'post_office' => $request->address3['postoffice'],
-                        'road_no' => $request->address3['street'],
-                        'phone' => $request->address3['phone'],
-                        'type' => 2,
-                    ];
+                //     // $present_address = [
+                //     //     'user_id' => $user_id,
+                //     //     'div_id' => $request->address3['division']['id'],
+                //     //     'dis_id' => $request->address3['district']['id'],
+                //     //     'subdis_id' => $request->address3['subdistrict']['id'],
+                //     //     'union_id' => $request->address3['union']['id'],
+                //     //     'village' => $request->address3['village'],
+                //     //     'post_office' => $request->address3['postoffice'],
+                //     //     'road_no' => $request->address3['street'],
+                //     //     'phone' => $request->address3['phone'],
+                //     //     'type' => 2,
+                //     // ];
 
-                    Address::where('user_id',$user_id)->delete();
-                    Address::insert($permanent_address);
-                    Address::insert($present_address);
-                    $contact->update();
-                }
+                //     // Address::where('user_id',$user_id)->delete();
+                //     // Address::insert($permanent_address);
+                //     // Address::insert($present_address);
+                //     // $contact->update();
+                // }
 
                 if($request->input('agency')){
                     $country_data = [];
@@ -536,15 +542,15 @@ class RegisterLoginPasswordResetController extends Controller
                     $activation = Activation::find($activation_id); 
                     $activation->code = rand(100000,999999);
                     $activation->update();
-                    $text = 'Your immigration.org.bd activation code is '.$activation->code;
+                    $text = 'Your mecanicchai activation code is '.$activation->code;
                     $this->sendSms($user->phone,$text);
                 }
                 else if($type == 1){
-                    $this->sendConfirmationEmail($user,$activation->code);
+                    // $this->sendConfirmationEmail($user,$activation->code);
                     // return response()->json(['verify'=>'অনুগ্রহপূর্বক আপনার ইমেইল ভেরিফাই করুন'],201);
                 }
                 
-            DB::commit();
+             DB::commit();
 
                 if($type == 2){
                     return response()->json(['phone'=>$user->phone],201);

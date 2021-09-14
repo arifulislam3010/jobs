@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('frontend')->group(function () {
     Route::post('/posts', 'PostsController@index');
     Route::get('/post/details/{slug}', 'PostsController@post');
+    Route::get('/top-post-owner', 'PostsController@topPostOwner');
     Route::get('/post/{id}', 'PostsController@details');
     Route::get('/area/{title}', 'PostsController@area');
     Route::get('/area', 'AreaController@area');

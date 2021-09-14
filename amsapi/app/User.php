@@ -48,7 +48,10 @@ class User extends Authenticatable
     // {
     //     return $this->belongsTo('App\District','district_id');
     // }
-
+    public function Posts()
+    {
+        return $this->hasMany('Modules\FrontEnd\Entities\Post','created_by');
+    }
     // public function upazila()
     // {
     //     return $this->belongsTo('App\Upazila','subdistrict_id');

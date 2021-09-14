@@ -16,6 +16,7 @@ use Modules\FrontEnd\Transformers\Post as PostResource;
 use Modules\FrontEnd\Transformers\Area as AreaResource;
 use Modules\FrontEnd\Transformers\Category as CategoryResource;
 use Modules\FrontEnd\Transformers\PostSection as PostSectionResource;
+use Modules\FrontEnd\Transformers\AgencyResource;
 
 use Modules\Post\Transformers\PostDetail ;
 use Modules\Setting\Entities\Section;
@@ -95,7 +96,7 @@ class PostsController extends Controller
                     ->when(count($agency_id)>0, function($q) use($agency_id){return $q->whereIn('author_id',$agency_id);})
                     ->when(count($job_id)>0, function($q) use($job_id){return $q->whereIn('job_id',$job_id);})
                     ->orderBy('id','DESC')->paginate($limit);
-
+            // return response(new PostResource($post));           
             return PostResource::collection($post);
         }
         elseif($type == 11 || $type == 12 || $type == 13 || $type == 14){
@@ -107,14 +108,22 @@ class PostsController extends Controller
             return PostResource::collection($post);
         }
     }
+    public function topPostOwner(){
+        $agency =User::where('type',3)->get();
+        return AgencyResource::collection($agency);
+
+    }
     public function details($id){
         $post = Post::where('id',$id)->first();
         return new PostResource($post);
     }
 
     public function post($slug){
-        $post = Post::where('slug',$slug)->where('deleted_at',null)->first();
-        return new PostResource($post);
+
+        $post = Post::where('id',$slug)->where('deleted_at',null)->first();
+         return response()->json([
+            'data'  => array(new PostResource($post)),
+        ],200);
     }
 
    public function category()
