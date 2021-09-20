@@ -45,7 +45,16 @@
           <p>128</p>
         </div>
       </div> -->
-      <treeselect  name="job" v-validate="'required'" placeholder="জনবল পাঠানো চাকুরী"  v-model="this.$parent.job" :multiple="true" :options="this.$parent.jobs" />
+      <treeselect
+        name="job"
+        v-validate="'required'"
+        placeholder="জনবল পাঠানো চাকুরী"
+        v-model="this.$parent.job"
+        :multiple="true"
+        :options="this.$parent.jobs"
+      />
+
+      <!-- //need  to cut  -->
       <div
         class="job-filter-list-item d-flex justify-content-between align-items-center"
       >
@@ -122,6 +131,9 @@
           <p>128</p>
         </div>
       </div>
+
+      <!-- // upto this section  -->
+
       <div class="job-filter-number-input mt-3 mb-3">
         <div class="list-heading">
           <h4>Type of employement</h4>

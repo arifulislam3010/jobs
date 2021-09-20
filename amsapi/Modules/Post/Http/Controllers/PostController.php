@@ -44,7 +44,7 @@ class PostController extends Controller
             else{
                 return PostResource::collection(Post::where('type',$type)->where('author_id',$auth_user_id)->where('deleted_at',null)->get());
             }
-            
+
         }
         elseif($type == 3){
             if(Auth()->user()->type == 1 ){
@@ -53,7 +53,7 @@ class PostController extends Controller
             else{
                 return PostResource::collection(Post::where('type',$type)->where('author_id',$auth_user_id)->where('deleted_at',null)->get());
             }
-            
+
         }else{
             return PostResource::collection(Post::where('type',$type)->where('deleted_at',null)->get());
         }
@@ -88,7 +88,7 @@ class PostController extends Controller
         $post->hanger = $request->hanger;
         $post->reporter_id = $request->reporter['id'];
         $post->author_id = $auth_user_id ;
-        $post->content   = $request->content;
+        $post->content   = $request['content'];
         $post->designation   = $request->designation;
         $post->expired_at = date('Y-m-d',strtotime($request->expired_at));
         $post->share_at = $request->share_at;
@@ -128,7 +128,7 @@ class PostController extends Controller
            $post->slug = strtolower($slug.'-'.str_random(5));
         }
         else{
-           $post->slug = $slug; 
+           $post->slug = $slug;
         }
 
         if($request->not_edit_image == 11){
@@ -175,9 +175,9 @@ class PostController extends Controller
                 SendReminderEmail::dispatch($data)
                 ->delay(now()->addSeconds(20));
             }
-            
+
         }
-        
+
         if($post->save()) {
             return new PostResource($post);
         }
@@ -193,7 +193,7 @@ class PostController extends Controller
         $post->hanger = $request->hanger;
         $post->reporter_id = $request->reporter['id'];
         $post->author_id = $auth_user_id ;
-        $post->content   = $request->content;
+        $post->content   = $request['content'];
         $post->designation   = $request->designation;
         $post->expired_at = date('Y-m-d',strtotime($request->expired_at));
         $post->share_at = $request->share_at;
@@ -258,7 +258,7 @@ class PostController extends Controller
         $post->job_required        = $request->job_required;
         $post->country_required    = $request->country_required;
         $post->language_required   = $request->language_required;
-        
+
         if ($post->save()) {
             return new PostResource($post);
         }

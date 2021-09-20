@@ -4,8 +4,9 @@
       <div class="row">
         <div class="col-md-4 col-lg-4">
           <!-- <JobFilter /> -->
-           <div class="row mb-2">
-                  <div class="search_select">
+          <div class="row mb-2">
+            <job-filter />
+            <!-- <div class="search_select">
                     <treeselect :default-expand-level="1"  name="country" v-validate="'required'" placeholder="দেশ"  v-model="country" :multiple="true" :options="countries" />
                   </div>
                   &nbsp;
@@ -23,8 +24,8 @@
                       @click="get(1,1)"
                       class="btn btn-outline-secondary"
                     >খুঁজুন</button>
-                  </div>
-              </div>
+                  </div> -->
+          </div>
         </div>
         <div class="col-md-8 col-lg-8">
           <div
@@ -38,7 +39,7 @@
             </div>
           </div>
           <div class="job-card-wrapper mb-5">
-            <div v-for="(list,key) in lists.data" v-bind:key="key">
+            <div v-for="(list, key) in lists.data" v-bind:key="key">
               <JobCard :post="list" />
             </div>
           </div>
@@ -58,85 +59,104 @@ export default {
     JobFilter
   },
   data() {
-      return {
-        search_click:false,
-        countries:[],
-        agencies:[],
-        jobs:[],
-        job:[],
-        country:[],
-        agency:[],
-        modalOpen:false,
-        applyModalOpen: false,
-        post: '',
-        type: '',
-        search:{},
-        seria:['১','২','৩','৪','৫','৬','৭','৮','৯','১০','১১','১২','১৩','১৪',' ১৫']
-      }
-    },
-    mounted(){
-      this.type = 1;
-      this.get();
-      this.getJob();
-      this.getCountry();
-      this.getAgency();
-    },
-    computed: mapGetters({
-      lists: 'frontent/appointments'
-    }),
-    methods: {
-      get2(page=1){
-        this.get(0,page)
-      },
-      async get (search_click=0,page=1) {
-          if(search_click == 1){
-            this.search_click = true
-          }
-          else{
-            this.search_click = false
-          }
-          let search = {type:this.type,limit:10,page:1};
-          this.search.type = this.type
-          this.search.limit = 10
-          this.search.page = page
-          this.search.country = this.country
-          this.search.agency = this.agency
-          this.search.job = this.job
-
-        try {
-          await this.$store.dispatch('frontent/get_appointments',this.search)
-        } catch (e) {
-          
-        }
-      },
-      go(slug){
-        this.$router.push('/notice-of-appointment/'+slug);
-      },
-      async getJob() {
-        await this.$axios
-          .get('api/get-desired-job-tree')
-          .then(response => {
-            this.jobs = [{id: 99999,label: 'সকল চাকুরী',children:response.data}];
-          })
-          .catch(error => {})
-      },
-      async getCountry() {
-        await this.$axios
-          .get('api/get-country-tree')
-          .then(response => {
-            this.countries = [{id: 99999,label: 'সকল দেশ',children:response.data}];
-          })
-          .catch(error => {})
-      },
-      async getAgency() {
-        await this.$axios
-          .get('api/get-agency-tree')
-          .then(response => {
-            this.agencies = [{id: 99999,label: 'সকল এজেন্সি',children:response.data}];
-          })
-          .catch(error => {})
-      },
+    return {
+      search_click: false,
+      countries: [],
+      agencies: [],
+      jobs: [],
+      job: [],
+      country: [],
+      agency: [],
+      modalOpen: false,
+      applyModalOpen: false,
+      post: '',
+      type: '',
+      search: {},
+      seria: [
+        '১',
+        '২',
+        '৩',
+        '৪',
+        '৫',
+        '৬',
+        '৭',
+        '৮',
+        '৯',
+        '১০',
+        '১১',
+        '১২',
+        '১৩',
+        '১৪',
+        ' ১৫'
+      ]
     }
+  },
+  mounted() {
+    this.type = 1
+    this.get()
+    this.getJob()
+    this.getCountry()
+    this.getAgency()
+  },
+  computed: mapGetters({
+    lists: 'frontent/appointments'
+  }),
+  methods: {
+    get2(page = 1) {
+      this.get(0, page)
+    },
+    async get(search_click = 0, page = 1) {
+      if (search_click == 1) {
+        this.search_click = true
+      } else {
+        this.search_click = false
+      }
+      let search = { type: this.type, limit: 10, page: 1 }
+      this.search.type = this.type
+      this.search.limit = 10
+      this.search.page = page
+      this.search.country = this.country
+      this.search.agency = this.agency
+      this.search.job = this.job
+
+      try {
+        await this.$store.dispatch('frontent/get_appointments', this.search)
+      } catch (e) {}
+    },
+    go(slug) {
+      this.$router.push('/notice-of-appointment/' + slug)
+    },
+    async getJob() {
+      await this.$axios
+        .get('api/get-desired-job-tree')
+        .then(response => {
+          this.jobs = [
+            { id: 99999, label: 'সকল চাকুরী', children: response.data }
+          ]
+        })
+        .catch(error => {})
+    },
+    async getCountry() {
+      await this.$axios
+        .get('api/get-country-tree')
+        .then(response => {
+          this.countries = [
+            { id: 99999, label: 'সকল দেশ', children: response.data }
+          ]
+        })
+        .catch(error => {})
+    },
+    async getAgency() {
+      await this.$axios
+        .get('api/get-agency-tree')
+        .then(response => {
+          this.agencies = [
+            { id: 99999, label: 'সকল এজেন্সি', children: response.data }
+          ]
+        })
+        .catch(error => {})
+    }
+  }
 }
 </script>
 
