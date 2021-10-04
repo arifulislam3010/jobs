@@ -7,12 +7,24 @@
       </div>
       <div class="job-category-button-wrapper">
         <div class="job-category-single-button-wrapper">
-          <div class="job-category-button active">Full-time</div>
+          <div
+            v-for="(job, index) in jobCategory"
+            :key="job.id"
+            :class="[
+              'job-category-button',
+              index === itemSection ? 'active in' : ''
+            ]"
+            @click="item(job.id)"
+          >
+            <p class="p-0 m-0 text-light">
+              {{ job.category_name }}
+            </p>
+          </div>
+          <!-- <div class="job-category-button">Full-time</div>
           <div class="job-category-button">Full-time</div>
           <div class="job-category-button">Full-time</div>
           <div class="job-category-button">Full-time</div>
-          <div class="job-category-button">Full-time</div>
-          <div class="job-category-button">Full-time</div>
+          <div class="job-category-button">Full-time</div> -->
         </div>
       </div>
 
@@ -102,11 +114,22 @@
 
 <script>
 export default {
-  props: ['category'],
+  props: ['category', 'jobs'],
   data() {
     return {
-      categoryef: this.category
+      categoryef: this.category,
+      jobCategory: this.jobs,
+      itemSection: 0
     }
+  },
+  methods: {
+    item(serviceId) {
+      this.itemSection = serviceId - 1
+      this.$emit('change-job', serviceId)
+    }
+  },
+  created() {
+    // this.jobCategory = this.$store.dispatch('jobs/all_job_type')
   }
 }
 </script>
@@ -127,7 +150,7 @@ export default {
     background: #0e1010;
     border-radius: 8px;
     justify-content: space-between;
-    width: 70%;
+    width: 100%;
   }
   .job-category-button {
     color: rgba(255, 255, 255, 0.6);

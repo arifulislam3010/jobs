@@ -4,7 +4,11 @@
     <!-- hero section -->
     <HeroSection />
     <!-- job categories -->
-    <JobCategory :category="this.$store.state.jobs.all_jobs_category" />
+    <JobCategory
+      :category="this.$store.state.jobs.all_jobs_category"
+      :jobs="this.$store.state.jobs.all_job_type"
+      @change-job="updateJobs"
+    />
     <div class="mb-5"></div>
     <!-- hot jobs -->
     <HotJobs
@@ -46,7 +50,6 @@ import HeroSection from '~/components/customDesign/HeroSection/HeroSection.vue'
 import Vendor from '~/components/customDesign/Vendor/Vendor.vue'
 
 export default {
-
   components: {
     // TestNav,
     Footer,
@@ -66,11 +69,15 @@ export default {
     }
   },
   methods: {
-    // this.$store.dispatch()
+    // event emit for job changes
+    updateJobs(e) {
+      console.log(e)
+    }
   },
   created() {
     this.category = this.$store.dispatch('jobs/job_category')
     this.$store.dispatch('jobs/job_with_owner')
+    this.$store.dispatch('jobs/all_job_type')
     // console.log(this.$store.state.jobs.all_jobs_category)
   }
 }

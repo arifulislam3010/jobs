@@ -15,10 +15,10 @@ use Modules\ContentManager\Entities\User;
 
 
 
-Route::middleware('auth:api')->get('/contentmanager', function (Request $request) {
-    return "jj";
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/contentmanager', function (Request $request) {
+//    return "jj";
+//    return $request->user();
+//});
 // Route::get('/contentmanager', function (Request $request) {
 //     return "ss";
 // });

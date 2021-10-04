@@ -2,6 +2,7 @@
 export const state = ()=>({
     all_jobs_category : [],
     job_owner_with_post:[],
+    job_type:[],
 })
 
 export const mutations = ({
@@ -14,6 +15,11 @@ export const mutations = ({
     {
         state.job_owner_with_post = value;
     },
+
+    all_job_with_type(state,value)
+    {
+        state.all_job_type = value;
+    }
 })
 
 export const actions =({
@@ -52,5 +58,20 @@ export const actions =({
   
         }
       },
+
+      async all_job_type({commit}){
+        try{
+
+            await this.$axios.get('/job-category').then(response=>{
+                console.log(response.data.data);
+                    commit('all_job_with_type',response.data.data)
+            }).catch(error =>{
+                console.log(error)
+            })
+        }catch(error)
+        {
+
+        }
+      }
 
 })

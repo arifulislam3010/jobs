@@ -17,7 +17,7 @@ use Activation;
 class AuthController extends AccessTokenController
 {
     public function auth(ServerRequestInterface $request)
-    {       
+    {
             $username = $request->getParsedBody()['username'];
             $password = $request->getParsedBody()['password'];
             $user = User::where('email',$username)->orWhere('phone',$username)->first();
@@ -50,14 +50,14 @@ class AuthController extends AccessTokenController
                 }
                 else{
                     return response()->json(['error'=>'সঠিক তথ্য দিন'],400);
-                } 
+                }
             }
             else{
                 return response()->json(['error'=>'সঠিক তথ্য দিন'],400);
             }
-            return $username = $request->getParsedBody()['password'];
+//            return $username = $request->getParsedBody()['password'];
             // $user = User::where('email',$username)->orWhere('phone',$username)->first();
-            // if()    
+            // if()
             $username = $request->getParsedBody()['username'];
             // return User::where('email',$username)->orWhere('phone',$username)->first();
             $tokenResponse = parent::issueToken($request);

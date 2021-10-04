@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Route;
 // use Sentinel;
 
 /*
@@ -18,14 +18,16 @@ use Illuminate\Http\Request;
 
 
 use App\Http\Middleware\AdminMiddleware;
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//use Illuminate\Support\Facades\Route;
+//
+//
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return ph$request->user();
+//});
+//
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 
 
@@ -116,64 +118,64 @@ Route::prefix('subscribe')->middleware(['auth:api'])->group(function() {
 // 	Route::post('/','ProjectCategoryController@store');
 // 	Route::put('/','ProjectCategoryController@store');
 // 	Route::delete('/{id}','ProjectCategoryController@destroy');
-    
+
 // });
 
 // Route::prefix('project')->middleware(['auth:api','admin'])->group(function() {
-	
+
 // 	Route::post('/','ProjectController@store');
 // 	Route::put('/','ProjectController@store');
 // 	Route::delete('/{id}','ProjectController@destroy');
-    
+
 // });
 
 // Route::prefix('purpose')->middleware(['auth:api','admin'])->group(function() {
-	
+
 // 	Route::post('/','PurposeController@store');
 // 	Route::put('/','PurposeController@store');
 // 	Route::delete('/{id}','PurposeController@destroy');
-    
+
 // });
 
 // Route::prefix('income')->middleware(['auth:api','admin'])->group(function() {
-	
+
 // 	Route::post('/','IncomeController@store');
 // 	Route::put('/','IncomeController@store');
 // 	Route::delete('/{id}','IncomeController@destroy');
-    
+
 // });
 
 // Route::prefix('expense')->middleware(['auth:api','admin'])->group(function() {
-	
+
 // 	Route::post('/','ExpenseController@store');
 // 	Route::put('/','ExpenseController@store');
 // 	Route::delete('/{id}','ExpenseController@destroy');
-    
+
 // });
 
 // Route::prefix('role')->middleware(['auth:api'])->group(function() {
-	
+
 // 	Route::post('/','RoleController@store');
 // 	Route::put('/','RoleController@update');
 // 	Route::delete('/{id}','RoleController@destroy');
-    
+
 // });
 
 Route::prefix('invoice')->middleware(['auth:api','admin'])->group(function() {
-	
+
 	// Route::post('/','Invoice\InvoiceController@store');
 	// Route::put('/','Invoice\InvoiceController@store');
 	// Route::delete('/{id}','Invoice\InvoiceController@destroy');
-	
-    
+
+
 });
 
 Route::prefix('payment-receive')->middleware(['auth:api','admin'])->group(function() {
-	
+
 	// Route::post('/','PaymentReceiveController@store');
 	// Route::put('/','PaymentReceiveController@store');
 	// Route::delete('/{id}','PaymentReceiveController@destroy');
-    
+
 });
 
 Route::post('oauth/login', 'AuthController@auth');
@@ -197,7 +199,7 @@ Route::prefix('api')->middleware(['auth:api'])->group(function() {
 
     Route::get('/contacts/finacial-training','ContactController@finatialAndTraining');
     Route::post('/contacts/password-change','ContactController@passwordChange');
-    
+
 });
 
 Route::prefix('api')->middleware(['auth:api'])->group(function() {
@@ -215,7 +217,7 @@ Route::prefix('api')->middleware(['auth:api'])->group(function() {
  	Route::post('/get-applicant','ApplicantController@get');
  	Route::post('/get-applicant-xl','ApplicantController@getXlData');
 	Route::post('/applicant/training','ApplicantController@applicantTraining');
- 	
+
 
  	Route::post('/rate','RatingController@rate');
  	Route::post('/review-reply','RatingController@reply');
@@ -247,7 +249,7 @@ Route::prefix('api')->middleware(['cors'])->group(function() {
  	Route::get('/get-applied-applicant-pdf','ApplicantController@getAppliedPDFdata');
  	Route::get('/get-migrate-applicant-pdf','DashboardController@getMigratePDFdata');
  	// ?page='+this.search.page+'&search='+this.search.search+'&job_id='+this.search.job_id+'&country_id='+this.search.country_id+'&type='+this.search.type
- 	
+
 });
 
 
@@ -257,11 +259,14 @@ Route::prefix('api')->middleware(['cors'])->group(function() {
 
 
 
-//visa 
+//visa
 
 
 Route::get('/test44','RegisterLoginPasswordResetController@test');
 
+// custom route from moinul
+
+Route::get('/job-category','CustomizationController@getJobType');
 
 
 
