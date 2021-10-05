@@ -75,10 +75,14 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch('jobs/all_job_type')
     this.category = this.$store.dispatch('jobs/job_category')
     this.$store.dispatch('jobs/job_with_owner')
-    this.$store.dispatch('jobs/all_job_type')
+
     // console.log(this.$store.state.jobs.all_jobs_category)
+  },
+  mounted() {
+    // this.$store.dispatch('jobs/all_job_type')
   }
 }
 </script>

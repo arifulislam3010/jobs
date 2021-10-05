@@ -8,7 +8,7 @@
       <div class="job-category-button-wrapper">
         <div class="job-category-single-button-wrapper">
           <div
-            v-for="(job, index) in jobCategory"
+            v-for="(job, index) in jobsAll"
             :key="job.id"
             :class="[
               'job-category-button',
@@ -36,77 +36,9 @@
                 <i class="fas fa-chevron-right"></i>
                 <nuxt-link to="/job-search">{{ cat.label }}</nuxt-link>
               </li>
-              <!-- <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li> -->
             </ul>
           </div>
         </div>
-        <!-- <div class="col-md-4">
-          <div class="job-list-wrapper">
-            <ul>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="job-list-wrapper">
-            <ul>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-              <li>
-                <i class="fas fa-chevron-right"></i>
-                <nuxt-link to="#">Accounting/Finance (288)</nuxt-link>
-              </li>
-            </ul>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -118,7 +50,7 @@ export default {
   data() {
     return {
       categoryef: this.category,
-      jobCategory: this.jobs,
+      jobsAll: this.jobs,
       itemSection: 0
     }
   },
@@ -129,6 +61,7 @@ export default {
     }
   },
   created() {
+    // this.$store.dispatch('jobs/all_job_type')
     // this.jobCategory = this.$store.dispatch('jobs/all_job_type')
   }
 }

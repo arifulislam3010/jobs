@@ -47,7 +47,6 @@
       </div> -->
       <treeselect
         name="job"
-        v-validate="'required'"
         placeholder="জনবল পাঠানো চাকুরী"
         v-model="this.$parent.job"
         :multiple="true"
@@ -57,6 +56,8 @@
       <!-- //need  to cut  -->
       <div
         class="job-filter-list-item d-flex justify-content-between align-items-center"
+        v-for="job in allJob"
+        :key="['ok', job.id]"
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
@@ -65,66 +66,9 @@
               class="form-check-input"
               id="exampleCheck1"
             />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
-          </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
-          </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
-          </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+            <label class="form-check-label" for="exampleCheck1">{{
+              job.category_name
+            }}</label>
           </div>
         </div>
         <div class="job-post-count">
@@ -136,7 +80,7 @@
 
       <div class="job-filter-number-input mt-3 mb-3">
         <div class="list-heading">
-          <h4>Type of employement</h4>
+          <h4>Salary Range</h4>
         </div>
         <div class="job-number_sort_form">
           <input type="number" placeholder="MIN" />
@@ -148,14 +92,18 @@
         class="list-heading-wrapper d-flex justify-content-between align-items-center mt-3 mb-2"
       >
         <div class="list-heading">
-          <h4>Type of employement</h4>
+          <h4>Seniority Level</h4>
         </div>
         <div class="list-collaps-icon">
           <i class="fas fa-angle-up"></i>
         </div>
       </div>
+
+      <!-- //senior level  -->
       <div
         class="job-filter-list-item d-flex justify-content-between align-items-center"
+        v-for="seniorj in seniorLevel"
+        :key="seniorj.id"
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
@@ -164,36 +112,32 @@
               class="form-check-input"
               id="exampleCheck1"
             />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+            <label class="form-check-label" for="exampleCheck1">{{
+              seniorj.level
+            }}</label>
           </div>
         </div>
         <div class="job-post-count">
           <p>128</p>
         </div>
       </div>
+
+      <!-- // time line  -->
       <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
+        class="list-heading-wrapper d-flex justify-content-between align-items-center mt-3 mb-2"
       >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
-          </div>
+        <div class="list-heading">
+          <h4>Job Poster or Deadline</h4>
         </div>
-        <div class="job-post-count">
-          <p>128</p>
+        <div class="list-collaps-icon">
+          <i class="fas fa-angle-up"></i>
         </div>
       </div>
+
       <div
         class="job-filter-list-item d-flex justify-content-between align-items-center"
+        v-for="ago in time"
+        :key="ago.id"
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
@@ -203,35 +147,31 @@
               id="exampleCheck1"
             />
             <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
+              >{{ ago.name }} ago</label
             >
           </div>
         </div>
         <div class="job-post-count">
-          <p>128</p>
+          <p>{{ ago.job }}</p>
         </div>
       </div>
+
+      <!-- // gender specific  -->
       <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
+        class="list-heading-wrapper d-flex justify-content-between align-items-center mt-3 mb-2"
       >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
-          </div>
+        <div class="list-heading">
+          <h4>Gender Specific</h4>
         </div>
-        <div class="job-post-count">
-          <p>128</p>
+        <div class="list-collaps-icon">
+          <i class="fas fa-angle-up"></i>
         </div>
       </div>
+
       <div
         class="job-filter-list-item d-flex justify-content-between align-items-center"
+        v-for="sex in gender"
+        :key="sex.id"
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
@@ -241,12 +181,12 @@
               id="exampleCheck1"
             />
             <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
+              >{{ sex.name }} ago</label
             >
           </div>
         </div>
         <div class="job-post-count">
-          <p>128</p>
+          <p>{{ sex.job }}</p>
         </div>
       </div>
     </div>
@@ -254,7 +194,59 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['jobType', 'senior'],
+  data() {
+    return {
+      allJob: this.jobType,
+      seniorLevel: this.senior,
+      time: [
+        {
+          id: 200,
+          name: 'Today',
+          job: '100'
+        },
+        {
+          id: 201,
+          name: '3 days ',
+          job: '100'
+        },
+        {
+          id: 202,
+          name: '1 week',
+          job: '100'
+        },
+        {
+          id: 203,
+          name: '1 month',
+          job: '100'
+        }
+      ],
+      gender: [
+        {
+          id: 300,
+          name: 'Any',
+          job: '100'
+        },
+        {
+          id: 301,
+          name: 'Men',
+          job: '100'
+        },
+        {
+          id: 302,
+          name: 'Women',
+          job: '100'
+        },
+        {
+          id: 303,
+          name: 'Disable Person',
+          job: '100'
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style lang="scss">

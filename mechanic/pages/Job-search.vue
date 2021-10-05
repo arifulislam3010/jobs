@@ -3,9 +3,12 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-4 col-lg-4">
-          <!-- <JobFilter /> -->
+          <JobFilter
+            :jobType="this.$store.state.jobs.all_job_type"
+            :senior="this.$store.state.jobs.senarity_level_data"
+          />
           <div class="row mb-2">
-            <job-filter />
+            <!-- <job-filter /> -->
             <!-- <div class="search_select">
                     <treeselect :default-expand-level="1"  name="country" v-validate="'required'" placeholder="দেশ"  v-model="country" :multiple="true" :options="countries" />
                   </div>
@@ -156,6 +159,10 @@ export default {
         })
         .catch(error => {})
     }
+  },
+  created() {
+    this.$store.dispatch('jobs/all_job_type')
+    this.$store.dispatch('jobs/senarity_level')
   }
 }
 </script>

@@ -267,6 +267,7 @@ Route::get('/test44','RegisterLoginPasswordResetController@test');
 // custom route from moinul
 
 Route::get('/job-category','CustomizationController@getJobType');
+Route::get('/seniority-level','CustomizationController@getSeniorityLevel');
 
 
 
