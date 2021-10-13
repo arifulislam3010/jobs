@@ -268,6 +268,7 @@ Route::get('/test44','RegisterLoginPasswordResetController@test');
 
 Route::get('/job-category','CustomizationController@getJobType');
 Route::get('/seniority-level','CustomizationController@getSeniorityLevel');
+Route::get('/gender','CustomizationController@getGender');
 
 
 
