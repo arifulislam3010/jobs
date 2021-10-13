@@ -2,7 +2,9 @@
 
 namespace Modules\Post\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Post\Entities\Post;
@@ -63,7 +65,7 @@ class PostController extends Controller
     public function postCategory()
     {
         $category = Ncategory::all();
-         return NcategoryResource::collection($category);
+        return NcategoryResource::collection($category);
         return PostResource::collection(Post::all());
     }
 
@@ -125,10 +127,10 @@ class PostController extends Controller
         $slug = strtolower($slug);
         if(Post::where('slug',$slug)->first())
         {
-           $post->slug = strtolower($slug.'-'.str_random(5));
+            $post->slug = strtolower($slug.'-'.str_random(5));
         }
         else{
-           $post->slug = $slug;
+            $post->slug = $slug;
         }
 
         if($request->not_edit_image == 11){
@@ -173,13 +175,13 @@ class PostController extends Controller
                     'post' => $post
                 ];
                 SendReminderEmail::dispatch($data)
-                ->delay(now()->addSeconds(20));
+                    ->delay(now()->addSeconds(20));
             }
 
         }
 
         if($post->save()) {
-            return new PostResource($post);
+            return new \Illuminate\Http\Resources\Json\JsonResource($post);
         }
         return 0;
     }

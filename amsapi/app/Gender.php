@@ -5,12 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Post\Entities\Post;
 
-class JobCategory extends Model
+class Gender extends Model
 {
     //
 
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Post::class);
     }
 }

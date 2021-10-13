@@ -2,6 +2,9 @@
 
 namespace Modules\Post\Entities;
 
+use App\Gender;
+use App\JobCategory;
+use App\SeniarityLevel;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -73,5 +76,18 @@ class Post extends Model
         return $this->belongsTo('App\User','author_id');
     }
 
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class);
+    }
 
+    public function senior()
+    {
+        return $this->belongsTo(SeniarityLevel::class);
+    }
+
+    public function jobType()
+    {
+        return $this->belongsTo(JobCategory::class);
+    }
 }
