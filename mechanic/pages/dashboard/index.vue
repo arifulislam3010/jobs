@@ -4,33 +4,38 @@
             <div v-if="this.$auth.user.type == 6" class="row">
                 <div @click="getApplicantResult(1,111)" class="col-md-4 col-xl-3">
                     <div  class="card thum-card bg-c-blue order-card">
-                        <p style="font-size:15px;" class="m-b-0">মোট আবেদন<span  class="f-right"><i  class="fa fa-credit-card f-left"></i></span></p>
+                        
                         <span class="f-left">{{getBanglavalue(total_application)}}</span>
+                        <p style="font-size:15px;" class="m-b-0">Total Application</p>
                     </div>
                 </div>
                 <div @click="getApplicantResult(2,2)" class="col-md-4 col-xl-3">
                     <div  class="card thum-card bg-c-green order-card">
-                        <p style="font-size:15px;" class="m-b-0">মোট সংক্ষিপ্ত তালিকাভুক্ত<span  class="f-right"><i  class="fa fa-user"></i></span></p>
+                       
                         <span class="f-left">{{getBanglavalue(sorted_application)}}</span>
+                         <p style="font-size:15px;" class="m-b-0">Sorted Spplication</p>
                     </div>
                 </div>
                 
                 <div @click="getApplicantResult(3,3)" class="col-md-4 col-xl-3">
                     <div class="card thum-card bg-c-bb order-card">
-                        <p style="font-size:15px;" class="m-b-0"> মোট নির্বাচিত তালিকাভুক্ত<span  class="f-right"><i class="far fa-building"></i></span></p>
+                       
                         <span class="f-left">{{getBanglavalue(selected_application)}}</span>
+                         <p style="font-size:15px;" class="m-b-0"> Selected application </p>
                     </div>
                 </div>
                 <div @click="getApplicantResult(2,2)" class="col-md-4 col-xl-3">
                     <div  class="card thum-card bg-c-red order-card">
-                        <p style="font-size:15px;" class="m-b-0">মোট পেন্ডিং তালিকাভুক্ত<span  class="f-right"><i  class="fa fa-user"></i></span></p>
+                       
                         <span class="f-left">{{getBanglavalue(pending_application)}}</span>
+                         <p style="font-size:15px;" class="m-b-0">Pending Application </p>
                     </div>
                 </div>
                 <div @click="getfavouriteList()" class="col-md-4 col-xl-3">
                     <div  class="card thum-card bg-c-purple order-card">
-                        <p style="font-size:15px;" class="m-b-0">পছন্দের নিয়োগ বিজ্ঞপ্তি<span  class="f-right"><i  class="fa fa-user"></i></span></p>
+                        
                         <span class="f-left">{{getBanglavalue(favourite)}}</span>
+                        <p style="font-size:15px;" class="m-b-0">Favourite </p>
                     </div>
                 </div>
                 
@@ -41,14 +46,14 @@
                     <table class="table table-bordered">
                         <thead>
                           <tr>
-                              <td v-if="applica_result_type == 1" colspan="3"><span style="font-size:20px;">আবেদন তালিকা</span></td>
-                              <td v-if="applica_result_type == 2" colspan="3" ><span style="font-size:20px;">সংক্ষিপ্ত তালিকা</span></td>
-                              <td v-if="applica_result_type == 3" colspan="3" ><span style="font-size:20px;">নির্বাচিত তালিকা</span></td>
+                              <td v-if="applica_result_type == 1" colspan="3"><span style="font-size:20px;">Applications</span></td>
+                              <td v-if="applica_result_type == 2" colspan="3" ><span style="font-size:20px;">Sorted List</span></td>
+                              <td v-if="applica_result_type == 3" colspan="3" ><span style="font-size:20px;">Selected List</span></td>
                           </tr>
                           <tr>
-                            <th>ক্রম </th>
-                            <th>পদবি</th>
-                            <th>এজেন্সি</th>
+                            <th>No </th>
+                            <th>Designation</th>
+                            <th>Company</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -71,12 +76,12 @@
                     <table class="table table-bordered">
                         <thead>
                           <tr>
-                              <td  colspan="3"><span style="font-size:20px;">পছন্দের নিয়োগ বিজ্ঞপ্তি তালিকা</span></td>
+                              <td  colspan="3"><span style="font-size:20px;">Faverit Job posts</span></td>
                           </tr>
                           <tr>
-                            <th>ক্রম </th>
-                            <th>পদবি</th>
-                            <th>এজেন্সি</th>
+                            <th>No </th>
+                            <th>Designation</th>
+                            <th>Company</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -93,36 +98,39 @@
                 <div class="col-md- col-xl-3">
                     <nuxt-link to="/dashboard/jobposts">
                     <div class="card bg-c-blue order-card">
-                        <p style="font-size:15px;" class="m-b-0">চাকুরীর বিজ্ঞপ্তি<span  class="f-right"><i  class="fa fa-credit-card f-left"></i></span></p>
+                        
                         <span class="f-left">{{ getBanglavalue(total_post) }}</span>
+                        <p style="font-size:15px;" class="m-b-0">Job Posts</p>
                     </div>
                     </nuxt-link>
                 </div>
                 <div class="col-md-4 col-xl-3">
                     <nuxt-link to="/dashboard/job-applicant">
                     <div  class="card bg-c-red order-card">
-                        <p style="font-size:15px;" class="m-b-0">আবেদনকারী<span  class="f-right"><i  class="fa fa-user"></i></span></p>
+                       
                         <span class="f-left">{{ getBanglavalue(total_applied_applicant) }}</span>
+                         <p style="font-size:15px;" class="m-b-0">Applicant</p>
                     </div>
                     </nuxt-link>
                 </div>
                 <div class="col-md-4 col-xl-3">
                     <a href="#test">
                         <div  class="card bg-c-bb order-card">
-                            <p style="font-size:15px;" class="m-b-0">নির্বাচিত প্রার্থী<span  class="f-right"><i class="fas fa-clipboard-list"></i></span></p>
+                            
                             <span class="f-left">{{ getBanglavalue(total_migrated) }}</span>
+                            <p style="font-size:15px;" class="m-b-0">Selected Applicant</p>
                         </div>
                     </a>
                 </div>
                 <div id="test"  class="col-md-12 col-xl-12">
                     <table class="table table-bordered">
                         <thead>
-                          <tr style="background:#888;color:#fff">
+                          <tr style="background:#fff;">
                               <td  colspan="4">
                                   <div class="col-md-12">
                                     <div class="row">
                                         <div style="width:35%;">
-                                            <span style="font-size:20px;">নির্বাচিত প্রার্থী: {{migration_count}}</span>
+                                            <span style="font-size:20px;">Selected Applicant: {{migration_count}}</span>
                                         </div>
                                         <!-- <div style="width:20%;">
                                             <multiselect
@@ -142,17 +150,17 @@
                                         </div> -->
                                         &nbsp;
                                         <div style="width:10%">
-                                            <button  @click="getPdf()" class="btn btn-success"><i class="fas fa-file-pdf"></i> এক্সপোর্ট</button>
+                                            <button  @click="getPdf()" class="btn btn-success"><i class="fas fa-file-pdf"></i>Export</button>
                                         </div>
                                     </div>
                                 </div>
                               </td>
                           </tr>
                           <tr>
-                            <th>ক্রম </th>
-                            <th>প্রার্থী</th>
-                            <th>পদবি</th>
-                            <th>এজেন্সি</th>
+                            <th>No </th>
+                            <th>Applicant</th>
+                            <th>Designation</th>
+                            <th>Company</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -170,59 +178,63 @@
             <div v-if="$auth.user.role_id == 1|| $auth.user.role_id == 9" class="row">
                 <div class="col-md-4 col-xl-3">
                     <div @click="goTo('agency')" class="card bg-c-blue order-card">
-                        <p style="font-size:15px;" class="m-b-0">মোট এজেন্সি<span  class="f-right"><i  class="fa fa-credit-card f-left"></i></span></p>
+                       
                         <span class="f-left">{{getBanglavalue(total_agency)}} </span>
+                         <p style="font-size:15px;" class="m-b-0">Total Company</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-xl-3">
                     <div @click="goTo('applicant')" class="card bg-c-green order-card">
-                        <p style="font-size:15px;" class="m-b-0">মোট প্রার্থী<span  class="f-right"><i  class="fa fa-user"></i></span></p>
+                        
                         <span class="f-left">{{ getBanglavalue(total_applicant) }}</span>
+                        <p style="font-size:15px;" class="m-b-0">Total Applicant</p>
                     </div>
                 </div>
                 <div v-if="$auth.user.role_id == 1" class="col-md-4 col-xl-3">
                     <div @click="goTo('training-center')" class="card bg-c-yellow order-card">
-                        <p style="font-size:15px;" class="m-b-0">প্রশিক্ষণ ইনস্টিটিউট<span  class="f-right"><i class="fas fa-clipboard-list"></i></span></p>
+                       
                         <span class="f-left">{{ getBanglavalue(total_training_center) }}</span>
+                         <p style="font-size:15px;" class="m-b-0">Training Center</p>
                     </div>
                 </div>
-                <div v-if="$auth.user.role_id == 1" class="col-md-4 col-xl-3">
+                <!-- <div v-if="$auth.user.role_id == 1" class="col-md-4 col-xl-3">
                     <div @click="goTo('important-embassy')" class="card bg-c-pink order-card">
                         <p style="font-size:15px;" class="m-b-0"> গুরুত্বপূর্ণ এম্বাসি<span  class="f-right"><i class="far fa-building"></i></span></p>
                         <span class="f-left">{{ getBanglavalue(total_embassy) }}</span>
                     </div>
-                </div>
-                <div v-if="$auth.user.role_id == 1" class="col-md-4 col-xl-3">
+                </div> -->
+                <!-- <div v-if="$auth.user.role_id == 1" class="col-md-4 col-xl-3">
                     <div @click="goTo('financial-organization')" class="card bg-c-bb order-card">
                         <p style="font-size:15px;" class="m-b-0">আর্থিক সংস্থা<span  class="f-right"><i class="far fa-building"></i></span></p>
                         <span class="f-left">{{ getBanglavalue(total_financial_organization) }}</span>
                     </div>
-                </div>
+                </div> -->
                 <div v-if="$auth.user.role_id == 1" class="col-md-4 col-xl-3">
                     <div @click="goTo('jobposts')" class="card bg-c-red order-card">
-                        <p style="font-size:15px;" class="m-b-0">চাকুরীর বিজ্ঞপ্তি<span  class="f-right"><i class="far fa-building"></i></span></p>
+                        
                         <span class="f-left">{{ getBanglavalue(total_post) }}</span>
+                        <p style="font-size:15px;" class="m-b-0">Job Posts</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-xl-3">
+                <!-- <div class="col-md-4 col-xl-3">
                     <a href="#test">
                         <div  class="card bg-c-purple order-card">
                             <p style="font-size:15px;" class="m-b-0">মাইগ্রেট প্রার্থী<span  class="f-right"><i class="far fa-building"></i></span></p>
                             <span class="f-left">{{ getBanglavalue(total_migrated) }}</span>
                         </div>
                     </a>
-                </div>
+                </div> -->
 
                 <div v-if="$auth.user.role_id == 1" class="col-md-12 col-xl-12">
                     <div style="border: solid 1px #d6d6c2;padding:5px;color:#d6d6c2">
-                        <span>সমস্ত পরিসংখ্যান</span>
+                        <span>All Statistics</span>
                     </div>
                 </div>
                 <div  v-if="$auth.user.role_id == 1" class="col-md-12 col-xl-12">
                     <div class="row" style="border: solid 1px #d6d6c2;margin:0px;background-color:#d6d6c2;padding-top:15px;padding-right:10px;">
                         <div class="col-md-3 col-xl-3">
                             <div>
-                                <VueCtkDateTimePicker  formatted='ll' format="YYYY-MM-DD"  v-model="mydate" :range="true" :label="'সময়সীমা নির্বাচন করুন'" /> 
+                                <VueCtkDateTimePicker  formatted='ll' format="YYYY-MM-DD"  v-model="mydate" :range="true" :label="'Select time range'" /> 
                             </div>
                         </div>
                         <div class="col-md-3 col-xl-3">
@@ -232,7 +244,7 @@
                                 name = "division"
                                 @input="getDistrict()"
                                 v-model="division"
-                                placeholder="বিভাগ"
+                                placeholder="Division"
                                 label="division_name_eng"
                                 track-by="id"
                                 :options="divisions"
@@ -245,7 +257,7 @@
                                 name = "district"
                                 @input="getSubdistrict()"
                                 v-model="district"
-                                placeholder="জেলা"
+                                placeholder="District"
                                 label="district_name_eng"
                                 track-by="id"
                                 :options="districts"
@@ -259,7 +271,7 @@
                                     name = "subdistrict"
                                     style="margin-left:15px;"
                                     v-model="subdistrict"
-                                    placeholder="উপজেলা"
+                                    placeholder="Subdistrict"
                                     label="upazila_name_eng"
                                     track-by="id"
                                     :options="subdistricts"
@@ -279,7 +291,7 @@
                             </div> -->
                         </div>
                         <div class="col-md-2 col-xl-2 mb-2" style="padding-right:0px;">
-                            <button @click="getSearchData()" style="padding-left:37px;padding-right:37px;" type="button" class="btn btn-secondary f-right">সাবমিট</button>
+                            <button @click="getSearchData()" style="padding-left:37px;padding-right:37px;" type="button" class="btn btn-secondary f-right">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -289,25 +301,25 @@
                             <div style="border: solid 1px #d6d6c2;color:#d6d6c2"  class="col-md-4 col-xl-4">
                                 <div style="padding-right:0px;" class="col-md-12 col-xl-12">
                                     <div  class="card2 bg-c-blue order-card" style="height:70px;padding-right:0px;">
-                                        <span style="font-size:15px;" class="m-b-0">মোট আগ্রহী আবেদনকারী</span><br>
+                                        <span style="font-size:15px;" class="m-b-0">Total Interested Applicant</span><br>
                                         <span class="f-left">{{getBanglavalue(demoData.intersested)}}</span>
                                     </div>
                                 </div>
                                 <div style="padding-right:0px;" class="col-md-12 col-xl-12">
                                     <div  class="card2 bg-c-blue order-card" style="height:70px;padding-right:0px;">
-                                        <span style="font-size:15px;" class="m-b-0">মোট দক্ষ আবেদনকারী</span><br>
+                                        <span style="font-size:15px;" class="m-b-0">Total Skilled Applicant</span><br>
                                         <span class="f-left">{{getBanglavalue(demoData.skilled)}}</span>
                                     </div>
                                 </div>
                                 <div style="padding-right:0px;" class="col-md-12 col-xl-12">
                                     <div  class="card2 bg-c-blue order-card" style="height:70px;padding-right:0px;">
-                                        <span style="font-size:15px;" class="m-b-0">মোট অদক্ষ আবেদনকারী</span><br>
+                                        <span style="font-size:15px;" class="m-b-0">Total Unskilled Applicant</span><br>
                                         <span class="f-left">{{getBanglavalue(demoData.unskilled)}}</span>
                                     </div>
                                 </div>
                                 <div style="padding-right:0px;" class="col-md-12 col-xl-12">
                                     <div  class="card2 bg-c-blue order-card" style="height:70px;padding-right:0px;margin-bottom: 15px;">
-                                        <span style="font-size:15px;" class="m-b-0">মোট অভিবাসী</span><br>
+                                        <span style="font-size:15px;" class="m-b-0">Total Selected Applicant</span><br>
                                         <span class="f-left">{{getBanglavalue(demoData.imigrate)}}</span>
                                     </div>
                                 </div>
@@ -332,7 +344,7 @@
                         </div>
                     </div>
                 </div>
-                <div  v-if="$auth.user.role_id == 1" class="col-md-12 col-xl-12">
+                <!-- <div  v-if="$auth.user.role_id == 1" class="col-md-12 col-xl-12">
                     <div style="border: solid 1px #d6d6c2;padding:5px;color:#d6d6c2">
                         <span>উপজেলা ভিত্তিক পরিসংখ্যান</span>
                     </div>
@@ -362,19 +374,19 @@
                       </table> 
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <button @click="summaryAdmin()">Test</button> -->
                 <div id="test"  class="col-md-12 col-xl-12">
                     <table class="table table-bordered">
                         <thead>
-                          <tr style="background:#888;color:#fff">
+                          <tr style="background:#fff;">
                               <td  colspan="4">
                                   <div class="col-md-12">
                                     <div class="row">
                                         <div style="width:35%;">
-                                            <span style="font-size:20px;">মাইগ্রেট প্রার্থী: {{getBanglavalue(migration_count)}}</span>
+                                            <span style="font-size:20px;">Selected Applicant: {{getBanglavalue(migration_count)}}</span>
                                         </div>
-                                        <div style="width:20%;">
+                                        <!-- <div style="width:20%;">
                                             <multiselect
                                             selectLabel=""
                                             deselectLabel=""
@@ -384,14 +396,14 @@
                                             track-by="id"
                                             :options="countries"
                                             ></multiselect>
-                                        </div>
+                                        </div> -->
                                         &nbsp;
                                         <div v-if="this.$auth.user.type == 1" style="width:20%;">
                                             <multiselect
                                                 selectLabel=""
                                                 deselectLabel=""
                                                 v-model="agency"
-                                                placeholder="সরকার অনুমোদিত এজেন্সি"
+                                                placeholder="Company"
                                                 label="name"
                                                 track-by="id"
                                                 :options="agencies"
@@ -402,21 +414,21 @@
                                             <button 
                                             @click="getMigrateApplicant()"
                                             class="btn btn-secondary"
-                                            >খুঁজুন</button>
+                                            >Search</button>
                                         </div>
                                         &nbsp;
                                         <div style="width:10%">
-                                            <button  @click="getPdf()" class="btn btn-success"><i class="fas fa-file-pdf"></i> এক্সপোর্ট</button>
+                                            <button  @click="getPdf()" class="btn btn-success"><i class="fas fa-file-pdf"></i>Export</button>
                                         </div>
                                     </div>
                                 </div>
                               </td>
                           </tr>
                           <tr>
-                            <th>ক্রম </th>
-                            <th>প্রার্থী</th>
-                            <th>পদবি</th>
-                            <th>এজেন্সি</th>
+                            <th>No </th>
+                            <th>Applicant</th>
+                            <th>Designation</th>
+                            <th>Company</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -646,6 +658,7 @@ export default {
         })
     },
     getBanglavalue(a){
+        return a;
         if(a == 0){
             return '০';
         }
@@ -845,7 +858,10 @@ export default {
     margin-bottom: 30px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    padding: 10px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 .thum-card{
     cursor: pointer;
@@ -860,15 +876,21 @@ export default {
     margin-bottom: 30px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    padding: 10px;
-    margin-top: 13px;
-    margin-bottom: 0px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
 }
 
 .order-card i {
     font-size: 16px;
 }
-
+.order-card p{
+    margin-bottom: 0px !important;
+}
+.order-card span{
+    text-align: center;
+    font-size: 40px;
+}
 .f-left {
     float: left;
     font-size: 22px;
