@@ -55,12 +55,12 @@
                   v-model="login.email"
                   alternative
                   class="mb-3"
-                  placeholder="ইমেইল/ মোবাইল"
+                  placeholder="email/ phone"
                   addon-left-icon="ni ni-email-83"
                 >
                 </base-input>
                 <p v-if="errors.has('email_field')" class="validation_message">
-                  * ইমেইল/মোবাইল প্রয়োজন
+                  * email / phone required
                 </p>
                 <base-input
                   @keyup.enter="trigger"
@@ -69,19 +69,19 @@
                   v-model="login.password"
                   alternative
                   type="password"
-                  placeholder="পাসওয়ার্ড"
+                  placeholder="password"
                   addon-left-icon="ni ni-lock-circle-open"
                 >
                 </base-input>
                 <p v-if="errors.has('password')" class="validation_message">
-                  * পাসওয়ার্ড প্রয়োজন
+                  * password required
                 </p>
                 <!-- <base-checkbox>
                                     Remember me
                                 </base-checkbox> -->
                 <input @click="Login" ref="sendReply" type="hidden" />
                 <n-link class="text" to="/forgot-password"
-                  ><small>পাসওয়ার্ড ভুলে গেছেন?</small></n-link
+                  ><small>Forget pasword?</small></n-link
                 >
                 <div class="text-center">
                   <base-button
@@ -90,7 +90,7 @@
                     type="primary"
                     class="my-4"
                   >
-                    <i class="fa fa-cog fa-spin"></i> লগইন</base-button
+                    <i class="fa fa-cog fa-spin"></i>Login</base-button
                   >
 
                   <base-button
@@ -99,7 +99,7 @@
                     @click="Login"
                     type="primary"
                     class="my-4"
-                    >লগইন</base-button
+                    >Login</base-button
                   >
                 </div>
               </form>

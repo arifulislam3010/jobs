@@ -4,7 +4,7 @@
             <div class="side_form">
                 <div style="width:100%;text-align:center;">
                     <br>
-                    <button @click="goAgencyReg()" style="border-radius:0;" class="btn btn-primary">এজেন্সি রেজিস্ট্রেশন</button> 
+                    <button @click="goAgencyReg()" style="border-radius:0;" class="btn btn-primary">Employer Registration</button> 
                     <!-- <button @click="goAdminReg()" style="border-radius:0;" class="btn btn-primary">এডমিন রেজিস্ট্রেশন</button> -->
                 </div>
             </div>
@@ -21,12 +21,12 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <h4>ব্যবহারকারী রেজিস্ট্রেশন</h4>
+                    <h4>Job Seeker Registration</h4>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                     <label for="inputPassword" class="labels">
-                        নাম
+                        Name
                         <span class="required">*</span>
                     </label>
                     <input
@@ -38,13 +38,13 @@
                         v-model="name"
                     />
                     <div>
-                        <span v-if="errors.has('Name') && verify_status" class="validation_message">নাম প্রয়োজন</span>
+                        <span v-if="errors.has('Name') && verify_status" class="validation_message">Name Required</span>
                     </div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label  for="inputPassword" class="labels">ইমেইল/মোবাইল<span class="required">*</span></label>
+                    <label  for="inputPassword" class="labels">Email/Phone<span class="required">*</span></label>
                     <input
                     @keyup="errorRemove2('email','phone')"
                     v-validate="'required'"
@@ -54,7 +54,7 @@
                         v-model="email"
                     />
                     <div>
-                        <span v-if="errors.has('email') && verify_status" class="validation_message">ইমেইল/মোবাইল প্রয়োজন</span>
+                        <span v-if="errors.has('email') && verify_status" class="validation_message">Email / phone required</span>
                         <span v-if="error_message" class="validation_message"><span v-if="error_message.email"><span v-for="(error,key) in error_message.email" :key="key">{{error}}</span></span></span>
                         <span v-if="error_message" class="validation_message"><span v-if="error_message.phone"><span v-for="(error,key) in error_message.phone" :key="key">{{error}}</span></span></span>
                     </div>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label for="inputPassword" class="labels">পাসওয়ার্ড<span class="required">*</span></label>
+                    <label for="inputPassword" class="labels">Password<span class="required">*</span></label>
                     <input
                         @keyup="errorRemove('password')"
                         name="password"
@@ -73,18 +73,18 @@
                     />
                     <span @click="togglePassword()"  class="field-icon"><i :class="showPassword?'fas fa-eye-slash':'fas fa-eye'"></i></span>
                     <div>
-                        <span v-if="errors.has('password') && verify_status" class="validation_message">পাসওয়ার্ড প্রয়োজন</span>
+                        <span v-if="errors.has('password') && verify_status" class="validation_message">Password required</span>
                         <span v-if="error_message" class="validation_message"><span v-if="error_message.password"><span v-for="(error,key) in error_message.password" :key="key">{{error}}</span></span></span>
                     </div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group ">
-                    <label for="inputPassword" class=" labels">কনফার্ম পাসওয়ার্ড<span class="required">*</span></label>
+                    <label for="inputPassword" class=" labels">Confirm Password<span class="required">*</span></label>
                     <input @keyup="errorRemove('confirm_password')"  name="confirm_password" v-validate="'required'" class="form-control" :type="showConfirmPassword?'text':'password'" v-model="confirm_password" />
                     <span @click="toggleConfirmPassword()"  class="field-icon"><i :class="showConfirmPassword?'fas fa-eye-slash':'fas fa-eye'"></i></span>
                     <div >
-                        <span v-if="errors.has('confirm_password') && verify_status" class="validation_message">কনফার্ম পাসওয়ার্ড প্রয়োজন</span>
+                        <span v-if="errors.has('confirm_password') && verify_status" class="validation_message">Confirm password required</span>
                         <span v-if="error_message" class="validation_message"><span v-if="error_message.confirm_password"><span v-for="(error,key) in error_message.confirm_password" :key="key">{{error}}</span></span></span>
                     </div>
                     </div>
@@ -200,9 +200,9 @@
                 </div> -->
                 <div class="col-md-12 ">
                     <div class="pull-right">
-                        <base-button style="border-radius:0;border:rgba(117, 171, 40, 0.98);background-color:rgba(117, 171, 40, 0.98)" v-if="loader"  type="primary"  class="my-4"> <i class="fa fa-cog fa-spin"></i> নিবন্ধন</base-button>
+                        <base-button style="border-radius:0;border:rgba(117, 171, 40, 0.98);background-color:rgba(117, 171, 40, 0.98)" v-if="loader"  type="primary"  class="my-4"> <i class="fa fa-cog fa-spin"></i>Submit</base-button>
 
-                        <base-button style="border-radius:0;border:rgba(117, 171, 40, 0.98);background-color:rgba(117, 171, 40, 0.98)" v-else @click="validate()"  type="primary"  class="my-4">নিবন্ধন</base-button>
+                        <base-button style="border-radius:0;border:rgba(117, 171, 40, 0.98);background-color:rgba(117, 171, 40, 0.98)" v-else @click="validate()"  type="primary"  class="my-4">Submit</base-button>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
       <div class="col-md-5">
         <div class="form-group row">
           <label for="inputPassword" class="col-md-4 labels">
-            নাম
+            Name
             <span class="required">*</span>
           </label>
           <input
