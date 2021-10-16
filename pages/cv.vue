@@ -366,47 +366,13 @@
                     <div class="cv-single-content-block-title">
                       <h2>Present Address</h2>
                     </div>
-                    <div
-                      class="addressInfo personal-info cv-single-content-block-content"
-                    >
-                      <table>
-                        <tr>
-                          <td>Passport No.</td>
-                          <td>: 7836490220</td>
-                        </tr>
-                        <tr>
-                          <td>Passport Issue Date.</td>
-                          <td>: 6th May 2012</td>
-                        </tr>
-                        <tr>
-                          <td>Expected Indusry</td>
-                          <td>: IT and Telecommunications</td>
-                        </tr>
-                        <tr>
-                          <td>Expected Country</td>
-                          <td>: Bangladesh</td>
-                        </tr>
-                        <tr>
-                          <td>Prefession</td>
-                          <td>: 72KG</td>
-                        </tr>
-                        <tr>
-                          <td>NID Number</td>
-                          <td>: 32227489212</td>
-                        </tr>
-                        <tr>
-                          <td>Nationality</td>
-                          <td>: Bangladeshi</td>
-                        </tr>
-                        <tr>
-                          <td>Relegious</td>
-                          <td>: Islam</td>
-                        </tr>
-                        <tr>
-                          <td>Maretial Status</td>
-                          <td>: Unmarried</td>
-                        </tr>
-                      </table>
+                    <div class="addressInfo cv-single-content-block-content">
+                      <p>State <span>: Dhaka</span></p>
+                      <p>Distrcit <span>: Dhaka</span></p>
+                      <p>Thana <span>: New Market</span></p>
+                      <p>Area/Village <span>: Katabon</span></p>
+                      <p>House/Road <span>: 256</span></p>
+                      <p>Post Code <span>: 1205</span></p>
                     </div>
                   </div>
                 </div>
@@ -415,47 +381,13 @@
                     <div class="cv-single-content-block-title">
                       <h2>Permanent Address</h2>
                     </div>
-                    <div
-                      class="addressInfo personal-info cv-single-content-block-content"
-                    >
-                      <table>
-                        <tr>
-                          <td>Passport No.</td>
-                          <td>: 7836490220</td>
-                        </tr>
-                        <tr>
-                          <td>Passport Issue Date.</td>
-                          <td>: 6th May 2012</td>
-                        </tr>
-                        <tr>
-                          <td>Expected Indusry</td>
-                          <td>: IT and Telecommunications</td>
-                        </tr>
-                        <tr>
-                          <td>Expected Country</td>
-                          <td>: Bangladesh</td>
-                        </tr>
-                        <tr>
-                          <td>Prefession</td>
-                          <td>: 72KG</td>
-                        </tr>
-                        <tr>
-                          <td>NID Number</td>
-                          <td>: 32227489212</td>
-                        </tr>
-                        <tr>
-                          <td>Nationality</td>
-                          <td>: Bangladeshi</td>
-                        </tr>
-                        <tr>
-                          <td>Relegious</td>
-                          <td>: Islam</td>
-                        </tr>
-                        <tr>
-                          <td>Maretial Status</td>
-                          <td>: Unmarried</td>
-                        </tr>
-                      </table>
+                    <div class="addressInfo  cv-single-content-block-content">
+                      <p>State <span>: Dhaka</span></p>
+                      <p>Distrcit <span>: Dhaka</span></p>
+                      <p>Thana <span>: New Market</span></p>
+                      <p>Area/Village <span>: Katabon</span></p>
+                      <p>House/Road <span>: 256</span></p>
+                      <p>Post Code <span>: 1205</span></p>
                     </div>
                   </div>
                 </div>
@@ -597,6 +529,7 @@ $cv-font: #1d3146;
   .cv-block-title {
     h2 {
       font-size: 18px;
+      margin: 0px;
     }
   }
   .cv-block-edit-btn {
@@ -719,14 +652,5 @@ $cv-font: #1d3146;
   }
 }
 .addressInfo {
-  table {
-    tr {
-      td {
-        &:first-child {
-          padding-right: 0px;
-        }
-      }
-    }
-  }
 }
 </style>
