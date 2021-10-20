@@ -18,9 +18,10 @@ class AgencyResource extends Resource
             'id'=>$this->id,
             'name'=>$this->name,
             'email'=>$this->email,
+            'slug'=>$this->slug,
             'phone' => $this->phone,
             'type'=>$this->type,
-            'image' => $this->contact ? url('/').$this->contact->image : "",
+            'image' => $this->contact ?$this->contact->image : "",
             'posts' => $this->Posts,
         ];
     }

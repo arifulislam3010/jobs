@@ -952,6 +952,21 @@ class ContactController extends Controller
             $contact->division_id         = $request->division_id;
             $contact->district_id         = $request->district_id;
             $contact->subdistrict_id      = $request->subdistrict_id;
+            if($request->not_edit_image == 11){
+                $exploded = explode(',', $request->image);
+                $decoded = base64_decode($exploded[1]);
+                if(str_contains($exploded[0], 'jpeg'))
+                    $extension = 'jpg';
+                else
+                    $extension = 'png';
+
+                $fileName = str_random().'.'.$extension;
+                $path = public_path().'/images/'.$fileName;
+                file_put_contents($path, $decoded);
+                $contact->image = url('/').'/images/'.$fileName;
+            }else{
+                $contact->image = $request->image;
+            }
             $contact->update();
 
             DB::commit();
