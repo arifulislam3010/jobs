@@ -40,12 +40,18 @@
                 <li class="nav-item" :class="$route.name=='dashboard-setting'?'active2':''">
                     <nuxt-link to="/dashboard/setting" class="nav-link" >
                         <i class="fas fa-cog"></i>
-                        Setting
+                        Setting 
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.type == 6" class="nav-item" >
-                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i>CV</a>
+                <li class="nav-item" :class="$route.name=='mycv'?'active2':''">
+                    <nuxt-link to="/dashboard/mycv" class="nav-link" >
+                        <i class="fas fa-file-alt"></i>
+                        Mycv
+                    </nuxt-link>
                 </li>
+                <!-- <li v-if="$auth.user.type == 6" class="nav-item" >
+                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i>CV</a>
+                </li> -->
             </ul>
         </section>
         <section  v-if="$auth.user.type != 6 || !isMobile" class="section3" >
@@ -236,9 +242,15 @@
                         Setting
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.type == 6" class="nav-item" >
-                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i> সিভি</a>
+                <li class="nav-item" :class="$route.name=='mycv'?'active2':''">
+                    <nuxt-link to="/dashboard/mycv" class="nav-link" >
+                        <i class="fas fa-file-alt"></i>
+                        Mycv
+                    </nuxt-link>
                 </li>
+                <!-- <li v-if="$auth.user.type == 6" class="nav-item" >
+                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i> সিভি</a>
+                </li> -->
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-division'?'active2':''">
                     <nuxt-link to="/dashboard/division" class="nav-link">
                         <i class="fas fa-star"></i>

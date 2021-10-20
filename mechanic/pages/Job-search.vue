@@ -167,7 +167,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .job-card-wrapper {
   background: #fdfdfd;
   border: 1px solid #bdbdbd;

@@ -2,7 +2,8 @@
     <div style="">
         <div class="container">
         <!-- {{list}} -->
-        <div class="row">
+        <div class="row" style="position:relative;">
+            <div class="overlay"></div>
             <b-carousel class="col-md-12"
                 id="carousel-1"
                 v-model="slide"
@@ -21,108 +22,57 @@
             </b-carousel>
         </div>
         <div class="row">
-            <div class="card" style="width:100%;text-align:center;margin-top:20px;margin-bottom:20px;padding:20px;background:#488354;color:#fff;">
-                <span style="font-weight:700px;font-size:24px;margin-top:-6px">{{list.user.name}}</span><br>
-                <span style="margin-top:-15px"><b>রেজিস্ট্রেশন নম্বর:</b> {{list.contact.registration_number}}</span>
+            <div class="card_top col-md-12 row">
+                <div class="col-md-4 ">
+                    <div class="profile_picture">
+                     <img v-if="list.contact.image!=''" :src="list.contact.image" />
+                     <img v-else src="~/assets/image/i.png" />
+                    </div>
+                </div>
+                <div class="col-md-8">
+                     <span style="font-weight:700px;font-size:24px;color:#fff;">{{list.user.name}}</span><br>
+                     <span style="color:#fff;" v-if="list.contact.registration_number">রেজিস্ট্রেশন নম্বর: {{list.contact.registration_number}}</span>
+                     
+                      <p style="margin: 0px; color:#fff;" >
+                          <i class="fas fa-phone-alt"></i> {{list.contact.contact_number}}
+                     <i class="fas fa-map-marker-alt"></i> <span v-if="list.address">{{list.address[0].name}}</span>
+                      </p>
+                     <p style="color:#fff;">
+                     <i class="fas fa-globe"></i> <a v-if="list.contact.website" target="_blank" :href="list.contact.website">{{list.contact.website}}</a>
+                     <i class="far fa-envelope"></i>{{list.user.email}}</p>
+                     <p style="color:#fff;">
+                         <span >&nbsp;&nbsp;পরবর্তীতে এই এজেন্সির নিউজলেটার পেতে সাবস্ক্রাইব করুন &nbsp;&nbsp;</span>
+                        <div class="mt-2" style="margin:20px auto" v-if="subscribe">
+                            <button @click="subscribeAgency" class="btn btn-sm btn-success" >আনসাবস্ক্রাইব</button>
+                        </div>
+                        <div class="mt-2" style="margin:20px auto;" v-else>
+                            <button @click="subscribeAgency" class="btn btn-sm btn-success" >সাবস্ক্রাইব</button>
+                        </div>
+                     </p>
+                </div>
+               
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 card" style="width:100%;background:#488354;margin-bottom:0px;border-radius:4px 4px 0 0">
-                <div style="width:100%;text-align:center;">
+            <div class="col-md-12 card" style="width:100%;">
+                <div style="width:100%;text-align:left; padding:10px;">
                     <!-- <h5 style="padding-bottom:1px;padding-top:10px"></h5> -->
-                    <p style="font-size:20px;font-weight:bold;margin-bottom:5px;margin-top:5px;color:#fff">আমাদের  সমন্ধে</p>
+                    <p style="font-size:16px;font-weight:bold; margin: 0px;border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;">About Company</p>
+                </div>
+                <div style="width:100%;text-align:justify; padding:10px;">
+                 <p  v-html="list.contact.about">
+                 </p>
                 </div>
             </div>
-            <div class="card col-md-12" style="border-radius:0 0 4px 4px">
-                <!-- <div style="width:100%;text-align:center;background:green">
-                    <h5 style="margin-bottom:0;padding-top:15px">আমাদের  সমন্ধে</h5>
-                </div> -->
-                <p style="text-align:justify;padding:20px;" v-html="list.contact.about">
-
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="mb-4 card agency-box1">
-                <div style="width:100%;text-align:center;background:#488354;border-radius:4px 4px 0 0">
-                    <p style="font-size:20px;font-weight:bold;margin-bottom:4px;margin-top:5px;color:#fff">যেসব দেশে জনবল পাঠানো হয়</p>
-                </div>
-                <div class="mt-2" style="width:100%">
-                    <div style="width:50%;float:left;">
-                        <span v-for="(item,key) in list.country" :key="key"><span v-if="key%2 == 1" >&nbsp;&nbsp; <i class="fa fa-dot-circle-o" aria-hidden="true"></i> {{item.country_name}} <br></span></span>
+            <div v-if="imgs.length>0" style="padding: 0px;">
+                <div class="col-md-12 card"  style="width:100%;background:#fff;margin-bottom:0px;border-radius:4px 4px 0 0">
+                    <div style="width:100%;text-align:left;">
+                         <p style="font-size:16px;font-weight:bold; margin: 0px;border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;">Gallery</p>
                     </div>
-                    <div style="width:50%;float:left;">
-                        <span v-for="(item,key) in list.country" :key="key"><span v-if="key%2 == 0" >&nbsp;&nbsp; <i class="fa fa-dot-circle-o" aria-hidden="true"></i> {{item.country_name}} <br></span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-4 card agency-box2">
-                <div style="width:100%;text-align:center;background:#488354;border-radius:4px 4px 0 0">
-                    <p style="font-size:20px;font-weight:bold;margin-bottom:4px;margin-top:5px;color:#fff">যেসব সেক্টরে জনবল পাঠানো হয় </p>
-                </div>
-                <!-- <ul style="width:100%">
-                    <li  v-for="(item,key) in list.job" :key="key">{{item.name}}</li>
-                </ul> -->
-                <div class="mt-2" style="width:100%">
-                    <div style="width:100%;">
-                        <span v-for="(item,key) in list.job" :key="key"><span>&nbsp;&nbsp; <i class="fa fa-dot-circle-o" aria-hidden="true"></i> {{item.name}} <br></span></span>
-                    </div>
-                </div>
-            </div>
-            <div  class="mb-4 card agency-box3">
-                <div style="width:100%;text-align:center;background:#488354;border-radius:4px 4px 0 0">
-                    <p style="font-size:20px;font-weight:bold;margin-bottom:4px;margin-top:5px;color:#fff">যোগাযোগ</p>
-                </div>
-                <table class="table ">
-                <thead>
-                    <tr>
-                        <td><b>ফোন</b></td>
-                        <td>{{list.contact.contact_number}}</td>
-                    </tr>
-                </thead>
-                <tbody >
-                    <tr>
-                        <td><b>ইমেইল/ মোবাইল নম্বর</b></td>
-                        <td>{{list.user.email}}{{list.user.phone}}</td>
-                    </tr>
-                    <tr>
-                        <td><b>ঠিকানা</b></td>
-                        <td><span v-if="list.address">{{list.address[0].name}}</span></td>
-                    </tr>
-                    <tr v-if="list.contact.website">
-                        <td><b>ওয়েবসাইট</b></td>
-                        <td ><a target="_blank" :href="list.contact.website">{{list.contact.website}}</a></td>
-                    </tr>
-                </tbody>
-                </table>
-                <span >&nbsp;&nbsp;পরবর্তীতে এই এজেন্সির নিউজলেটার পেতে সাবস্ক্রাইব করুন &nbsp;&nbsp;</span>
-                <div class="mt-2" style="margin:20px auto" v-if="subscribe">
-                    <button @click="subscribeAgency" class="btn btn-sm btn-success" >আনসাবস্ক্রাইব</button>
-                </div>
-                <div class="mt-2" style="margin:20px auto;" v-else>
-                    <button @click="subscribeAgency" class="btn btn-sm btn-success" >সাবস্ক্রাইব</button>
-                </div>
-            </div>
-            <div v-if="list.contact.map_link" class="col-md-12  mb-4">
-                <div class="row">
-                    <div id="test" style="width:100%;height:300px" v-html="list.contact.map_link" >
-                        <!-- <iframe :src="list.contact.map_link" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
-                    </div>
-                </div>
-            </div>
-            <div v-if="imgs.length>0">
-                <div class="col-md-12 card" style="width:100%;background:#488354;margin-bottom:0px;border-radius:4px 4px 0 0">
-                    <div style="width:100%;text-align:center;">
-                        <p style="font-size:20px;font-weight:bold;margin-bottom:5px;margin-top:5px;color:#fff">ফটো গ্যালারী</p>
-                    </div>
-                </div>
-                <div class="col-md-12 card" style="border-radius:0 0 4px 4px">
                     <div class="row mt-3">
                         <div>
-                            <!-- <button @click="getGallery()">Show single picture.</button> -->
-                            <!-- <button @click="showMultiple">Show a group of pictures.</button> -->
-                        
-                            <!-- all props & events -->
                             <vue-easy-lightbox
                                 escDisabled
                                 moveDisabled
@@ -144,7 +94,14 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
+            <div v-if="list.contact.map_link" class="col-md-12  mb-4 card">
+                <div id="test" style="width:100%;height:300px" v-html="list.contact.map_link" >
+                    <!-- <iframe :src="list.contact.map_link" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+                </div>
+            </div>
+            
             <div>
                 <div class="row mt-2 mobile-padding">
                     <div class="col-sm-3">
@@ -256,6 +213,60 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <!-- <div class="mb-4 card agency-box1">
+                <div style="width:100%;text-align:center;background:#488354;border-radius:4px 4px 0 0">
+                    <p style="font-size:20px;font-weight:bold;margin-bottom:4px;margin-top:5px;color:#fff">যেসব দেশে জনবল পাঠানো হয়</p>
+                </div>
+                <div class="mt-2" style="width:100%">
+                    <div style="width:50%;float:left;">
+                        <span v-for="(item,key) in list.country" :key="key"><span v-if="key%2 == 1" >&nbsp;&nbsp; <i class="fa fa-dot-circle-o" aria-hidden="true"></i> {{item.country_name}} <br></span></span>
+                    </div>
+                    <div style="width:50%;float:left;">
+                        <span v-for="(item,key) in list.country" :key="key"><span v-if="key%2 == 0" >&nbsp;&nbsp; <i class="fa fa-dot-circle-o" aria-hidden="true"></i> {{item.country_name}} <br></span></span>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="mb-4 card agency-box2">
+                <div style="width:100%;text-align:center;background:#488354;border-radius:4px 4px 0 0">
+                    <p style="font-size:20px;font-weight:bold;margin-bottom:4px;margin-top:5px;color:#fff">যেসব সেক্টরে জনবল পাঠানো হয় </p>
+                </div>
+                <div class="mt-2" style="width:100%">
+                    <div style="width:100%;">
+                        <span v-for="(item,key) in list.job" :key="key"><span>&nbsp;&nbsp; <i class="fa fa-dot-circle-o" aria-hidden="true"></i> {{item.name}} <br></span></span>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div  class="col-md-12 card">
+                <div style="width:100%;text-align:left;background:#fff;border-radius:4px 4px 0 0">
+                    <p style="font-size:20px;font-weight:bold;margin-bottom:4px;margin-top:5px;">যোগাযোগ</p>
+                </div>
+                <table class="table ">
+                <thead>
+                    <tr>
+                        <td><b>ফোন</b></td>
+                        <td>{{list.contact.contact_number}}</td>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <td><b>ইমেইল/ মোবাইল নম্বর</b></td>
+                        <td>{{list.user.email}}{{list.user.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>ঠিকানা</b></td>
+                        <td><span v-if="list.address">{{list.address[0].name}}</span></td>
+                    </tr>
+                    <tr v-if="list.contact.website">
+                        <td><b>ওয়েবসাইট</b></td>
+                        <td ><a target="_blank" :href="list.contact.website">{{list.contact.website}}</a></td>
+                    </tr>
+                </tbody>
+                </table>
+                
+            </div> -->
+            
+        </div>
         <!-- <button @click="getUserRating()">Test</button> -->
         <div>
             <div class="modal fade"  :class="modalOpen?'show':''" id="exampleModal"  :style="modalOpen?'display: block; overflow: scroll; padding-right: 17px;':''" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
@@ -295,8 +306,7 @@
         </div>
         </div>
         </div>
-    </div>
-    
+    </div> 
 </template>
 <script>
 import pagination from 'laravel-vue-pagination';
@@ -564,6 +574,45 @@ export default {
     }
 </style>
 <style scoped>
+    .overlay{
+        height: 100%;
+        position: absolute;
+        background: #0000007a;
+        z-index: 1;
+    }
+    .card_top{
+        padding: 2px;
+        position: absolute;
+        top: 111px;
+        left: 0px;
+        z-index: 2;
+    }
+    .card_top i{
+        color:#fff !important;
+    }
+    .card_top  p{
+        color:#fff !important;
+    }
+     .card_top  span{
+        color:#fff !important;
+    }
+    .card_top  a{
+        color:#fff !important;
+    }
+    .profile_picture{
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        float: right;
+        position: relative;
+    }
+    .profile_picture img{
+        object-fit: contain;
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
     .btn-grey{
         background-color:#D8D8D8;
         color:#FFF;

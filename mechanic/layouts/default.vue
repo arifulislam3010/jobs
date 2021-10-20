@@ -3,7 +3,7 @@
     <div class="top-nav container-fluid">
       <main-nav></main-nav>
     </div>
-    <div class="customBody mt-5">
+    <div class="customBody" style="margin-top: 86px;">
       <Nuxt />
     </div>
   </div>

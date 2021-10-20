@@ -73,7 +73,7 @@
                     >
                       <nuxt-link to="">
                         <img
-                          src="~/assets/image/storeIcon/googlePlay.png"
+                          src="~/assets/image/storeIcon/playstore.png"
                           alt="app store"
                           class="img-fluid"
                         />
@@ -82,7 +82,7 @@
                     <div class="ios-button-wrapper app-download-button">
                       <nuxt-link to="">
                         <img
-                          src="~/assets/image/storeIcon/googlePlay.png"
+                          src="~/assets/image/storeIcon/ios.png"
                           alt="app store"
                           class="img-fluid"
                         />
