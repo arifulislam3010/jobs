@@ -203,7 +203,30 @@ export default {
         autoplaySpeed: 1000,
         speed: 1000,
         infinity: true,
-        initalSlide: 1
+        initalSlide: 1,
+        responsive: [
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 15
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 7
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 5
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
       }
     }
   }
@@ -211,13 +234,15 @@ export default {
 </script>
 
 <style lang="scss">
-.vendor-heading h2 {
-  font-size: 30px;
-}
+@import '../../../assets/scss/responsive';
 
 .vendor-heading {
   h2 {
     font-size: 30px;
+    margin: 0px;
+    @include media('<=991px') {
+      font-size: 22px;
+    }
     span {
       font-weight: bold;
       color: #0ba88c;

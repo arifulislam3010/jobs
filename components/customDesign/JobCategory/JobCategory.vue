@@ -112,6 +112,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/responsive';
 .job-category-container {
   background: #131616;
   padding: 50px 0;
@@ -119,15 +120,22 @@ export default {
     h2 {
       font-weight: 600;
       font-size: 48px;
+      @include media('<=991px') {
+        font-size: 22px;
+      }
       color: #fff;
     }
   }
   .job-category-single-button-wrapper {
     display: flex;
+    flex-wrap: wrap;
     background: #0e1010;
     border-radius: 8px;
     justify-content: space-between;
     width: 70%;
+    @include media('<=991px') {
+      width: 100%;
+    }
   }
   .job-category-button {
     color: rgba(255, 255, 255, 0.6);

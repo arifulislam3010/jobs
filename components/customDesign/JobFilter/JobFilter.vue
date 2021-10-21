@@ -247,6 +247,7 @@ export default {}
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/responsive';
 .job-filter-section-heading {
   h5 {
     color: #1d3146;
@@ -310,7 +311,7 @@ export default {}
     border: 1px solid #bdbdbd;
     box-sizing: border-box;
     border-radius: 4px;
-    width: 110px;
+    width: 50%;
     height: 32px;
     margin-right: 10px;
     padding: 10px;

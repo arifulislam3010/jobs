@@ -623,11 +623,7 @@ export default {}
 </script>
 
 <style lang="scss">
-.job-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+@import '../../../assets/scss/responsive';
 .job-card-header {
   display: flex;
   justify-content: space-between;
@@ -636,6 +632,9 @@ export default {}
 
 .job-title {
   display: flex;
+  @include media('<=991px') {
+    align-items: center;
+  }
 }
 
 .logo-wrapper {
@@ -657,12 +656,20 @@ export default {}
     color: #0fa489;
     font-weight: 600;
     margin: 0;
+    @include media('<=991px') {
+      font-size: 12px;
+    }
   }
   p {
     font-weight: 500;
     font-size: 12px;
     line-height: 18px;
     color: rgba(29, 49, 70, 0.8);
+    @include media('<=991px') {
+      font-size: 10px;
+      line-height: 1;
+      font-weight: normal;
+    }
   }
 }
 .job-card-badge {
@@ -674,6 +681,9 @@ export default {}
   font-size: 12px;
   text-align: center;
   border-radius: 2px;
+  @include media('<=991px') {
+    margin-left: 10px;
+  }
 }
 
 .save-badge {
@@ -702,6 +712,10 @@ export default {}
     color: #1d3146;
     font-size: 14px;
     font-weight: 500;
+    @include media('<=tablet') {
+      font-weight: normal;
+      font-size: 12px;
+    }
   }
 }
 .job-card-wrapper {
@@ -753,6 +767,10 @@ export default {}
     h4 {
       font-weight: 600;
       font-size: 16px;
+      @include media('<=tablet') {
+        font-size: 14px;
+        font-weight: normal;
+      }
       line-height: 18px;
       color: #1d3146;
     }
@@ -793,6 +811,10 @@ export default {}
     color: #1d3146;
     font-size: 16px;
     font-weight: 600;
+    @include media('<=tablet') {
+      font-weight: normal;
+      font-size: 14px;
+    }
   }
 }
 
@@ -803,6 +825,10 @@ export default {}
     font-size: 14px;
     line-height: 21px;
     color: rgba(29, 49, 70, 0.7);
+    @include media('<=tablet') {
+      font-weight: normal;
+      font-size: 12px;
+    }
   }
 }
 .job-description {
@@ -810,6 +836,10 @@ export default {}
     color: #1d3146;
     font-size: 16px;
     font-weight: 600;
+    @include media('<=tablet') {
+      font-weight: normal;
+      font-size: 14px;
+    }
   }
 }
 .job-description-list {
@@ -822,6 +852,10 @@ export default {}
       line-height: 21px;
       color: rgba(29, 49, 70, 0.7);
       margin: 15px 0;
+      @include media('<=tablet') {
+        font-weight: normal;
+        font-size: 12px;
+      }
     }
   }
 }
@@ -831,6 +865,10 @@ export default {}
   font-size: 12px;
   font-weight: 600;
   margin-right: 20px;
+  @include media('<=768px') {
+    font-size: 10px;
+    font-weight: normal;
+  }
   i {
     color: rgba(11, 168, 140, 0.6);
     font-size: 16px;
@@ -842,6 +880,7 @@ export default {}
   display: flex;
   align-items: center;
   margin: 2rem 10px 2rem 0px;
+  flex-wrap: wrap;
 }
 .job-card-main-content-wrapper {
   padding: 0px 2rem;
@@ -858,5 +897,8 @@ export default {}
       }
     }
   }
+}
+.job-card-main-content {
+  flex-wrap: wrap;
 }
 </style>

@@ -2,10 +2,10 @@
   <div class="main-body">
     <div class="container mt-5">
       <div class="row">
-        <div class="col-md-4 col-lg-4">
+        <div class="col-md-12 col-lg-4">
           <JobFilter />
         </div>
-        <div class="col-md-8 col-lg-8">
+        <div class="col-md-12 col-lg-8">
           <div
             class="job-card-component-heading d-flex justify-content-between mb-3"
           >
@@ -36,10 +36,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/responsive';
 .main-body {
   margin-top: 100px;
 }
 .job-card-component-heading-content {
+  margin-top: 1rem;
   h6 {
     font-weight: 500;
     font-size: 14px;

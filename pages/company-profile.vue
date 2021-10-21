@@ -2,10 +2,10 @@
   <div class="main-body">
     <div class="container mt-5">
       <div class="row">
-        <div class="col-md-4 col-lg-4">
+        <div class="col-md-12 col-lg-4">
           <JobFilter />
         </div>
-        <div class="col-md-8 col-lg-8">
+        <div class="col-md-12 col-lg-8">
           <div class="company-profile-layout">
             <div class="company-profile-cover profile-cover-bg">
               <!-- top btn -->
@@ -37,8 +37,10 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="email-location-wrapper d-flex align-items-center">
-                    <div class="email-wrapper mr-3">
+                  <div
+                    class="email-location-wrapper d-lg-flex d-md-block align-items-center"
+                  >
+                    <div class="email-wrapper mr-3 mb-md-2 mb-lg-0 mb-2">
                       <img
                         src="~/assets/image/company-profile/email.png"
                         alt=""
@@ -104,8 +106,10 @@
                 </div>
               </div>
               <!-- gallery block -->
-              <div class="row">
-                <div class="col-md-4 col-lg-4">
+              <div
+                class="gallery-wrapper row justify-content-md-center justify-content-lg-start"
+              >
+                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="company-profile-single-image-block">
                     <img
                       src="~/assets/image/company-profile/4.png"
@@ -114,7 +118,7 @@
                     />
                   </div>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="company-profile-single-image-block">
                     <img
                       src="~/assets/image/company-profile/1.png"
@@ -123,7 +127,7 @@
                     />
                   </div>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="company-profile-single-image-block">
                     <img
                       src="~/assets/image/company-profile/2.png"
@@ -132,7 +136,7 @@
                     />
                   </div>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="company-profile-single-image-block">
                     <img
                       src="~/assets/image/company-profile/4.png"
@@ -141,7 +145,7 @@
                     />
                   </div>
                 </div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-sm-6 col-md-4 col-lg-4">
                   <div class="company-profile-single-image-block">
                     <img
                       src="~/assets/image/company-profile/3.png"
@@ -174,6 +178,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/responsive';
 $cv-primary: #0ba88c;
 $cv-font: #1d3146;
 .main-body {
@@ -228,6 +233,9 @@ $cv-font: #1d3146;
           color: #a0a0a0 !important;
         }
         font-size: 24px;
+        @include media('<=tablet') {
+          font-size: 14px;
+        }
         margin-right: 10px;
         i {
           color: #fac300;
@@ -245,6 +253,9 @@ $cv-font: #1d3146;
       font-size: 14px;
       display: flex;
       align-items: center;
+      @include media('<=tablet') {
+        font-size: 10px;
+      }
       img {
         margin-right: 10px;
       }
@@ -256,9 +267,15 @@ $cv-font: #1d3146;
     border-radius: 10px;
     padding: 5px 1rem;
     margin-right: 16px;
+    @include media('<=tablet') {
+      font-size: 12px;
+    }
   }
   .company-name {
     font-size: 22px;
+    @include media('<=tablet') {
+      font-size: 14px;
+    }
     color: #fff;
     font-weight: normal;
     margin-bottom: 10px;
@@ -266,9 +283,15 @@ $cv-font: #1d3146;
   height: 228px;
   .job-posted {
     color: #fff;
+    @include media('<=tablet') {
+      font-size: 12px;
+    }
     a {
       color: #0ba88c;
       margin-right: 10px;
+      @include media('<=tablet') {
+        font-size: 12px;
+      }
     }
   }
 }

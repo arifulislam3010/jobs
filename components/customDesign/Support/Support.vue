@@ -49,6 +49,7 @@ export default {}
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/responsive';
 .support-content-wrapper {
   height: 100%;
   display: flex;
@@ -60,12 +61,21 @@ export default {}
     color: #0ba88c;
     text-transform: uppercase;
     margin-bottom: 1px;
+    @include media('<=991px') {
+      text-align: center;
+      font-size: 14px;
+    }
   }
 }
 .support-main-title {
   h2 {
     font-weight: bold;
     font-size: 30px;
+    @include media('<=991px') {
+      font-size: 22px;
+      font-weight: 500;
+      text-align: center;
+    }
   }
 }
 .call-us-button-wrapper {
@@ -78,8 +88,15 @@ export default {}
 .support-call-wrapper {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  @include media('<=991px') {
+    justify-content: center;
+  }
 }
 .call-us-content-wrapper {
+  @include media('<=991px') {
+    justify-content: center;
+  }
   p {
     margin: 0;
     font-size: 12px;
@@ -110,5 +127,8 @@ export default {}
   padding: 15px 40px;
   font-weight: bold;
   color: #fff;
+  @include media('<=991px') {
+    margin-top: 10px;
+  }
 }
 </style>

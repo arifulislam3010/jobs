@@ -2,10 +2,10 @@
   <div class="main-body">
     <div class="container mt-5">
       <div class="row">
-        <div class="col-md-4 col-lg-4">
+        <div class="col-md-12 col-lg-4">
           <JobFilter />
         </div>
-        <div class="col-md-8 col-lg-8">
+        <div class="col-md-12 col-lg-8">
           <div class="job-card-layout">
             <div class="cv-top-download-wrapper">
               <div class="d-flex justify-content-end">
@@ -29,15 +29,15 @@
             </div>
             <!-- people info -->
             <div class="cv-people-info-wrapper">
-              <div class="cv-person-content d-flex mr-5">
-                <div class="cv-person-image">
-                  <img
-                    src="~/assets/image/cv/photo.png"
-                    alt="person"
-                    class="img-fluid"
-                  />
+              <div class="cv-person-content row">
+                <div
+                  class="cv-person-image col-lg-4 col-md-12 col-12 col-sm-12"
+                >
+                  <img src="~/assets/image/cv/photo.png" alt="person" />
                 </div>
-                <div class="cv-person-details mt-4 pl-4">
+                <div
+                  class="cv-person-details mt-4 col-lg-8 col-md-12 col-sm-12"
+                >
                   <div class="cv-person-name">
                     <h2>Rezwan Chowdhury Rafel</h2>
                   </div>
@@ -426,6 +426,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/responsive';
 $cv-primary: #0ba88c;
 $cv-font: #1d3146;
 .main-body {
@@ -459,12 +460,18 @@ $cv-font: #1d3146;
   }
   //   people info
   .cv-people-info-wrapper {
+    .cv-person-name {
+      h2 {
+        font-size: 22px;
+        color: #000;
+      }
+    }
     .cv-person-content {
       .cv-person-image {
-        height: 184px;
-        width: 154px;
         img {
           border-radius: 10px;
+          height: 184px;
+          width: 154px;
         }
       }
     }

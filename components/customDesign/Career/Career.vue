@@ -2,12 +2,12 @@
   <div class="grow-career-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-12 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-12 col-sm-12">
           <div class="grow-career-image-wrapper">
             <img class="img-fluid" src="~/assets/image/career/man.png" />
           </div>
         </div>
-        <div class="col-md-6 col-12 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-12 col-sm-12 career-content">
           <div class="grow-career-content-container">
             <div class="grow-career-title">
               <h2>Grow your career</h2>
@@ -36,21 +36,40 @@ export default {}
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/responsive';
 .grow-career-wrapper {
+  .row {
+    .career-content {
+      padding: 20px inherit;
+      @include media('<=991px') {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+  }
   background: #131616;
   .grow-career-title {
     h2 {
       font-weight: 600;
       color: #fff;
       font-size: 40px;
+      @include media('<=991px') {
+        font-size: 22px;
+      }
     }
   }
   .grow-career-content {
     p {
       color: rgba(255, 255, 255, 0.8);
+      @include media('<=991px') {
+        font-size: 12px;
+      }
     }
   }
   .career-button-wrapper {
+    @include media('<=991px') {
+      padding-bottom: 20px;
+    }
     a {
       &:first-child {
         margin-right: 10px;
@@ -60,6 +79,10 @@ export default {}
         border-radius: 8px;
         padding: 15px 40px;
         font-size: 18px;
+        @include media('<=991px') {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
       }
       &:last-child {
         color: #02ab8d;
@@ -73,5 +96,11 @@ export default {}
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.grow-career-image-wrapper {
+  @include media('<=991px') {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

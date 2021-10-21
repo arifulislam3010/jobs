@@ -138,7 +138,35 @@ export default {
         slidesToScroll: 1,
         autoplay: false,
         autoplaySpeed: 3000,
-        speed: 1000
+        speed: 1000,
+        responsive: [
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
       }
     }
   }
@@ -146,6 +174,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/responsive';
 .single-success-stories-content-wrapper {
   background: #f9f9f9;
   border-radius: 8px;
@@ -201,9 +230,12 @@ export default {
   top: 20px;
   right: 34px;
 }
-.text-center.success-story-title h2 {
+.success-story-title h2 {
   font-weight: 600;
   font-size: 40px;
+  @include media('<=991px') {
+    font-size: 22px;
+  }
   color: #1d3146;
 }
 .success-story-wrapper .slick-slider .slick-dots li button:before {
@@ -217,5 +249,18 @@ export default {
 .success-story-wrapper .slick-slider .slick-prev:before,
 .slick-next:before {
   color: #0ba88c;
+  @include media('<=991px') {
+    display: none;
+  }
+}
+.slick-prev {
+}
+.slick-next {
+}
+.slick-list {
+  margin: 0 -5px;
+}
+.slick-slide > div {
+  padding: 0 5px;
 }
 </style>

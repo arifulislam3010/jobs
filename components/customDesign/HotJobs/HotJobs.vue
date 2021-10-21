@@ -2,7 +2,7 @@
   <div class="hot-jobs-container">
     <div class="container">
       <div
-        class="hot-jobs-header-wrapper mb-md-4 mb-sm-2 d-flex justify-content-between"
+        class="hot-jobs-header-wrapper mb-md-4 mb-sm-2 d-flex justify-content-between flex-wrap"
       >
         <div class="hot-jobs-title">
           <h2>Hot Jobs</h2>
@@ -23,7 +23,7 @@
         </div>
       </div>
       <!-- filter button -->
-      <div class="filter-button-wrapper mb-5">
+      <div class="filter-button-wrapper mb-5 ">
         <div class="filter-button-content">
           <div class="filter-button active">
             All
@@ -173,11 +173,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/responsive';
 .hot-jobs-title {
   h2 {
     color: #1d3146;
     font-size: 38px;
     font-weight: 600;
+    @include media('<=991px') {
+      font-size: 22px;
+    }
   }
 }
 .hot-jobs-form-group {
@@ -206,6 +210,9 @@ export default {
   display: flex;
   flex-wrap: wrap;
   .filter-button {
+    @include media('<=991px') {
+      margin-top: 20px;
+    }
     padding: 10px 20px;
     margin-right: 10px;
     border-radius: 8px;

@@ -86,10 +86,15 @@ export default {}
 </script>
 
 <style lang="scss">
+@import '../../../assets/scss/responsive';
 .features-heading {
   h2 {
     font-weight: 600;
     font-size: 48px;
+    @include media('<=991px') {
+      font-size: 22px;
+      margin-top: 20px;
+    }
     color: #1d3146;
   }
 }
@@ -97,6 +102,10 @@ export default {}
   p {
     font-weight: 600;
     font-size: 16px;
+    @include media('<=991px') {
+      font-size: 14px;
+      font-weight: normal;
+    }
     color: #1d3146;
   }
 }
@@ -106,6 +115,10 @@ export default {}
     font-weight: 500;
     font-size: 14px;
     line-height: 1.5;
+    @include media('<=991px') {
+      font-size: 12px;
+      font-weight: normal;
+    }
   }
 }
 .features-app-content-heading {

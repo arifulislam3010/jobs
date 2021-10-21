@@ -1,9 +1,11 @@
 <template>
   <div
     class="modal fade bd-example-modal-lg"
-    :class="this.$parent.slider_view?'show':''"
+    :class="this.$parent.slider_view ? 'show' : ''"
     id="exampleModal"
-    :style="this.$parent.slider_view?'display: block; padding-right: 17px;':''"
+    :style="
+      this.$parent.slider_view ? 'display: block; padding-right: 17px;' : ''
+    "
     tabindex="-1"
     role="dialog"
     aria-labelledby="exampleModalLabel"
@@ -26,7 +28,7 @@
         <div class="modal-body" style="overflow: auto;max-height: 350px;">
           <div class="row">
             <div>
-                <p></p>
+              <p></p>
             </div>
           </div>
         </div>
@@ -36,7 +38,9 @@
             class="btn btn-secondary"
             @click="CloseModal"
             data-dismiss="modal"
-          >Close</button>
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>
