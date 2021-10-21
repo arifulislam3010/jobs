@@ -78,16 +78,16 @@ class Post extends Model
 
     public function gender()
     {
-        return $this->belongsTo(Gender::class);
+        return $this->belongsTo(Gender::class,'gender_id');
     }
 
     public function senior()
     {
-        return $this->belongsTo(SeniarityLevel::class);
+        return $this->belongsTo(SeniarityLevel::class,'seniority_level_id');
     }
 
     public function jobType()
     {
-        return $this->belongsTo(JobCategory::class);
+        return $this->belongsTo(JobCategory::class,'job_category_id');
     }
 }

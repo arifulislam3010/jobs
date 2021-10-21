@@ -270,7 +270,7 @@ Route::get('/job-category','CustomizationController@getJobType');
 Route::get('/seniority-level','CustomizationController@getSeniorityLevel');
 Route::get('/gender','CustomizationController@getGender');
 
-
+//Route::get('/custom/search','PostController@search');
 
 
 
