@@ -23,7 +23,7 @@ use Modules\Post\Entities\PostTag;
 
 //Route::get('/frontend/posts','PostController@index');
 //Route::get('/frontend/categories','PostController@postCategory');
-
+Route::post('custom/search','PostController@search');
 Route::prefix('post')->middleware('auth:api')->group(function(){
     Route::get('/list/{type}','PostController@index');
     Route::get('/{id}','PostController@detail');
@@ -32,8 +32,10 @@ Route::prefix('post')->middleware('auth:api')->group(function(){
     Route::get('/delete/{id}','PostController@destroy');
     Route::get('/update-status/{id}/{status}','PostController@updateStatus');
     Route::get('/reporter/list','PostController@reporterNews');
+//    Route::post('/search','PostController@search');
+
 });
-// poll 
+// poll
 Route::prefix('poll')->middleware(['auth:api'])->group(function(){
     Route::get('list','PollController@index');
     Route::post('/','PollController@store');

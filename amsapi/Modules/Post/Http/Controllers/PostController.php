@@ -291,4 +291,42 @@ class PostController extends Controller
         $post->update();
         return new PostResource($post);
     }
+
+    public function search(Request $request)
+    {
+        $post = Post::where('type',1);
+        if (isset($request->title))
+        {
+            $post = $post->Where('headline','LIKe',"%$request->title%");
+        }
+        if (isset($request->location))
+        {
+            $post = $post->Where('country_id',$request->location);
+        }
+        if (isset($request->jobType))
+        {
+            $job = $request->jobType;
+            $post = $post->with('jobType')->WhereHas('jobType',function ($app) use($job){
+               $app->whereIn('id',$job);
+            });
+        }
+
+        if (isset($request->senior))
+        {
+            $kk = $request->senior;
+            $post = $post->with('senior')->WhereHas('senior',function ($app) use($kk){
+                $app->where('id',$kk);
+            });
+        }
+        if (isset($request->gender))
+        {
+            $gender = $request->gender;
+            $post = $post->with('gender')->WhereHas('gender',function ($app) use($gender){
+                $app->where('id',$gender);
+            });
+        }
+        $post= $post->get();
+
+       return PostResource::collection($post);
+    }
 }

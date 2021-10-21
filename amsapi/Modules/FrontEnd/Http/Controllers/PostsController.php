@@ -72,23 +72,26 @@ class PostsController extends Controller
         //      $post = Post::select('posts.*')->orderBy('posts.view', 'DESC')->paginate($limit);
         //     return PostResource::collection($post);
         // }
+
     
         $post = Post::select('posts.*')->orderBy('posts.id', 'DESC')
             ->paginate(10);
             return PostResource::collection($post);
 
+
         $type = ($request->has('type'))?$request['type']:null;
+        $title =($request->has('title'))?$request['title']:null;
         $limit = ($request->has('limit'))?$request['limit']:10;
 
         if($type == 1){
-            
+
             $now = date("Y-m-d");
-            $post = Post::where('type',$type)->where('status',1)->where('deleted_at',null)->whereDate('expired_at', '>=',$now)
+            $post = Post::where('type',$type)->where('status',1)->where('deleted_at',null)->where('headline','like', '%' .$title. '%')->whereDate('expired_at', '>=',$now)
                     ->when(count($country_id)>0, function($q) use($country_id){return $q->whereIn('country_id',$country_id);})
                     ->when(count($agency_id)>0, function($q) use($agency_id){return $q->whereIn('author_id',$agency_id);})
                     ->when(count($job_id)>0, function($q) use($job_id){return $q->whereIn('job_id',$job_id);})
                     ->orderBy('id','DESC')->paginate($limit);
-            // return response(new PostResource($post));           
+            // return response(new PostResource($post));
             return PostResource::collection($post);
         }
         elseif($type == 11 || $type == 12 || $type == 13 || $type == 14){
@@ -123,14 +126,14 @@ class PostsController extends Controller
        $category = Category::whereNull('parent_id')->get();
        return CategoryResource::collection($category);
    }
-   
+
    public function homeCategory(Request $request)
    {
        $limit     = ($request->has('limit'))?$request['limit']:10;
        $categories = Category::where('home',1)->get();
        $posts = [];
        $i = 0;
-       
+
        foreach ($categories as $item) {
            $post = Post::select('posts.*')
            ->join('post_categories','post_categories.post_id','=','posts.id')->where('post_categories.category_id', $item->id)
@@ -139,14 +142,14 @@ class PostsController extends Controller
            $posts[$i] = PostResource::collection($post);
            $i=$i+1;
        }
-       
+
        return response()->json([
             'categories'  => $categories,
             'posts'        => $posts,
         ],200);
    }
-   
-   
+
+
 
 
     public function postSection ()
