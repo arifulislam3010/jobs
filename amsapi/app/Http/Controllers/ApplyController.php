@@ -462,6 +462,7 @@ class ApplyController extends Controller
         // $job_id     = DB::table('desired_job_applicants')->where('user_id',$id)->get()->pluck('job_id');
         // $countries  = DB::table('apps_countries')->whereIn('id',$country_id)->get();
         // $jobs       = DB::table('desired_jobs')->whereIn('id',$job_id)->get();
+        return view('pdf.cv',compact('data','user','contact','educations','experiences','trainings','total'));
         $pdf = PDF2::loadView('pdf.test2',compact('data','user','contact','educations','experiences','trainings','total'));
         $pdf->download('cv.pdf');
     }

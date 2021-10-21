@@ -17,6 +17,7 @@
                   alt="serchIcon"
                   class="img-fluid"
                 />
+                
               </div>
             </div>
           </form>
@@ -41,11 +42,12 @@
       <div class="job-section-wrapper">
         <div class="row">
           <div class="col-md-3" v-for="job in jobsAll" :key="job.id">
-            <nuxt-link to="/job-search">
+            <nuxt-link :to="'/agency/'+job.slug">
               <div class="single-job-container">
                 <div class="job-components-header-wrapper ">
                   <div class="job-components-company-logo">
-                    <img src="~/assets/image/jobs/square.png" />
+                    <img v-if="job.image!=''" :src="job.image" />
+                    <img v-else src="~/assets/image/i.png" />
                   </div>
                   <div class="company-name">
                     <h5>{{ job.name }}</h5>
@@ -243,6 +245,10 @@ export default {
     background: #fff;
     box-shadow: 10px 24px 40px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
+    img{
+      width: 100%;
+      object-fit: contain;
+    }
   }
   .company-name {
     h5 {

@@ -1,434 +1,406 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>CV</title>
-<meta charset="UTF-8"> 
-
-<!-- <link type="text/css" rel="stylesheet" href="style.css"> -->
-<style type="text/css">
-	html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
-border:0;
-font:inherit;
-font-size:100%;
-margin:0;
-padding:0;
-vertical-align:baseline;
-}
-
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
-display:block;
-}
-
-html, body { font-family: 'examplefont'; font-size: 16px;width:100%;background: #f3f3f3;text-align: justify;}
-
-.clear {clear: both;}
-
-p {
-	font-size: 1em;
-	line-height: 1.4em;
-	margin-bottom: 20px;
-	color: #444;
-}
-
-#cv {
-	width: 100%;
-	background: #f3f3f3;
-}
-
-.mainDetails {
-	padding: 25px 35px;
-	border-bottom: 2px solid #cf8a05;
-	width:100%;
-	/*background: #ededed;*/
-}
-
-#name h1 {
-	font-size: 2.5em;
-	font-weight: 700;
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	margin-bottom: -6px;
-}
-
-#name h2 {
-	font-size: 2em;
-	margin-left: 2px;
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-}
-
-#mainArea {
-	padding: 0 40px;
-}
-
-#headshot {
-	width: 17%;
-	float: left;
-}
-
-#headshot img {
-	width: 100%;
-	height: auto;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
-}
-
-#name {
-	width: 40%;
-	float: left;
-	margin-left: 20px;
-}
-
-#contactDetails {
-	width: calc(80% - 30px);
-	float: left;
-	margin-left: 22px;
-}
-#contactDetails p {
-	font-size: 2em;
-	/*font-weight: 700;*/
-	font-family: 'examplefont';
-	margin-bottom: -6px;
-}
-
-#contactDetails ul {
-	list-style-type: none;
-	font-size: 0.9em;
-	margin-top: 2px;
-}
-
-#contactDetails ul li {
-	margin-bottom: 3px;
-	color: #444;
-}
-
-#contactDetails ul li a, a[href^=tel] {
-	color: #444; 
-	text-decoration: none;
-	-webkit-transition: all .3s ease-in;
-	-moz-transition: all .3s ease-in;
-	-o-transition: all .3s ease-in;
-	-ms-transition: all .3s ease-in;
-	transition: all .3s ease-in;
-}
-
-#contactDetails ul li a:hover { 
-	color: #cf8a05;
-}
-
-
-section {
-	border-top: 1px solid #dedede;
-	padding: 20px 0 0;
-}
-
-section:first-child {
-	border-top: 0;
-}
-
-section:last-child {
-	padding: 20px 0 10px;
-}
-
-.sectionTitle {
-	float: left;
-	width: 25%;
-}
-
-.sectionContent {
-	float: right;
-	width: 72.5%;
-}
-
-.sectionTitle h1 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	font-style: italic;
-	font-size: 1.5em;
-	color: #cf8a05;
-}
-
-.sectionContent h2 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	font-size: 1.5em;
-	margin-bottom: -2px;
-}
-
-.subDetails {
-	font-size: 0.8em;
-	font-style: italic;
-	margin-bottom: 5px;
-}
-
-.subDetails2 {
-	font-size: 1em;
-	margin-bottom: 3px;
-}
-
-.keySkills {
-	list-style-type: none;
-	-moz-column-count:3;
-	-webkit-column-count:3;
-	column-count:3;
-	margin-bottom: 20px;
-	font-size: 1em;
-	color: #444;
-}
-
-.keySkills ul li {
-	margin-bottom: 3px;
-}
-
-.address {
-	width:40%;
-	float:left;
-	list-style-type: none;
-	-moz-column-count:3;
-	-webkit-column-count:3;
-	column-count:3;
-	margin-bottom: 20px;
-	font-size: 1em;
-	color: #444;
-}
-
-.address ul li {
-	margin-bottom: 3px;
-}
-
-</style>
-<!-- <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'> -->
-
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CV</title>
 </head>
-<body id="top">
-<div id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="headshot">
-			<img  src="https://www.w3schools.com/howto/img_avatar.png" alt="Alan Smith" />
-		</div>
-		
-		<!-- <div id="name">
-			<h1 class="quickFade delayTwo">Joe Bloggs</h1>
-			<h2 class="quickFade delayThree">Job Title</h2>
-		</div> -->
-		
-		<div id="contactDetails">
-			<p>{{$user->name}}</p>
-			<ul>
-				@if($user->email)
-				<li>ইমেইল: {{$user->email}}</li>
-				@endif
-				@if($user->phone)
-				<li>মোবাইল: {{$user->phone}}</li>
-				@endif
-				<li>এনআইডি: {{$contact->nid}}</li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
-	
-	<div id="mainArea" class="quickFade delayFive">
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>স্থায়ী ঠিকানা</h1>
-				</div>
-				
-				<div class="sectionContent">
-					@php
-						$permanent_address = json_decode($contact->address2);
-						$languages = json_decode($contact->languages);
-					@endphp
-					<ul class="address">
-						<li><b>বিভাগ:</b> {{$permanent_address->division->division_name_eng}}</li>
-						<li><b>জেলা:</b> {{$permanent_address->district->district_name_eng}}</li>
-						<li><b>উপজেলা: </b>{{$permanent_address->subdistrict->upazila_name_eng}}</li>
-						<li><b>ইউনিয়ন: </b>{{$permanent_address->union->union_name_eng}}</li>
-					</ul>
-					<ul class="address">
-						<li><b>গ্রাম/ মহল্লা: </b>{{$permanent_address->village}}</li>
-						<li><b>রাস্তার নাম: </b>{{$permanent_address->street}}</li>
-						<li><b>পোস্ট অফিস: </b>{{$permanent_address->postoffice}}</li>
-						<li><b>ফোন: </b>{{$permanent_address->phone}}</li>
-					</ul>
-				</div>
-			</article>
-			<div class="clear"></div>
-		</section>
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>বর্তমান ঠিকানা</h1>
-				</div>
-				
-				<div class="sectionContent">
-					@php
-						$present_address = json_decode($contact->address3);
-					@endphp
-					<ul class="address">
-						<li><b>বিভাগ:</b> {{$present_address->division->division_name_eng}}</li>
-						<li><b>জেলা:</b> {{$present_address->district->district_name_eng}}</li>
-						<li><b>উপজেলা: </b>{{$present_address->subdistrict->upazila_name_eng}}</li>
-						<li><b>ইউনিয়ন: </b>{{$present_address->union->union_name_eng}}</li>
-					</ul>
-					<ul class="address">
-						<li><b>গ্রাম/ মহল্লা: </b>{{$present_address->village}}</li>
-						<li><b>রাস্তার নাম: </b>{{$present_address->street}}</li>
-						<li><b>পোস্ট অফিস: </b>{{$present_address->postoffice}}</li>
-						<li><b>ফোন: </b>{{$present_address->phone}}</li>
-					</ul>
-				</div>
-			</article>
-			<div class="clear"></div>
-		</section>
-		<section>
-			<div class="sectionTitle">
-				<h1>চাকুরীর অভিজ্ঞতা</h1>
-			</div>
-			
-			<div class="sectionContent">
- 
-				@foreach($experiences as $experience)
-				<article>
-					<h2>{{$experience->designation}}, {{$experience->company_name}}</h2>
-					<p class="subDetails">@php echo date("d-m-Y", strtotime($experience->start)).'  --  '.date("d-m-Y", strtotime($experience->end))@endphp</p>
 
-					@if($experience->responsilbility)
-					<p style="margin-bottom:5px;">{{$experience->responsilbility}}</p>
-					@endif
-
-					@if($experience->achievement)
-					<p>{{$experience->achievement}}</p>
-					@endif
-				</article>
-				@endforeach
-			</div>
-			<div class="clear"></div>
-		</section>
-
-		<section>
-			<div class="sectionTitle">
-				<h1>গৃহীত প্রশিক্ষণ</h1>
-			</div>
-			
-			<div class="sectionContent">
- 
-				@foreach($trainings as $training)
-				<article>
-					<h2>{{$training->training_name}}, {{$training->name}}</h2>
-					<p class="subDetails">{{$training->time_tense}}</p>
-
-					@if($training->description)
-					<p style="margin-bottom:5px;">{{$training->description}}</p>
-					@endif
-				</article>
-				@endforeach
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		<!-- <section>
-			<div class="sectionTitle">
-				<h1>কাঙ্খিত চাকুরী</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<ul class="address">
-					@foreach($jobs as $key => $job)
-					@if($key%2 == 0)
-						<li>{{$job->name}}</li>
-					@endif
-					@endforeach
-				</ul>
-				<ul class="address">
-					@foreach($jobs as $key => $job)
-					@if($key%2 == 1)
-						<li>{{$job->name}}</li>
-					@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
-		<section>
-			<div class="sectionTitle">
-				<h1>কাঙ্খিত দেশ</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<ul class="address">
-					@foreach($countries as $key => $country)
-					@if($key%2 == 0)
-						<li>{{$country->country_name}}</li>
-					@endif
-					@endforeach
-				</ul>
-				<ul class="address">
-					@foreach($countries as $key => $country)
-					@if($key%2 == 1)
-						<li>{{$country->country_name}}</li>
-					@endif
-					@endforeach
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section> -->
-		<!-- <section>
-			<div class="sectionTitle">
-				<h1>Key Skills</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<ul class="keySkills">
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-				</ul>
-				
-			</div>
-			<div class="clear"></div>
-		</section> -->
-
-		<section>
-			<div class="sectionTitle">
-				<h1>শিক্ষাগত যোগ্যতা</h1>
-			</div>
-			
-			<div class="sectionContent">
-				@foreach($educations as $education)
-				<article>
-					<h2>{{$education->institute}}</h2>
-					<p class="subDetails">{{$education->degree_name}}</p>
-					<p class="subDetails2">বিষয়: {{$education->subject}}</p>
-					<p class="subDetails2">গ্রেড/ডিভিশান: {{$education->grade}}</p>
-					<p class="subDetails2">পাশের সন: {{$education->passing_year}}</p>
-				</article>
-				@endforeach
-			</div>
-			<div class="clear"></div>
-		</section>
-		<section>
-			<div class="sectionTitle">
-				<h1>ভাষাগত দক্ষতা</h1>
-			</div>
-			
-			<div class="sectionContent">
-				@foreach($languages as $language)
-				<article>
-					<h2>{{$language->language->name}}</h2>
-					<p class="subDetails2">মৌখিক দক্ষতা: {{$language->oral_skill}}</p>
-					<p class="subDetails2">লেখার দক্ষতা: {{$language->writing_skill}}</p>
-				</article>
-				@endforeach
-			</div>
-			<div class="clear"></div>
-		</section>
-	</div>
-</div>
-
+<body>
+    <div class="main-body">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="job-card-layout">
+                        {{-- <div class="cv-top-download-wrapper">
+                            <div class="d-flex justify-content-end">
+                                <div class="cv-top-button email-btn mr-4">
+                                    <a href=""><img src="{{ URL::asset('assets/cv/mail.png') }}"
+                                            class="img-fluid" />Email</a>
+                                </div>
+                                <div class="cv-top-button download-btn">
+                                    <a href=""><img src="{{ URL::asset('assets/cv/download-cloud.png') }}"
+                                            class="img-fluid" />Download</a>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <!-- people info -->
+                        <div class="cv-people-info-wrapper">
+                            <div class="cv-person-content d-flex mr-5">
+                                <div class="cv-person-image">
+                                @if($contact->image != null)
+                                <img src="{{$contact->image}}" alt="person"
+                                        class="img-fluid" />
+                                @else
+                                <img src="{{ URL::asset('cv_img/img_avatar.png') }}" alt="person"
+                                        class="img-fluid" />
+                                @endif
+                                    
+                                </div>
+                                <div class="cv-person-details mt-4 pl-4">
+                                    <div class="cv-person-name">
+                                        <h2>Rezwan Chowdhury Rafel</h2>
+                                    </div>
+                                    <div class="cv-rating-content-wrapper d-flex align-items-center">
+                                        <div class="position-badge">Web Developer</div>
+                                        <div class="blood-group-badge">0+ve</div>
+                                        <div class="rating">
+                                            <ul>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li class="star-free-block">
+                                                    <i class="far fa-star"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="cv-people-contact-info-wrapper">
+                                        <ul>
+                                            <li>
+                                                <img src="{{ URL::asset('assets/cv/phone-call.png') }}"
+                                                    alt="" />Contact :
+                                                <span>+8801992969618</span>
+                                            </li>
+                                            <li>
+                                                <img src="{{ URL::asset('assets/cv/mailBlack.png') }}" alt="" />Email
+                                                :
+                                                <span>rafelchy95@gmail.com</span>
+                                            </li>
+                                            <li>
+                                                <img src="{{ URL::asset('assets/cv/map-pin.png') }}" alt="" />Location
+                                                :
+                                                <span>Mohammadpur</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- experiance -->
+                        <div class="experinance-block-wrapper mt-4">
+                            <div class="cv-block-header d-flex justify-content-between align-items-center">
+                                <div class="cv-block-title">
+                                    <h2>Experiance</h2>
+                                </div>
+                                {{-- <div class="cv-block-edit-btn">
+                                    <a href=""><img src="{{ URL::asset('assets/cv/edit.png') }}"
+                                            alt="image" />Edit</a>
+                                </div> --}}
+                            </div>
+                            <div class="experiance-main-block-wrapper">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-4">
+                                        <div class="experiance-single-block">
+                                            <div class="experiance-single-block-header">
+                                                <h2>Syntech Solutions Ltd.</h2>
+                                            </div>
+                                            <div class="experiance-single-block-item">
+                                                <div>Designation : Web Developer</div>
+                                                <div>Joining Date : 1st jan 2016</div>
+                                                <div>Resign Date : 1st jan 2016</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4">
+                                        <div class="experiance-single-block">
+                                            <div class="experiance-single-block-header">
+                                                <h2>Syntech Solutions Ltd.</h2>
+                                            </div>
+                                            <div class="experiance-single-block-item">
+                                                <div>Designation : Web Developer</div>
+                                                <div>Joining Date : 1st jan 2016</div>
+                                                <div>Resign Date : 1st jan 2016</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4">
+                                        <div class="experiance-single-block">
+                                            <div class="experiance-single-block-header">
+                                                <h2>Syntech Solutions Ltd.</h2>
+                                            </div>
+                                            <div class="experiance-single-block-item">
+                                                <div>Designation : Web Developer</div>
+                                                <div>Joining Date : 1st jan 2016</div>
+                                                <div>Resign Date : 1st jan 2016</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- education -->
+                        <div class="cv-block-header d-flex justify-content-between align-items-center">
+                            <div class="cv-block-title">
+                                <h2>Education</h2>
+                            </div>
+                            {{-- <div class="cv-block-edit-btn">
+                                <a href=""><img img src="{{ URL::asset('assets/cv/edit.png') }}"
+                                        alt="image" />Edit</a>
+                            </div> --}}
+                        </div>
+                        <div class="cv-border-block">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="cv-single-content-block-title">
+                                            <h2>Secondery School Certificate</h2>
+                                        </div>
+                                        <div class="cv-single-content-block-content">
+                                            <p>
+                                                <span>Year: 2011</span><span>Grade:4.7</span>Group :
+                                                <span>Science</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="cv-single-content-block-title">
+                                            <h2>Secondery School Certificate</h2>
+                                        </div>
+                                        <div class="cv-single-content-block-content">
+                                            <p>
+                                                Year: <span> 2011</span>Grade:<span>4.7</span>Group :
+                                                <span>Science</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="cv-single-content-block-title">
+                                            <h2>Secondery School Certificate</h2>
+                                        </div>
+                                        <div class="cv-single-content-block-content">
+                                            <p>
+                                                <span>Year: 2011</span><span>Grade:4.7</span>Group :
+                                                <span>Science</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"></div>
+                            </div>
+                        </div>
+                        <!-- training block -->
+                        <div class="cv-block-header d-flex justify-content-between align-items-center">
+                            <div class="cv-block-title">
+                                <h2>Training</h2>
+                            </div>
+                            {{-- <div class="cv-block-edit-btn">
+                                <a href=""><img img src="{{ URL::asset('assets/cv/edit.png') }}"
+                                        alt="image" />Edit</a>
+                            </div> --}}
+                        </div>
+                        <div class="cv-border-block">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="cv-single-content-block-title">
+                                            <h2>Web Development (PHP & Laravel)</h2>
+                                        </div>
+                                        <div class="cv-single-content-block-content">
+                                            <p>
+                                                <span>Duration : 1 Year</span><span>Institute : BIIST</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="cv-single-content-block-title">
+                                            <h2>Secondery School Certificate</h2>
+                                        </div>
+                                        <div class="cv-single-content-block-content">
+                                            <p>
+                                                <span>Web & Graphics Design</span><span>Institute : Institute of Arts
+                                                    and Culture</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- personal info -->
+                        <div class=" cv-block-header d-flex justify-content-between align-items-center">
+                            <div class="cv-block-title border-right">
+                                <h2>Personal Info</h2>
+                            </div>
+                            {{-- <div class="cv-block-edit-btn">
+                                <a href=""><img img src="{{ URL::asset('assets/cv/edit.png') }}"
+                                        alt="image" />Edit</a>
+                            </div> --}}
+                        </div>
+                        <div class="cv-border-block">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="personal-info cv-single-content-block-content">
+                                            <table>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>: Rezwan Chowdhury Rafel</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fathers Name</td>
+                                                    <td>: Rashe Chowdhury</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mothers Name</td>
+                                                    <td>: Farida Begum</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Birth Date</td>
+                                                    <td>: 8th Jan 2021</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Gender</td>
+                                                    <td>: Male</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NID Number</td>
+                                                    <td>: 32227489212</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nationality</td>
+                                                    <td>: Bangladeshi</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Relegious</td>
+                                                    <td>: Islam</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Maretial Status</td>
+                                                    <td>: Unmarried</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="personal-info cv-single-content-block-content">
+                                            <table>
+                                                <tr>
+                                                    <td>Passport No.</td>
+                                                    <td>: 7836490220</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Passport Issue Date.</td>
+                                                    <td>: 6th May 2012</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Expected Indusry</td>
+                                                    <td>: IT and Telecommunications</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Expected Country</td>
+                                                    <td>: Bangladesh</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Prefession</td>
+                                                    <td>: 72KG</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NID Number</td>
+                                                    <td>: 32227489212</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nationality</td>
+                                                    <td>: Bangladeshi</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Relegious</td>
+                                                    <td>: Islam</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Maretial Status</td>
+                                                    <td>: Unmarried</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address -->
+                        <div class="cv-block-header d-flex justify-content-between align-items-center">
+                            <div class="cv-block-title">
+                                <h2>Address</h2>
+                            </div>
+                            {{-- <div class="cv-block-edit-btn">
+                                <a href=""><img img src="{{ URL::asset('assets/cv/edit.png') }}"
+                                        alt="image" />Edit</a>
+                            </div> --}}
+                        </div>
+                        <div class="address-block cv-border-block">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="cv-single-content-block-title">
+                                            <h2>Present Address</h2>
+                                        </div>
+                                        <div class="addressInfo cv-single-content-block-content">
+                                            <p>State <span>: Dhaka</span></p>
+                                            <p>Distrcit <span>: Dhaka</span></p>
+                                            <p>Thana <span>: New Market</span></p>
+                                            <p>Area/Village <span>: Katabon</span></p>
+                                            <p>House/Road <span>: 256</span></p>
+                                            <p>Post Code <span>: 1205</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="cv-single-content-block">
+                                        <div class="cv-single-content-block-title">
+                                            <h2>Permanent Address</h2>
+                                        </div>
+                                        <div class="addressInfo  cv-single-content-block-content">
+                                            <p>State <span>: Dhaka</span></p>
+                                            <p>Distrcit <span>: Dhaka</span></p>
+                                            <p>Thana <span>: New Market</span></p>
+                                            <p>Area/Village <span>: Katabon</span></p>
+                                            <p>House/Road <span>: 256</span></p>
+                                            <p>Post Code <span>: 1205</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- copyright footer -->
+                        <div class="cv-footer-wrapper mt-1">
+                            <div class="cv-footer-content-wrapper d-flex justify-content-between align-items-center">
+                                <div class="cv-copyright">
+                                    <p>Powered by <a href="">Mechanic chai</a></p>
+                                </div>
+                                <div class="cv-signature">
+                                    <div class="cv-border">
+                                        Signature
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
