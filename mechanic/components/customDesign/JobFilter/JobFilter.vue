@@ -9,6 +9,8 @@
           type="text"
           class="form-control"
           placeholder="Job Title or Keyward"
+          v-model="title"
+          @keyup="titleEvent()"
         />
       </div>
       <div class="form-group">
@@ -57,7 +59,7 @@
       <div
         class="job-filter-list-item d-flex justify-content-between align-items-center"
         v-for="job in allJob"
-        :key="['ok', job.id]"
+        :key="job.id"
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
@@ -65,6 +67,8 @@
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
+              name="title"
+              @click="jobTypeAction(job.id)"
             />
             <label class="form-check-label" for="exampleCheck1">{{
               job.category_name
@@ -111,6 +115,7 @@
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
+              @click="seniorLevelAction(seniorj.id)"
             />
             <label class="form-check-label" for="exampleCheck1">{{
               seniorj.level
@@ -179,6 +184,7 @@
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
+              @click="genderAction(sex.id)"
             />
             <label class="form-check-label" for="exampleCheck1"
               >{{ sex.name }} ago</label
@@ -200,6 +206,7 @@ export default {
     return {
       allJob: this.jobType,
       seniorLevel: this.senior,
+      title: '',
       time: [
         {
           id: 200,
@@ -244,6 +251,20 @@ export default {
           job: '100'
         }
       ]
+    }
+  },
+  methods: {
+    titleEvent(e) {
+      this.$emit('jobTitle', this.title)
+    },
+    jobTypeAction(e) {
+      this.$emit('jobTypeActionEmit', e)
+    },
+    seniorLevelAction(e) {
+      this.$$emit('seniorLevelEmit', e)
+    },
+    genderAction(e) {
+      this.$$emit('genderEmit', e)
     }
   }
 }

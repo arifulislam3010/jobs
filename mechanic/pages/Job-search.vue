@@ -6,6 +6,10 @@
           <JobFilter
             :jobType="this.$store.state.jobs.all_job_type"
             :senior="this.$store.state.jobs.senarity_level_data"
+            @jobTitle="JobTitle"
+            @jobTypeActionEmit="jobTypeEmitAction"
+            @seniorLevelEmit="seniorLevelEmitAction"
+            @genderEmit="genderEmitAction"
           />
           <div class="row mb-2">
             <!-- <job-filter /> -->
@@ -42,7 +46,7 @@
             </div>
           </div>
           <div class="job-card-wrapper mb-5">
-            <div v-for="(list, key) in lists.data" v-bind:key="key">
+            <div v-for="(list, key) in jobList" v-bind:key="key">
               <JobCard :post="list" />
             </div>
           </div>
@@ -68,13 +72,18 @@ export default {
       agencies: [],
       jobs: [],
       job: [],
+      jobTypeSearch: [],
       country: [],
       agency: [],
+      seniorLevelSearch: [],
+      genderSearch: [],
       modalOpen: false,
       applyModalOpen: false,
       post: '',
       type: '',
+      jobList: [],
       search: {},
+      titleSearch: '',
       seria: [
         '১',
         '২',
@@ -100,11 +109,32 @@ export default {
     this.getJob()
     this.getCountry()
     this.getAgency()
+    this.getJobList()
+    // this.searchCustom(\/)
   },
   computed: mapGetters({
     lists: 'frontent/appointments'
   }),
   methods: {
+    JobTitle(e) {
+      // console.log(e)
+      this.titleSearch = e
+      this.get()
+    },
+    jobTypeEmitAction(e) {
+      // console.log(e)
+      // console.log('hi')
+      this.jobTypeSearch.push(e)
+      this.get()
+    },
+    seniorLevelEmitAction(e) {
+      this.seniorLevelSearch.push(e)
+      this.get()
+    },
+    genderEmitAction(e) {
+      this.genderSearch.push(e)
+      this.get()
+    },
     get2(page = 1) {
       this.get(0, page)
     },
@@ -121,10 +151,26 @@ export default {
       this.search.country = this.country
       this.search.agency = this.agency
       this.search.job = this.job
+      this.search.title = this.titleSearch
+      this.search.jobType = this.jobTypeSearch
+      this.search.senior = this.seniorLevelSearch
+      this.search.gender = this.genderSearch
 
-      try {
-        await this.$store.dispatch('frontent/get_appointments', this.search)
-      } catch (e) {}
+      // try {
+      //   console.log('search')
+      // await this.$store.dispatch('frontent/get_appointments', this.search)
+      // // .then(response => {
+      // this.jobList = this.$store.state.appointments
+      //   this.jobList = response.data
+      // })
+      // .catch(error => {})
+      await this.$axios
+        .post('api/custom/search', this.search)
+        .then(response => {
+          this.jobList = response.data
+        })
+        .catch(error => {})
+      // } catch (e) {}
     },
     go(slug) {
       this.$router.push('/notice-of-appointment/' + slug)
@@ -133,6 +179,7 @@ export default {
       await this.$axios
         .get('api/get-desired-job-tree')
         .then(response => {
+          console.log(response.data)
           this.jobs = [
             { id: 99999, label: 'সকল চাকুরী', children: response.data }
           ]
@@ -158,7 +205,30 @@ export default {
           ]
         })
         .catch(error => {})
+    },
+    async getJobList() {
+      await this.$axios
+        .get('api/post/list/1')
+        .then(response => {
+          this.jobList = response.data
+          // this.agencies = [
+          //   { id: 99999, label: 'সকল এজেন্সি', children: response.data }
+          // ]
+        })
+        .catch(error => {})
     }
+    // async searchCustom() {
+    //   await this.$axios
+    //     .get('api/post/search?title=d')
+    //     .then(response => {
+    //       console.log(response.data)
+    //       // this.jobList = response.data
+    //       // this.agencies = [
+    //       //   { id: 99999, label: 'সকল এজেন্সি', children: response.data }
+    //       // ]
+    //     })
+    //     .catch(error => {})
+    // }
   },
   created() {
     this.$store.dispatch('jobs/all_job_type')
