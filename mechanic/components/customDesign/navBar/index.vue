@@ -40,7 +40,10 @@
 
         <b-dropdown size="sm" class="profile-dropdown" v-show="$auth.loggedIn">
           <template #button-content>
+            <img class="u_p" src="~/assets/image/u.png">
             <!-- <fa icon="user"></fa> -->
+            <!-- <i class="fas fa-user"></i> -->
+            <!-- <i class="far fa-user-circle"></i> -->
           </template>
           <b-dropdown-item-button
             ><nuxt-link to="/dashboard">Dashboard</nuxt-link
@@ -148,6 +151,10 @@ methods: {
 </script>
 
 <style lang="scss" scoped>
+.u_p{
+  width: 18px;
+  height: 100%;
+}
 .nav_close{
   padding: 4px;
   cursor: pointer;

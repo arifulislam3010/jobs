@@ -73,17 +73,11 @@ class PostsController extends Controller
         //     return PostResource::collection($post);
         // }
 
-        // $post = Post::select('posts.*')
-        //     ->when($section,function($q) use($section){return $q->join('post_sections','post_sections.post_id','=','posts.id')->where('post_sections.section_id', $section);})
-        //     ->when($category,function($q) use($category){return $q->join('post_categories','post_categories.post_id','=','posts.id')->where('post_categories.category_id', $category);})
-        //     ->when($tag,function($q) use($tag){return $q->join('post_tags','post_tags.post_id','=','posts.id')->where('post_tags.tag_id',$tag);})
-        //     ->when($area,function($q) use($area){return $q->join('post_areas','post_areas.post_id','=','posts.id')->where('post_areas.area_id', $area);})
-        //     ->where('posts.type',$type)
-        //     ->where('posts.status',1)
-        //     ->where('posts.deleted_at',null)
-        //     ->where('posts.expired_at','>=',now())
-        //     ->orderBy('posts.id', 'DESC')
-        //     ->paginate($limit);
+    
+        $post = Post::select('posts.*')->orderBy('posts.id', 'DESC')
+            ->paginate(10);
+            return PostResource::collection($post);
+
 
         $type = ($request->has('type'))?$request['type']:null;
         $title =($request->has('title'))?$request['title']:null;

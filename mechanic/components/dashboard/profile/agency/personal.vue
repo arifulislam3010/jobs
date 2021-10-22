@@ -22,6 +22,23 @@
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-5">
+        <div v-if="url" class="image_upload logo_upload">
+          <span class="removeImage" @click="RemoveImage">X</span>
+          <img :src="url" class="fitimage" />
+        </div>
+        <div v-else class="image_upload logo_upload" @click="$refs.ImageFile.click()">
+          <p>প্রোফাইল পিকচার বাছাই করুন</p>
+          <i class="fas fa-cloud-upload-alt"></i>
+          <input
+            type="file"
+            ref="ImageFile"
+            class="file-input"
+            style="display: none"
+            v-on:change="imageChanged"
+          />
+        </div>
+      </div>
+      <div class="col-md-5">
         <div class="form-group row">
           <label  for="inputPassword" class="col-md-4 labels">ফোন<span class="required">*</span></label>
           <input
@@ -239,6 +256,9 @@ export default {
       loader:false,
       validate_status:false,
       error_message:'',
+      image: '',
+      not_edit_image: 10,
+      url:'',
       map_link:'',
       name:'',
       website:'',
@@ -313,7 +333,9 @@ export default {
           subdistrict:this.subdistrict,
           subdistrict_id:this.subdistrict_id,
           district_id:this.district_id,
-          division_id:this.division_id
+          division_id:this.division_id,
+          image: this.image,
+          not_edit_image: this.not_edit_image,
         }
         this.$axios
           .put('contacts/basic-info', data)
@@ -344,6 +366,7 @@ export default {
             this.phone2 = response.data.contact_number
             this.about = response.data.about
             this.map_link = response.data.map_link
+             this.url = response.data.image
             if(response.data.address2){
               this.division    = response.data.address2.division
               this.district    = response.data.address2.district

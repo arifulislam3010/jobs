@@ -52,14 +52,14 @@
                 <nuxt-link to="#">
                   <img
                     alt="app"
-                    src="~/assets/image/storeIcon/googlePlay.png"
+                    src="~/assets/image/storeIcon/playstore.png"
                     class="img-fluid"
                   />
                 </nuxt-link>
                 <nuxt-link to="">
                   <img
                     alt="app"
-                    src="~/assets/image/storeIcon/googlePlay.png"
+                    src="~/assets/image/storeIcon/ios.png"
                     class="img-fluid"
                   />
                 </nuxt-link>

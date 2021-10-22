@@ -19,9 +19,9 @@
                           class="border-0">
                         <template>
                             <div class="text-center text-muted mb-4">
-                                <img width="200px;" src="../assets/logo.png" alt="">
+                                <img width="100px;" src="~/assets/icon/logo_custom.png" alt="">
                                 <br>
-                                <small style="font-size:16px;">পাসওয়ার্ড ভুলে গেছেন</small>
+                                <small style="font-size:16px;">Forget your password</small>
                             </div>
                             <div v-if="formError" class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
@@ -40,15 +40,15 @@
                             <form role="form">
                                 <base-input  v-validate="'required'" data-vv-as="email/phone" name="email_field"  v-model="login.email" alternative
                                             class="mb-3"
-                                            placeholder="ইমেল / মোবাইল"
+                                            placeholder="email/phone"
                                             addon-left-icon="ni ni-email-83">
                                 </base-input>
-                                <p  v-if="errors.has('email_field')" class="validation_message">* ইমেল / মোবাইল প্রয়োজন</p>
+                                <p  v-if="errors.has('email_field')" class="validation_message">* Email / phone required</p>
                                 
                                 <div class="text-center">
-                                    <base-button style="background-color:rgb(117,171,40);" v-if="loader"  type="primary"  class="my-4"> <i class="fa fa-cog fa-spin"></i> সাবমিট</base-button>
+                                    <base-button style="background-color:rgb(117,171,40);" v-if="loader"  type="primary"  class="my-4"> <i class="fa fa-cog fa-spin"></i> Submit</base-button>
 
-                                    <base-button style="background-color:rgb(117,171,40);" v-else @click="forgot"  type="primary"  class="my-4">সাবমিট</base-button>
+                                    <base-button style="background-color:rgb(117,171,40);" v-else @click="forgot"  type="primary"  class="my-4">Submit</base-button>
                                 </div>
                             </form>
                         </template>

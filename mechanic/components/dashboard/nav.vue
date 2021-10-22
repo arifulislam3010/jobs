@@ -16,36 +16,42 @@
             
                 <li class="nav-item " :class="$route.name=='dashboard'?'active2':''" >
                     <nuxt-link to="/dashboard" class="nav-link ">
-                    <i class="fa fa-home"></i> ড্যাশবোর্ড
+                    <i class="fa fa-home"></i> Dashboard
                     </nuxt-link>
                 </li>
                 <li  class="nav-item" :class="$route.name=='dashboard-profile'?'active2':''">
                     <nuxt-link to="/dashboard/profile" class="nav-link">
                         <i class="fas fa-user"></i>
-                        প্রোফাইল
+                        Profile
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==1 || $auth.user.role_id==6" class="nav-item" :class="$route.name=='dashboard-success-stories'?'active2':''">
                     <nuxt-link to="/dashboard/success-stories" class="nav-link">
                         <i class="far fa-comment"></i>
-                        সফলতার গল্প
+                        Success Stories
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==6" class="nav-item" :class="$route.name=='dashboard-subcription'?'active2':''">
                     <nuxt-link to="/dashboard/subcription" class="nav-link">
                         <i class="far fa-star"></i>
-                        আমার সাবস্ক্রিপশন 
+                        My Subcription 
                     </nuxt-link>
                 </li>
                 <li class="nav-item" :class="$route.name=='dashboard-setting'?'active2':''">
                     <nuxt-link to="/dashboard/setting" class="nav-link" >
                         <i class="fas fa-cog"></i>
-                        সেটিংস
+                        Setting 
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.type == 6" class="nav-item" >
-                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i> সিভি</a>
+                <li class="nav-item" :class="$route.name=='mycv'?'active2':''">
+                    <nuxt-link to="/dashboard/mycv" class="nav-link" >
+                        <i class="fas fa-file-alt"></i>
+                        Mycv
+                    </nuxt-link>
                 </li>
+                <!-- <li v-if="$auth.user.type == 6" class="nav-item" >
+                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i>CV</a>
+                </li> -->
             </ul>
         </section>
         <section  v-if="$auth.user.type != 6 || !isMobile" class="section3" >
@@ -53,67 +59,67 @@
             <ul  class="nav flex-column" role="tablist">
                 <li class="nav-item " :class="$route.name=='dashboard'?'active2':''" >
                     <nuxt-link to="/dashboard" class="nav-link ">
-                    <i class="fa fa-home"></i> ড্যাশবোর্ড
+                    <i class="fa fa-home"></i> Dashboard
                     </nuxt-link>
                 </li>
                 <li  class="nav-item" :class="$route.name=='dashboard-profile'?'active2':''">
                     <nuxt-link to="/dashboard/profile" class="nav-link">
                         <i class="fas fa-user"></i>
-                        প্রোফাইল
+                        Profile
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==1" class="nav-item" :class="$route.name=='dashboard-notices'?'active2':''">
                     <nuxt-link to="/dashboard/notices" class="nav-link">
                         <i class="fas fa-clipboard-list"></i>
-                        বিজ্ঞপ্তি
+                        Notice
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==1" class="nav-item" :class="$route.name=='dashboard-news'?'active2':''">
                     <nuxt-link to="/dashboard/news" class="nav-link">
                         <i class="fas fa-clipboard-list"></i>
-                        খবর
+                        News
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1 || $auth.user.role_id == 3" class="nav-item" :class="$route.name=='dashboard-jobposts'?'active2':''">
                     <nuxt-link to="/dashboard/jobposts" class="nav-link">
                         <i class="far fa-copy"></i>
-                        চাকরির বিজ্ঞপ্তি
+                     Job Posts
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1 || $auth.user.role_id == 3 || $auth.user.role_id == 9" class="nav-item"  :class="[$route.name=='dashboard-job-applicant-id'?'active2':'',$route.name=='dashboard-job-applicant'?'active2':'']">
                     <nuxt-link to="/dashboard/job-applicant" class="nav-link">
                         <i class="far fa-copy"></i>
-                        চাকরিতে আবেদনকারী
+                        Job applicant
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==1 || $auth.user.role_id==6" class="nav-item" :class="$route.name=='dashboard-success-stories'?'active2':''">
                     <nuxt-link to="/dashboard/success-stories" class="nav-link">
                         <i class="far fa-comment"></i>
-                        সফলতার গল্প
+                        Success Stories
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==6" class="nav-item" :class="$route.name=='dashboard-subcription'?'active2':''">
                     <nuxt-link to="/dashboard/subcription" class="nav-link">
                         <i class="far fa-star"></i>
-                        আমার সাবস্ক্রিপশন 
+                         Subcription
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==1" class="nav-item" :class="$route.name=='dashboard-others'?'active2':''">
                     <nuxt-link to="/dashboard/others" class="nav-link">
                         <i class="far fa-compass"></i>
-                        অন্যান্য
+                        Others
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==1" class="nav-item" :class="$route.name=='dashboard-blogs'?'active2':''">
                     <nuxt-link to="/dashboard/blogs" class="nav-link">
                         <i class="far fa-comment-dots"></i>
-                        সচরাচর জিজ্ঞাসা
+                        Blogs
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-slider'?'active2':''">
                     <nuxt-link to="/dashboard/slider" class="nav-link">
                         <i class="far fa-file-image"></i>
-                        স্লাইডার
+                        slider
                     </nuxt-link>
                 </li>
                 <!-- <li v-if="$auth.user.role_id==1" class="nav-item">
@@ -125,7 +131,7 @@
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-downloads'?'active2':''">
                     <nuxt-link to="/dashboard/downloads" class="nav-link">
                         <i class="fas fa-download"></i>
-                        ডাউনলোড 
+                        Downloads 
                     </nuxt-link>
                 </li>
                 <!-- <li v-if="$auth.user.role_id==1" class="nav-item">
@@ -137,63 +143,63 @@
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-admin'?'active2':''">
                     <nuxt-link to="/dashboard/admin" class="nav-link">
                         <i class="fas fa-user"></i>
-                        এডমিন
+                        Admin
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1 || $auth.user.role_id==9" class="nav-item" :class="$route.name=='dashboard-applicant'?'active2':''">
                     <nuxt-link to="/dashboard/applicant" class="nav-link">
                         <i class="fas fa-users"></i>
-                        প্রার্থী
+                        Applicants
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1 || $auth.user.role_id == 9" class="nav-item" :class="$route.name=='dashboard-agency'?'active2':''">
                     <nuxt-link to="/dashboard/agency" class="nav-link">
                         <i class="fas fa-users"></i>
-                        এজেন্সি
+                        Agencies
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-financial-organization'?'active2':''">
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-financial-organization'?'active2':''">
                     <nuxt-link to="/dashboard/financial-organization" class="nav-link" >
                         <i class="fas fa-money-bill"></i>
-                        আর্থিক সংস্থা
+                        আ
                     </nuxt-link>
-                </li>
+                </li> -->
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-training-center'?'active2':''">
                     <nuxt-link to="/dashboard/training-center" class="nav-link" >
                         <i class="fas fa-users"></i>
-                        প্রশিক্ষণ কেন্দ্র
+                        Training center
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-important-embassy'?'active2':''">
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-important-embassy'?'active2':''">
                     <nuxt-link to="/dashboard/important-embassy" class="nav-link" >
                         <i class="fas fa-users"></i>
                         গুরুত্বপূর্ণ এম্বাসি
                     </nuxt-link>
-                </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-preparation'?'active2':''">
+                </li> -->
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-preparation'?'active2':''">
                     <nuxt-link to="/dashboard/preparation" class="nav-link" >
                         <i class="fas fa-book"></i>
                         বিদেশ যাত্রার প্রস্তুতি
                     </nuxt-link>
-                </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-to-do'?'active2':''">
+                </li> -->
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-to-do'?'active2':''">
                     <nuxt-link to="/dashboard/to-do" class="nav-link" >
                         <i class="fas fa-book"></i>
                         প্রবাসে করণীয়
                     </nuxt-link>
-                </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-send-money'?'active2':''">
+                </li> -->
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-send-money'?'active2':''">
                     <nuxt-link to="/dashboard/send-money" class="nav-link" >
                         <i class="fas fa-book"></i>
                         বৈধ ভাবে টাকা পাঠানো
                     </nuxt-link>
-                </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-procedure'?'active2':''">
+                </li> -->
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-procedure'?'active2':''">
                     <nuxt-link to="/dashboard/procedure" class="nav-link" >
                         <i class="fas fa-book"></i>
                         অভিবাসন প্রক্রিয়া
                     </nuxt-link>
-                </li>
+                </li> -->
                 <!-- <li v-if="$auth.user.role_id==1" class="nav-item">
                     <nuxt-link to="/dashboard/user/role" class="nav-link">
                         <i class="fas fa-user-cog"></i>
@@ -203,21 +209,21 @@
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-complain'?'active2':''">
                     <nuxt-link to="/dashboard/complain" class="nav-link" >
                         <i class="fas fa-star"></i>
-                        অভিযোগ
+                        Complain
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id==1" class="nav-item" :class="$route.name=='dashboard-opinion'?'active2':''">
                     <nuxt-link to="/dashboard/opinion" class="nav-link" >
                         <i class="fas fa-envelope"></i>
-                        মতামত
+                        Opinion
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-guide'?'active2':''">
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-guide'?'active2':''">
                     <nuxt-link to="/dashboard/guide" class="nav-link">
                         <i class="fas fa-book"></i>
                         গাইড বুক
                     </nuxt-link>
-                </li>
+                </li> -->
                 <!-- <li v-if="$auth.user.role_id==3" class="nav-item">
                     <nuxt-link to="/dashboard/admin" class="nav-link">
                         <i class="fas fa-user"></i>
@@ -227,72 +233,78 @@
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-social'?'active2':''">
                     <nuxt-link to="/dashboard/social" class="nav-link" >
                         <i class="fas fa-cog"></i>
-                        সামাজিক যোগাযোগ
+                        Social
                     </nuxt-link>
                 </li>
                 <li class="nav-item" :class="$route.name=='dashboard-setting'?'active2':''">
                     <nuxt-link to="/dashboard/setting" class="nav-link" >
                         <i class="fas fa-cog"></i>
-                        সেটিংস
+                        Setting
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.type == 6" class="nav-item" >
-                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i> সিভি</a>
+                <li class="nav-item" :class="$route.name=='mycv'?'active2':''">
+                    <nuxt-link to="/dashboard/mycv" class="nav-link" >
+                        <i class="fas fa-file-alt"></i>
+                        Mycv
+                    </nuxt-link>
                 </li>
+                <!-- <li v-if="$auth.user.type == 6" class="nav-item" >
+                    <a class="nav-link" @click="openModal" href="#"><i class="fas fa-file-alt"></i> সিভি</a>
+                </li> -->
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-division'?'active2':''">
                     <nuxt-link to="/dashboard/division" class="nav-link">
                         <i class="fas fa-star"></i>
-                        বিভাগ
+                        Division
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-district'?'active2':''">
                     <nuxt-link to="/dashboard/district" class="nav-link">
                         <i class="fas fa-star"></i>
-                        জেলা
+                        District
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-subdistrict'?'active2':''">
                     <nuxt-link to="/dashboard/subdistrict" class="nav-link">
                         <i class="fas fa-star"></i>
-                        উপজেলা
+                        Sub District
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-union'?'active2':''">
                     <nuxt-link to="/dashboard/union" class="nav-link">
                         <i class="fas fa-star"></i>
-                        ইউনিয়ন
+                        Union
                     </nuxt-link>
                 </li>
-                <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-country'?'active2':''">
+                <!-- <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-country'?'active2':''">
                     <nuxt-link to="/dashboard/country" class="nav-link">
                         <i class="fas fa-star"></i>
-                        দেশ
+                        Country
                     </nuxt-link>
-                </li>
+                </li> -->
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-language'?'active2':''">
                     <nuxt-link to="/dashboard/language" class="nav-link">
                         <i class="fas fa-star"></i>
-                        ভাষা
+                        Language
                     </nuxt-link>
                 </li>
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-degree'?'active2':''">
                     <nuxt-link to="/dashboard/degree" class="nav-link">
                         <i class="fas fa-star"></i>
-                        শিক্ষা ডিগ্রী
+                        Degree
                     </nuxt-link>
                 </li>
                 
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-board'?'active2':''">
                     <nuxt-link to="/dashboard/board" class="nav-link">
                         <i class="fas fa-star"></i>
-                        শিক্ষা বোর্ড
+                        Board
                     </nuxt-link>
                 </li>
             
                 <li v-if="$auth.user.role_id == 1" class="nav-item" :class="$route.name=='dashboard-job'?'active2':''">
                     <nuxt-link to="/dashboard/job" class="nav-link">
                         <i class="fas fa-star"></i>
-                        কাঙ্খিত চাকরি
+                        Jobs
                     </nuxt-link>
                 </li>
             </ul>

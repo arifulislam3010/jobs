@@ -6,7 +6,7 @@
         <b-tabs content-class="mt-3">
             <b-tab title="ব্যক্তিগত তথ্য" ><personal @clicked="onClickChild" :treeData="treeData" :districts="districts" :desired_jobs="desired_jobs"  :countries="countries"></personal></b-tab>
             <b-tab title="ঠিকানা"><address2 @clicked="onClickChild" :divisions="divisions"></address2></b-tab>
-            <b-tab title="নমিনী"><nominee @clicked="onClickChild"></nominee></b-tab>
+            <!-- <b-tab title="নমিনী"><nominee @clicked="onClickChild"></nominee></b-tab> -->
             <b-tab title="শিক্ষাগত যোগ্যতা" ><education @clicked="onClickChild"></education></b-tab>
             <b-tab title="ভাষা"><language @clicked="onClickChild"></language></b-tab>
             <b-tab title="অভিজ্ঞতা"><experience @clicked="onClickChild" ></experience></b-tab>
