@@ -128,15 +128,31 @@ export default {
     jobTypeEmitAction(e) {
       // console.log(e)
       // console.log('hi')
-      this.jobTypeSearch.push(e)
+      let value = this.jobTypeSearch.indexOf(e)
+      if (value > -1) {
+        this.jobTypeSearch.slice(value, 1)
+      } else {
+        this.jobTypeSearch.push(e)
+      }
       this.get()
+      // console.log(this.jobTypeSearch)
     },
     seniorLevelEmitAction(e) {
-      this.seniorLevelSearch.push(e)
+      let value = this.seniorLevelSearch.indexOf(e)
+      if (value > -1) {
+        this.seniorLevelSearch.slice(value, 1)
+      }else{
+        this.seniorLevelSearch.push(e)
+      }
       this.get()
     },
     genderEmitAction(e) {
-      this.genderSearch.push(e)
+      let value = this.genderSearch.indexOf(e)
+      if (value > -1) {
+        this.genderSearch.slice(value, 1)
+      }else{
+        this.genderSearch.push(e)
+      }
       this.get()
     },
     minSalaryEmit(e)

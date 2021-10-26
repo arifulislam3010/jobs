@@ -280,7 +280,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 .job-filter-section-heading {
   h5 {
     color: #1d3146;

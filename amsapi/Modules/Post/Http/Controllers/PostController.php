@@ -296,23 +296,42 @@ class PostController extends Controller
         if (isset($request->title) && !empty($request->title)) {
             $post = $post->Where('headline', 'LIKe', "%$request->title%");
         }
+<<<<<<< HEAD
         if (isset($request->location) && !empty($request->location)) {
             $post = $post->Where('country_id', $request->location);
         }
         if (isset($request->jobType) && !empty($request->jobType)) {
+=======
+        if (isset($request->location) && !empty($request->location))
+        {
+            $post = $post->Where('country_id',$request->location);
+        }
+        if (isset($request->jobType) && !empty($request->jobType))
+        {
+>>>>>>> ee6a3ca36c090e47a8df6c3ef11ed5053817c9dc
             $job = $request->jobType;
             $post = $post->with('jobType')->WhereHas('jobType', function ($app) use ($job) {
                 $app->whereIn('id', $job);
             });
         }
 
+<<<<<<< HEAD
         if (isset($request->senior) && !empty($request->senior)) {
+=======
+        if (isset($request->senior) && !empty($request->senior))
+        {
+>>>>>>> ee6a3ca36c090e47a8df6c3ef11ed5053817c9dc
             $kk = $request->senior;
             $post = $post->with('senior')->WhereHas('senior', function ($app) use ($kk) {
                 $app->where('id', $kk);
             });
         }
+<<<<<<< HEAD
         if (isset($request->gender) && !empty($request->gender)) {
+=======
+        if (isset($request->gender) && !empty($request->gender))
+        {
+>>>>>>> ee6a3ca36c090e47a8df6c3ef11ed5053817c9dc
             $gender = $request->gender;
             $post = $post->with('gender')->WhereHas('gender', function ($app) use ($gender) {
                 $app->where('id', $gender);
