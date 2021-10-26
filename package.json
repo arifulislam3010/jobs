@@ -79,6 +79,7 @@
     "webpack-jquery-ui": "^2.0.1"
   },
   "devDependencies": {
+    "@nuxt/types": "^0.7.9",
     "@nuxtjs/dotenv": "^1.4.1",
     "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-prettier": "3.1.0",

@@ -1,5 +1,5 @@
 <template>
-  <div class="job-filter-wrapp">
+  <div class="job-filter-wrapper">
     <div class="job-filter-section-heading">
       <h5>Filters Criteria</h5>
     </div>
@@ -18,109 +18,91 @@
       </div>
     </div>
     <div class="job-filter-list">
-      <div
-        class="list-heading-wrapper d-flex justify-content-between align-items-center mt-3 mb-2"
-      >
-        <div class="list-heading">
-          <h4>Type of employement</h4>
-        </div>
-        <div class="list-collaps-icon">
-          <i class="fas fa-angle-up"></i>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+      <!-- job category item -->
+      <div class="single-job-category-item">
+        <div
+          @click="handleCollapseFunctionality"
+          class="list-heading-wrapper d-flex justify-content-between align-items-center mt-3 mb-2"
+        >
+          <div class="list-heading">
+            <h4>Type of employement</h4>
+          </div>
+          <div class="list-collaps-icon">
+            <i class="fas fa-angle-up"></i>
           </div>
         </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+        <div class="collaps-item" id="collapsItem">
+          <div
+            class="job-filter-list-item d-flex justify-content-between align-items-center"
+          >
+            <div class="checkbox-wrapper ">
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                />
+                <label class="form-check-label" for="exampleCheck1"
+                  >Full Time Job</label
+                >
+              </div>
+            </div>
+            <div class="job-post-count">
+              <p>128</p>
+            </div>
           </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+          <div
+            class="job-filter-list-item d-flex justify-content-between align-items-center"
+          >
+            <div class="checkbox-wrapper ">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" />
+                <label class="form-check-label">Full Time Job</label>
+              </div>
+            </div>
+            <div class="job-post-count">
+              <p>128</p>
+            </div>
           </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+          <div
+            class="job-filter-list-item d-flex justify-content-between align-items-center"
+          >
+            <div class="checkbox-wrapper ">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" />
+                <label class="form-check-label">Full Time Job</label>
+              </div>
+            </div>
+            <div class="job-post-count">
+              <p>128</p>
+            </div>
           </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+          <div
+            class="job-filter-list-item d-flex justify-content-between align-items-center"
+          >
+            <div class="checkbox-wrapper ">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" />
+                <label class="form-check-label">Full Time Job</label>
+              </div>
+            </div>
+            <div class="job-post-count">
+              <p>128</p>
+            </div>
           </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
+          <div
+            class="job-filter-list-item d-flex justify-content-between align-items-center"
+          >
+            <div class="checkbox-wrapper">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" />
+                <label class="form-check-label">Full Time Job</label>
+              </div>
+            </div>
+            <div class="job-post-count">
+              <p>128</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="job-filter-number-input mt-3 mb-3">
@@ -148,11 +130,33 @@
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
+            <input type="checkbox" class="form-check-input" />
+            <label class="form-check-label">Full Time Job</label>
+          </div>
+        </div>
+        <div class="job-post-count">
+          <p>128</p>
+        </div>
+      </div>
+      <div
+        class="job-filter-list-item d-flex justify-content-between align-items-center"
+      >
+        <div class="checkbox-wrapper ">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" />
+            <label class="form-check-label">Full Time Job</label>
+          </div>
+        </div>
+        <div class="job-post-count">
+          <p>128</p>
+        </div>
+      </div>
+      <div
+        class="job-filter-list-item d-flex justify-content-between align-items-center"
+      >
+        <div class="checkbox-wrapper ">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" />
             <label class="form-check-label" for="exampleCheck1"
               >Full Time Job</label
             >
@@ -167,11 +171,7 @@
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
+            <input type="checkbox" class="form-check-input" />
             <label class="form-check-label" for="exampleCheck1"
               >Full Time Job</label
             >
@@ -186,52 +186,8 @@
       >
         <div class="checkbox-wrapper ">
           <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
-          </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
-          </div>
-        </div>
-        <div class="job-post-count">
-          <p>128</p>
-        </div>
-      </div>
-      <div
-        class="job-filter-list-item d-flex justify-content-between align-items-center"
-      >
-        <div class="checkbox-wrapper ">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Full Time Job</label
-            >
+            <input type="checkbox" class="form-check-input" />
+            <label class="form-check-label">Full Time Job</label>
           </div>
         </div>
         <div class="job-post-count">
@@ -243,11 +199,29 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    handleCollapseFunctionality() {
+      let upArrow = document.getElementsByClassName('list-collaps-icon')
+      let collapseITem = document.getElementsByClassName('collaps-item')
+      collapseITem[0].classList.toggle('collapse')
+      upArrow[0].classList.toggle('list-collaps-icon--active')
+    }
+  }
+}
+// collaps functionality
 </script>
 
 <style lang="scss">
 @import '../../../assets/scss/responsive';
+
+// accordion functionality
+.list-collaps-icon--active {
+  transition: 0.5s ease-in-out;
+  .fa-angle-up:before {
+    content: '\f107';
+  }
+}
 .job-filter-section-heading {
   h5 {
     color: #1d3146;
@@ -255,12 +229,14 @@ export default {}
     font-weight: 600;
   }
 }
-.job-filter-wrapp {
+
+.job-filter-wrapper {
   border: 1px solid #bdbdbd;
   box-sizing: border-box;
   border-radius: 4px;
   padding: 1rem;
 }
+
 .list-heading {
   h4 {
     font-style: normal;
@@ -282,6 +258,7 @@ export default {}
     padding: 5px 10px;
     font-weight: 600;
     transition: 0.3s;
+
     &:hover {
       background: #e8fefa;
       color: #0ba88c;
@@ -291,6 +268,7 @@ export default {}
 
 .checkbox-wrapper {
   margin: 0.5rem 0;
+
   label {
     font-weight: 600;
     font-size: 12px;
@@ -315,6 +293,7 @@ export default {}
     height: 32px;
     margin-right: 10px;
     padding: 10px;
+
     &:focus {
       outline: 0;
     }
@@ -329,5 +308,7 @@ export default {}
   height: 32px;
   color: #fff;
   font-size: 12px;
+}
+.list-heading-wrapper {
 }
 </style>
