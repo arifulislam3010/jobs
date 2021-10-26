@@ -299,11 +299,11 @@ class PostController extends Controller
         {
             $post = $post->Where('headline','LIKe',"%$request->title%");
         }
-        if (isset($request->location))
+        if (isset($request->location) && !empty($request->location))
         {
             $post = $post->Where('country_id',$request->location);
         }
-        if (isset($request->jobType))
+        if (isset($request->jobType) && !empty($request->jobType))
         {
             $job = $request->jobType;
             $post = $post->with('jobType')->WhereHas('jobType',function ($app) use($job){
@@ -311,14 +311,14 @@ class PostController extends Controller
             });
         }
 
-        if (isset($request->senior))
+        if (isset($request->senior) && !empty($request->senior))
         {
             $kk = $request->senior;
             $post = $post->with('senior')->WhereHas('senior',function ($app) use($kk){
                 $app->where('id',$kk);
             });
         }
-        if (isset($request->gender))
+        if (isset($request->gender) && !empty($request->gender))
         {
             $gender = $request->gender;
             $post = $post->with('gender')->WhereHas('gender',function ($app) use($gender){
