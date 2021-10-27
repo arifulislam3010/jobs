@@ -51,6 +51,7 @@ class Post extends Resource
             'experience' => $this->experience,
             'job_id'     => $this->job_id,
             'country_id' => $this->country_id,
+            'salary' => $this->salary,
             'language_id'=> $this->language_id,
             'updated_by' => $this->updatedBy ? $this->updatedBy->name : "" ,
             'created_by' => $this->createdBy ? $this->createdBy->name : "" ,

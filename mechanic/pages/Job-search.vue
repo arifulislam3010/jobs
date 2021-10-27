@@ -10,6 +10,8 @@
             @jobTypeActionEmit="jobTypeEmitAction"
             @seniorLevelEmit="seniorLevelEmitAction"
             @genderEmit="genderEmitAction"
+            @min="minSalaryEmit"
+            @max="maxSalaryEmit"
           />
           <div class="row mb-2">
             <!-- <job-filter /> -->
@@ -82,6 +84,8 @@ export default {
       post: '',
       type: '',
       jobList: [],
+      minSalary:'',
+      maxSalary:'',
       search: {},
       titleSearch: '',
       seria: [
@@ -151,6 +155,16 @@ export default {
       }
       this.get()
     },
+    minSalaryEmit(e)
+    {
+      this.minSalary = e;
+      this.get()
+    },
+    maxSalaryEmit(e)
+    {
+      this.maxSalary = e;
+      this.get()
+    },
     get2(page = 1) {
       this.get(0, page)
     },
@@ -171,7 +185,8 @@ export default {
       this.search.jobType = this.jobTypeSearch
       this.search.senior = this.seniorLevelSearch
       this.search.gender = this.genderSearch
-
+      this.search.minSalary = this.minSalary
+      this.search.maxSalary = this.maxSalary
       // try {
       //   console.log('search')
       // await this.$store.dispatch('frontent/get_appointments', this.search)

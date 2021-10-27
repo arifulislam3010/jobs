@@ -87,8 +87,8 @@
           <h4>Salary Range</h4>
         </div>
         <div class="job-number_sort_form">
-          <input type="number" placeholder="MIN" />
-          <input type="number" placeholder="MAX" />
+          <input type="number" placeholder="MIN" @keyup="min()" v-model="minValue"/>
+          <input type="number" placeholder="MAX" v-model="maxValue" @keyup="max()"/>
           <button type="submit" class="sort_submit_btn">Apply</button>
         </div>
       </div>
@@ -207,6 +207,8 @@ export default {
       allJob: this.jobType,
       seniorLevel: this.senior,
       title: '',
+      maxValue:'',
+      minValue:'',
       time: [
         {
           id: 200,
@@ -261,10 +263,18 @@ export default {
       this.$emit('jobTypeActionEmit', e)
     },
     seniorLevelAction(e) {
-      this.$$emit('seniorLevelEmit', e)
+      this.$emit('seniorLevelEmit', e)
     },
     genderAction(e) {
-      this.$$emit('genderEmit', e)
+      this.$emit('genderEmit', e)
+    },
+    min(e)
+    {
+      this.$emit('min',parseInt(this.minValue))
+    },
+    max(e)
+    {
+      this.$emit('max',parseInt(this.maxValue))
     }
   }
 }
