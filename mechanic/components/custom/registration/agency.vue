@@ -377,6 +377,7 @@ export default {
 .image_upload i {
   font-size: 34px;
 }
+
 .removeImage {
   position: absolute;
   right: 13px;

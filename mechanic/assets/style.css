@@ -4,3 +4,10 @@
     font-size: 12px;
     margin-top: -9px;
 }
+
+.validation_message span{
+    color: red !important;
+}
+.validation_message span span{
+    color: red !important;
+}
