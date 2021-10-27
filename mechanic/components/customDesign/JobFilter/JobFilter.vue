@@ -87,8 +87,18 @@
           <h4>Salary Range</h4>
         </div>
         <div class="job-number_sort_form">
-          <input type="number" placeholder="MIN" @keyup="min()" v-model="minValue"/>
-          <input type="number" placeholder="MAX" v-model="maxValue" @keyup="max()"/>
+          <input
+            type="number"
+            placeholder="MIN"
+            @keyup="min()"
+            v-model="minValue"
+          />
+          <input
+            type="number"
+            placeholder="MAX"
+            v-model="maxValue"
+            @keyup="max()"
+          />
           <button type="submit" class="sort_submit_btn">Apply</button>
         </div>
       </div>
@@ -150,6 +160,7 @@
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
+              @click="uploadTime(ago.name)"
             />
             <label class="form-check-label" for="exampleCheck1"
               >{{ ago.name }} ago</label
@@ -186,9 +197,9 @@
               id="exampleCheck1"
               @click="genderAction(sex.id)"
             />
-            <label class="form-check-label" for="exampleCheck1"
-              >{{ sex.name }} ago</label
-            >
+            <label class="form-check-label" for="exampleCheck1">{{
+              sex.name
+            }}</label>
           </div>
         </div>
         <div class="job-post-count">
@@ -207,8 +218,8 @@ export default {
       allJob: this.jobType,
       seniorLevel: this.senior,
       title: '',
-      maxValue:'',
-      minValue:'',
+      maxValue: '',
+      minValue: '',
       time: [
         {
           id: 200,
@@ -268,19 +279,20 @@ export default {
     genderAction(e) {
       this.$emit('genderEmit', e)
     },
-    min(e)
-    {
-      this.$emit('min',parseInt(this.minValue))
+    min(e) {
+      this.$emit('min', parseInt(this.minValue))
     },
-    max(e)
-    {
-      this.$emit('max',parseInt(this.maxValue))
+    max(e) {
+      this.$emit('max', parseInt(this.maxValue))
+    },
+    uploadTime(e) {
+      this.$emit('deadline', e)
     }
   }
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .job-filter-section-heading {
   h5 {
     color: #1d3146;
