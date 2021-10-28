@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}"> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,6 +16,235 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .main-body {
+            margin-top: 100px;
+        }
+
+        .job-card-layout {
+            background: #fdfdfd;
+            border: 1px solid #bdbdbd;
+            box-sizing: border-box;
+            box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .job-card-layout .cv-top-button {
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .job-card-layout .cv-top-button a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .job-card-layout .cv-top-button a img {
+            margin-right: 8px;
+        }
+
+        .job-card-layout .email-btn {
+            background: #a0a0a0;
+        }
+
+        .job-card-layout .download-btn {
+            background: #0ba88c;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-person-content .cv-person-image {
+            height: 184px;
+            width: 154px;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-person-content .cv-person-image img {
+            border-radius: 10px;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-rating-content-wrapper .position-badge {
+            background: #0ba88c;
+            color: #fff;
+            border-radius: 10px;
+            padding: 5px 1rem;
+            margin-right: 16px;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-rating-content-wrapper .blood-group-badge {
+            background: #eae000;
+            padding: 5px 10px;
+            color: #515151;
+            margin-right: 16px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-rating-content-wrapper .rating ul {
+            margin: 0;
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-rating-content-wrapper .rating ul li {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-rating-content-wrapper .rating ul li i.far.fa-star {
+            color: #a0a0a0 !important;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-rating-content-wrapper .rating ul li i {
+            color: #fac300;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-rating-content-wrapper .rating ul li:last-child {
+            margin-right: 0px;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-people-contact-info-wrapper ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-people-contact-info-wrapper ul li {
+            margin: 10px 0;
+            color: #1d3146;
+            font-size: 14px;
+        }
+
+        .job-card-layout .cv-people-info-wrapper .cv-people-contact-info-wrapper ul li img {
+            margin-right: 10px;
+        }
+
+        .cv-block-header {
+            margin: 10px 0;
+            padding: 0 1rem;
+        }
+
+        .cv-block-header .cv-block-title h2 {
+            font-size: 18px;
+            margin: 0px;
+        }
+
+        .cv-block-header .cv-block-edit-btn a {
+            background: #0ba88c;
+            font-size: 14px;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .cv-block-header .cv-block-edit-btn a img {
+            margin-right: 10px;
+        }
+
+        .experiance-main-block-wrapper .experiance-single-block-header h2 {
+            font-size: 16px;
+        }
+
+        .experiance-main-block-wrapper .experiance-single-block-item div {
+            font-size: 12px;
+            padding-bottom: 5px;
+        }
+
+        .experiance-main-block-wrapper .experiance-single-block {
+            margin: 10px 0;
+            padding: 0 1rem;
+        }
+
+        .experiance-main-block-wrapper {
+            border-top: 1px solid #c4c4c4;
+            border-bottom: 1px solid #c4c4c4;
+        }
+
+        .experiance-main-block-wrapper .row .col-lg-4 {
+            border-right: 1px solid #c4c4c4;
+        }
+
+        .experiance-main-block-wrapper .row .col-lg-4:last-child {
+            border: none;
+        }
+
+        .cv-single-content-block .cv-single-content-block-title h2 {
+            font-size: 16px;
+        }
+
+        .cv-single-content-block .cv-single-content-block-content p {
+            font-size: 12px;
+        }
+
+        .cv-border-block .row {
+            margin: 0px;
+        }
+
+        .cv-border-block .col-md-6,
+        .cv-border-block .col-lg-6 {
+            border-top: 1px solid #c4c4c4;
+            border-bottom: 1px solid #c4c4c4;
+            border-right: 1px solid #c4c4c4;
+            padding: 1rem;
+        }
+
+        .cv-border-block .col-md-6:last-child,
+        .cv-border-block .col-lg-6:last-child {
+            border-right: 0;
+        }
+
+        .cv-footer-wrapper {
+            padding: 2rem 1rem;
+        }
+
+        .cv-footer-wrapper .cv-copyright p {
+            font-size: 12px;
+        }
+
+        .cv-footer-wrapper .cv-copyright p a {
+            color: #0ba88c;
+            font-weight: 700;
+        }
+
+        .cv-footer-wrapper .cv-signature {
+            border-top: 2px solid #c4c4c4;
+            padding: 5px;
+        }
+
+        .cv-footer-wrapper .cv-border {
+            font-size: 18px;
+        }
+
+        .address-block .col-md-6,
+        .address-block .col-lg-6 {
+            border-bottom: none;
+        }
+
+        .personal-info table {
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .personal-info table tr td {
+            font-size: 12px;
+        }
+
+        .personal-info table tr td:first-child {
+            padding-right: 3rem;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -40,14 +269,8 @@
                         <div class="cv-people-info-wrapper">
                             <div class="cv-person-content d-flex mr-5">
                                 <div class="cv-person-image">
-                                @if($contact->image != null)
-                                <img src="{{$contact->image}}" alt="person"
+                                    <img src="{{ URL::asset('assets/cv/photo.png') }}" alt="person"
                                         class="img-fluid" />
-                                @else
-                                <img src="{{ URL::asset('cv_img/img_avatar.png') }}" alt="person"
-                                        class="img-fluid" />
-                                @endif
-                                    
                                 </div>
                                 <div class="cv-person-details mt-4 pl-4">
                                     <div class="cv-person-name">
