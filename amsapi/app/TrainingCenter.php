@@ -10,4 +10,9 @@ class TrainingCenter extends Model
         'name'
     ];
     protected $table = 'training_centers';
+
+    public function trainingUser()
+    {
+        return $this->hasMany(Training::class);
+    }
 }

@@ -244,6 +244,7 @@ Route::prefix('api')->middleware(['auth:api'])->group(function() {
 Route::prefix('api')->middleware(['cors'])->group(function() {
 	Route::get('/social-link','OthersController@getSocialLink');
 	Route::get('/download-cv/{id}','ApplyController@downloadCv');
+	Route::get('/custom-cv','ApplyController@customCv');
  	Route::get('/test-xyz','ApplyController@testxyz');
  	Route::get('/get-applicant-pdf','ApplicantController@getPDFdata');
  	Route::get('/get-applied-applicant-pdf','ApplicantController@getAppliedPDFdata');
