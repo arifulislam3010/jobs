@@ -12,6 +12,7 @@
             @genderEmit="genderEmitAction"
             @min="minSalaryEmit"
             @max="maxSalaryEmit"
+            @deadline="deadLinePost"
           />
           <div class="row mb-2">
             <!-- <job-filter /> -->
@@ -79,13 +80,14 @@ export default {
       agency: [],
       seniorLevelSearch: [],
       genderSearch: [],
+      deadLineJob: [],
       modalOpen: false,
       applyModalOpen: false,
       post: '',
       type: '',
       jobList: [],
-      minSalary:'',
-      maxSalary:'',
+      minSalary: '',
+      maxSalary: '',
       search: {},
       titleSearch: '',
       seria: [
@@ -130,18 +132,17 @@ export default {
       // console.log('hi')
       let value = this.jobTypeSearch.indexOf(e)
       if (value > -1) {
-        this.jobTypeSearch.slice(value, 1)
+        this.jobTypeSearch = this.arrayRemove(this.jobTypeSearch, e)
       } else {
         this.jobTypeSearch.push(e)
       }
       this.get()
-      // console.log(this.jobTypeSearch)
     },
     seniorLevelEmitAction(e) {
       let value = this.seniorLevelSearch.indexOf(e)
       if (value > -1) {
-        this.seniorLevelSearch.slice(value, 1)
-      }else{
+        this.seniorLevelSearch = this.arrayRemove(this.seniorLevelSearch, e)
+      } else {
         this.seniorLevelSearch.push(e)
       }
       this.get()
@@ -149,21 +150,36 @@ export default {
     genderEmitAction(e) {
       let value = this.genderSearch.indexOf(e)
       if (value > -1) {
-        this.genderSearch.slice(value, 1)
-      }else{
+        this.genderSearch = this.arrayRemove(this.genderSearch, e)
+      } else {
         this.genderSearch.push(e)
       }
       this.get()
     },
-    minSalaryEmit(e)
-    {
-      this.minSalary = e;
+    deadLinePost(e) {
+      // console.log(e)
+      let value = this.deadLineJob.indexOf(e)
+
+      if (value > -1) {
+        this.deadLineJob = this.arrayRemove(this.deadLineJob, e)
+      } else {
+        this.deadLineJob.push(e)
+      }
+      // console.log(this.deadLineJob)
       this.get()
     },
-    maxSalaryEmit(e)
-    {
-      this.maxSalary = e;
+    minSalaryEmit(e) {
+      this.minSalary = e
       this.get()
+    },
+    maxSalaryEmit(e) {
+      this.maxSalary = e
+      this.get()
+    },
+    arrayRemove(arr, value) {
+      return arr.filter(function(ele) {
+        return ele != value
+      })
     },
     get2(page = 1) {
       this.get(0, page)
@@ -187,6 +203,7 @@ export default {
       this.search.gender = this.genderSearch
       this.search.minSalary = this.minSalary
       this.search.maxSalary = this.maxSalary
+      this.search.deadLine = this.deadLineJob
       // try {
       //   console.log('search')
       // await this.$store.dispatch('frontent/get_appointments', this.search)

@@ -292,7 +292,7 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $post = Post::where('type', 1)->where('salary','>=',100);
-//        dd(($post->get())->toArray());
+
         if (isset($request->title) && !empty($request->title)) {
             $post = $post->Where('headline', 'LIKe', "%$request->title%");
         }
@@ -330,14 +330,14 @@ class PostController extends Controller
         $minSalary = $request->minSalary?(int)$request->minSalary:'';
         $maxSalary = $request->maxSalary?(int)$request->maxSalary:'';
 
-        if ((isset($maxSalary) && !empty($maxSalary)) && (isset($minSalary) && !empty($minSalary))) {
+        if ((isset($maxSalary) && !empty($maxSalary)) || (isset($minSalary) && !empty($minSalary))) {
             $post = $post->whereBetween('salary', [$minSalary, $maxSalary]);
         }elseif (isset($minSalary) && !empty($minSalary)) {
-            $post = $post->where('salary', '>',$minSalary);
+            $post = $post->where('salary', '>=',$minSalary);
         }elseif (isset($maxSalary) && !empty($maxSalary)) {
-            $post = $post->where('salary', '<',$maxSalary);
+            $post = $post->where('salary', '<=',$maxSalary);
         }
-        $post =  $post->toSql();
+        $post =  $post->get();
 
         return PostResource::collection($post);
     }
