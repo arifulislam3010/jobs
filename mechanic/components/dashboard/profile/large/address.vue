@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="row mobile-padding">
-      <div style="background-color:#d6d6c2;margin-bottom:15px;" class="col-md-11">
+    <div class="row mobile-padding" style="margin: 0px;">
+      <div style="background-color:#d6d6c2;margin-bottom:15px;" class="col-md-12">
         <div>
           <p style="padding-top:12px;">স্থায়ী ঠিকানা </p>
         </div>

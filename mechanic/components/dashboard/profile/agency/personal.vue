@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-        <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
           <label for="inputPassword" class="col-md-4 labels">
             নাম
@@ -20,8 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div v-if="url" class="image_upload logo_upload">
           <span class="removeImage" @click="RemoveImage">X</span>
           <img :src="url" class="fitimage" />
@@ -38,7 +37,7 @@
           />
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
           <label  for="inputPassword" class="col-md-4 labels">ফোন<span class="required">*</span></label>
           <input
@@ -54,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5 align-self-center">
+      <div class="col-md-6 align-self-center">
         <div class="form-group row">
           <label class="labels col-md-3" for="#firstName">
             বিভাগ
@@ -64,7 +63,6 @@
               <multiselect
                 v-validate="'required'"
                 name = "division"
-                style="margin-left:7%;width:98%;"
                 @input="getDistrictByID()"
                 v-model="division"
                 placeholder="বিভাগ"
@@ -77,8 +75,7 @@
           <span v-if="errors.has('division') " class="validation_message col-md-8"><br>বিভাগ প্রয়োজন</span>
         </div>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-5 align-self-center">
+      <div class="col-md-6 align-self-center">
         <div class="form-group row">
           <label class="labels col-md-3" for="#firstName">
             জেলা
@@ -86,7 +83,6 @@
           </label>
           <div class="col-md-9">
               <multiselect
-                style="margin-left:7%;width:98%;"
                 v-validate="'required'"
                 name = "district"
                 v-model="district"
@@ -101,8 +97,7 @@
           <span v-if="errors.has('district') " class="validation_message col-md-8"><br>জেলা প্রয়োজন</span>
         </div>
       </div>
-      <div  class="col-md-1" ></div>
-      <div  class="col-md-5 align-self-center">
+      <div  class="col-md-6 align-self-center">
         <div class="form-group row">
           <label class="labels col-md-3" for="#firstName">
             উপজেলা
@@ -112,7 +107,6 @@
               <multiselect
                 v-validate="'required'"
                 name = "sub_district"
-                style="margin-left:7%;width:98%;"
                 v-model="subdistrict"
                 placeholder="উপজেলা"
                 label="upazila_name_eng"
@@ -124,12 +118,11 @@
           <span v-if="errors.has('sub_district') " class="validation_message col-md-8"><br>উপজেলা প্রয়োজন</span>
         </div>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
           <label for="inputPassword" class="col-md-3 labels"> যেসব চাকুরীতে লোক পাঠানো<span class="required">*</span></label>
           <div class="col-md-9 ">
-            <treeselect style="margin-left:7%;width:98%;" name="desired_job" placeholder=" চাকুরী" v-validate="'required'"  v-model="job" :multiple="true" :options="desired_jobs" />
+            <treeselect  name="desired_job" placeholder=" চাকুরী" v-validate="'required'"  v-model="job" :multiple="true" :options="desired_jobs" />
           </div>
           <div class="col-md-4"></div>
           <div class="col-md-8">
@@ -137,11 +130,11 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
           <label for="inputPassword" class="col-md-3 labels"> যেসব দেশে লোক পাঠানো হয়<span class="required">*</span></label>
           <div class="col-md-9 ">
-            <treeselect style="margin-left:7%;width:98%;" name="country" v-validate="'required'" placeholder=" দেশ"  v-model="country" :multiple="true" :options="treeData" />
+            <treeselect  name="country" v-validate="'required'" placeholder=" দেশ"  v-model="country" :multiple="true" :options="treeData" />
           </div>
           <div class="col-md-4"></div>
           <div class="col-md-8">
@@ -149,17 +142,16 @@
           </div>
         </div>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
-          <label for="inputPassword" class="col-md-4 labels">
+          <label for="inputPassword" class="col-md-3 labels">
             রেজিস্ট্রেশন নম্বর
             <span class="required">*</span>
           </label>
           <input
             @keyup="errorRemove('registration_number')"
             name="registration_number"
-            class="form-control col-md-8"
+            class="form-control col-md-9"
             v-validate="'required'"
             type="text"
             v-model="registration_number"
@@ -171,40 +163,39 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
-          <label for="inputPassword" class="col-md-4 labels">
+          <label for="inputPassword" class="col-md-3 labels">
             ওয়েবসাইট
           </label>
           <input
             name="website"
-            class="form-control col-md-8"
+            class="form-control col-md-9"
             type="text"
             v-model="website"
           />
         </div>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
-          <label for="inputPassword" class="col-md-4 labels">
+          <label for="inputPassword" class="col-md-3 labels">
             গুগল ম্যাপ লিঙ্ক
           </label>
           <input
             name="map_link"
-            class="form-control col-md-8"
+            class="form-control col-md-9"
             type="text"
             v-model="map_link"
           />
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <div class="form-group row">
-          <label  for="inputPassword" class="col-md-4 labels">ঠিকানা<span class="required">*</span></label>
+          <label  for="inputPassword" class="col-md-3 labels">ঠিকানা<span class="required">*</span></label>
           <textarea
            v-validate="'required'"
             name="address"
-            class="col-md-8 form-control"
+            class="col-md-9 form-control"
             type="text"
             v-model="address[0].name"
           />
@@ -214,8 +205,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-11">
+      <div class="col-md-12">
         <div class="row ">
           <label   class="col-md-2 labels">আমাদের সমন্ধে</label>
           <div class="col-md-12 labels">
@@ -223,7 +213,7 @@
           </div>
         </div>
       </div>
-        <div class="col-md-11">
+        <div class="col-md-12">
         <div class="row">
           <div class="col-md-8">
           </div>
@@ -458,17 +448,20 @@ export default {
   color: red;
 }
 .logo_upload {
-  border: 1px solid #ccc;
-  width: 90%;
-  height: 100px;
-  background: #eceef0;
-  text-align: center;
-  cursor: pointer;
-  margin-left: 50px;
+    border: 1px solid #ccc;
+    width: 50%;
+    height: 98px;
+    background: #eceef0;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 26%;
+    margin-bottom: 19px;
+    text-align: center;
 }
 .image_upload p {
   margin-top: 10px;
   font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .image_upload i {

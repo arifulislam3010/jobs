@@ -22,14 +22,14 @@
     <!-- Features -->
     <Features />
     <!-- success story -->
-    <SuccessStory />
+    <!-- <SuccessStory /> -->
     <div class="mb-5"></div>
     <!-- support -->
     <Support />
     <div class="mb-5"></div>
 
     <!-- vendor -->
-    <Vendor />
+    <!-- <Vendor /> -->
     <div class="mb-4"></div>
     <!-- footer -->
     <Footer />

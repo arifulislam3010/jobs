@@ -1,8 +1,8 @@
 <template>
-  <div class="main-body">
+  <div class="main-body" >
     <div class="container mt-5">
       <div class="row">
-        <div class="col-md-12 col-lg-12">
+        <div class="col-md-12 col-lg-12" style="padding-left: 5px;">
           <div class="job-card-layout">
             <div class="cv-top-download-wrapper">
               <div class="d-flex justify-content-end">

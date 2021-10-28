@@ -15,14 +15,14 @@
                           <b>শিরোনাম</b>
                       </td>
                       <td class="text-white">
-                          <b style="color:#5e72e4 !important">পাবলিশ </b>
+                          <b style="color:#0ba88c !important">পাবলিশ </b>
                       </td>
                       <td class="text-white" >
                           <b>নির্মিত </b>
                       </td>
                       
                       <td class="text-white">
-                          <b style="color:#5e72e4 !important">পাবলিশ </b>
+                          <b style="color:#0ba88c !important">পাবলিশ </b>
                       </td>
                      
                      <td class="text-white">

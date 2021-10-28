@@ -43,7 +43,7 @@
                         Setting 
                     </nuxt-link>
                 </li>
-                <li class="nav-item" :class="$route.name=='mycv'?'active2':''">
+                <li class="nav-item" :class="$route.name=='dashboard-mycv'?'active2':''">
                     <nuxt-link to="/dashboard/mycv" class="nav-link" >
                         <i class="fas fa-file-alt"></i>
                         Mycv
@@ -242,7 +242,7 @@
                         Setting
                     </nuxt-link>
                 </li>
-                <li class="nav-item" :class="$route.name=='mycv'?'active2':''">
+                <li class="nav-item" :class="$route.name=='dashboard-mycv'?'active2':''">
                     <nuxt-link to="/dashboard/mycv" class="nav-link" >
                         <i class="fas fa-file-alt"></i>
                         Mycv
@@ -375,7 +375,7 @@ export default {
     /* padding: 1rem .75rem; */
 }
 .section3 ul li{
-    padding: 2px;
+    padding-left: 4px;
 }
 .section3 ul li  i{
  color: #fff;
@@ -394,16 +394,16 @@ export default {
     background: #fff;
     border-radius: 25px 0px 0px 25px;
 }
-.section3> .active2{
+.section3 .active2  .nav-link{
     /* background-color: greenyellow; */
     background-color:#fff;
     color: #0ba88c;
     border-radius: 25px 0px 0px 25px;
 }
-.section3 > .active2 a{
-    color:#0ba88c;
-}
-.section3 >.active2 a > i{
-    color:#0ba88c;
+.section3 .active2  .nav-link i{
+    /* background-color: greenyellow; */
+    background-color:#fff;
+    color: #0ba88c;
+    border-radius: 25px 0px 0px 25px;
 }
 </style>

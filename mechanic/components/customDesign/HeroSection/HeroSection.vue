@@ -76,23 +76,27 @@ export default {
     box-sizing: border-box;
     border-radius: 8px;
     width: 100%;
-    padding: 5px;
+    padding: 2px;
+    height: 50px;
     position: absolute;
     form {
       width: 100%;
       position: relative;
       display: block;
+      height: 100%;
       .job-title{
         width: 40%;
         display: block;
         position: relative;
         float: left;
         padding: 5px;
+        height: 100%;
         input {
           border: 1px solid #d8d8d8;
           box-sizing: border-box;
           border-radius: 8px;
-          padding: 2em;
+          padding-left: 20px;
+          height: 100%;
           color: rgba(55, 58, 72, 0.6);
           margin-right: 10px;
           width: 100%;
@@ -102,8 +106,8 @@ export default {
         }
         .bag-image-wrapper {
           position: absolute;
-          top: 33%;
-          left: 3%;
+          top: 26%;
+          left: 2.6%;
         }
       }
       .location{
@@ -112,11 +116,13 @@ export default {
         position: relative;
         float: left;
         padding: 5px;
+        height: 100%;
         input {
           border: 1px solid #d8d8d8;
           box-sizing: border-box;
-          border-radius: 8px;
-          padding: 2em;
+          border-radius: 8px !important;
+          padding-left: 20px;
+          height: 100%;
           color: rgba(55, 58, 72, 0.6);
           margin-right: 10px;
           width: 100%;
@@ -126,7 +132,7 @@ export default {
         }
         .bag-image-wrapper {
           position: absolute;
-          top: 36%;
+          top: 26%;
           left: 4%;
         }
       }
@@ -136,13 +142,15 @@ export default {
         position: relative;
         float: left;
         padding: 5px;
+        height: 100%;
         button {
           background: #0ba88c;
           border-radius: 8px;
           border: none;
-          padding: 1.95em 0 1.95em 0;
+          // padding: 1.95em 0 1.95em 0;
           color: #fff;
           width: 100%;
+          height: 100%;
         }
       }
     }

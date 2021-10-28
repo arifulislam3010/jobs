@@ -12,7 +12,9 @@
             <div class="bg-secondary">
               <div class="bg-white  mb-0">
                 <div class="row">
-                  <div class="col-md-2 left">
+                  <div class="col-md-2 left" style="background: #0ba88c;padding: 0
+px
+;">
                     <div  style="position: relative;">
                       <DashboardNav></DashboardNav>
                     </div>
